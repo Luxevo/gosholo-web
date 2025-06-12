@@ -9,7 +9,6 @@ import {
   ShoppingBag,
   TrendingUp,
   Users,
-  Search,
   ChevronRight,
   Star,
   Clock,
@@ -135,19 +134,6 @@ export default function Home() {
                   de votre quartier.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 sm:flex-row sm:gap-2">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <input
-                    type="text"
-                    placeholder="Rechercher un commerce local..."
-                    className="h-10 w-full rounded-l-md border border-r-0 bg-white pl-9 pr-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-r-none"
-                  />
-                </div>
-                <Button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white sm:rounded-l-none">
-                  Rechercher
-                </Button>
-              </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button size="lg" className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group">
                   Découvrir les commerces
@@ -164,36 +150,12 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=550&width=550"
+                src="/images/local-food.png"
                 width={550}
                 height={550}
-                alt="Commerces locaux"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg"
+                alt="Repas local partagé"
+                className="mx-auto overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section statistiques */}
-      <section className="w-full py-8 bg-white border-y">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
-            <div className="flex flex-col items-center justify-center p-4 text-center">
-              <div className="text-3xl font-bold text-gosholo-orange">500+</div>
-              <p className="text-sm text-muted-foreground">Commerces partenaires</p>
-            </div>
-            <div className="flex flex-col items-center justify-center p-4 text-center">
-              <div className="text-3xl font-bold text-gosholo-orange">50 000+</div>
-              <p className="text-sm text-muted-foreground">Utilisateurs actifs</p>
-            </div>
-            <div className="flex flex-col items-center justify-center p-4 text-center">
-              <div className="text-3xl font-bold text-gosholo-orange">15+</div>
-              <p className="text-sm text-muted-foreground">Villes couvertes</p>
-            </div>
-            <div className="flex flex-col items-center justify-center p-4 text-center">
-              <div className="text-3xl font-bold text-gosholo-orange">2M$+</div>
-              <p className="text-sm text-muted-foreground">Revenus générés</p>
             </div>
           </div>
         </div>
@@ -331,81 +293,6 @@ export default function Home() {
               Voir tous les commerces
               <ChevronRight className="ml-1 h-4 w-4" />
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Section témoignages */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-dark-teal">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-gosholo-orange text-white">
-              Témoignages
-            </div>
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
-                Ce que disent nos partenaires
-              </h2>
-              <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Découvrez comment Gosholo a aidé des centaines de commerces locaux à prospérer.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="relative rounded-lg border bg-white p-6 shadow-sm">
-                <svg
-                  className="absolute -top-6 -left-6 h-12 w-12 text-gosholo-orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  stroke="none"
-                >
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-                </svg>
-                <div className="space-y-2">
-                  <p className="text-lg">
-                    "Grâce à Gosholo, notre boutique a connu une augmentation de 30% de nouveaux clients. La visibilité
-                    que nous avons gagnée est inestimable."
-                  </p>
-                  <div className="flex items-center pt-4">
-                    <div className="h-10 w-10 rounded-full bg-gosholo-orange"></div>
-                    <div className="ml-4">
-                      <p className="text-sm font-medium">Marie Tremblay</p>
-                      <p className="text-sm text-muted-foreground">Boutique Écolo</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="relative rounded-lg border bg-white p-6 shadow-sm">
-                <svg
-                  className="absolute -top-6 -left-6 h-12 w-12 text-gosholo-orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  stroke="none"
-                >
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-                </svg>
-                <div className="space-y-2">
-                  <p className="text-lg">
-                    "L'application nous a permis de nous connecter avec notre communauté locale d'une façon que nous
-                    n'aurions jamais imaginée. Nos ventes ont augmenté de 25%."
-                  </p>
-                  <div className="flex items-center pt-4">
-                    <div className="h-10 w-10 rounded-full bg-gosholo-orange"></div>
-                    <div className="ml-4">
-                      <p className="text-sm font-medium">Jean Dupont</p>
-                      <p className="text-sm text-muted-foreground">Café du Coin</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -785,49 +672,52 @@ export default function Home() {
 
       {/* Pop-up du concours Osheaga */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center">Concours Osheaga!</DialogTitle>
+        <DialogContent className="sm:max-w-md p-4">
+          <DialogHeader className="pb-2">
+            <DialogTitle className="text-xl font-bold text-center">Concours Osheaga!</DialogTitle>
           </DialogHeader>
-          <div className="py-4 text-center">
+          <div className="py-2 text-center">
             <Image
-              src="/placeholder.svg?height=200&width=400"
-              width={400}
-              height={200}
+              src="/placeholder.svg?height=150&width=300"
+              width={300}
+              height={150}
               alt="Festival Osheaga"
               className="mx-auto rounded-lg object-cover shadow-md"
             />
-            <div className="mt-4 text-lg font-medium text-gosholo-orange">
-              Participez à notre concours et gagnez des billets pour le festival Osheaga!
+            <div className="mt-2 text-base font-medium text-gosholo-orange">
+              Gagnez des billets pour le festival Osheaga!
             </div>
-            <div className="mt-2 text-sm text-muted-foreground">
-              Pour chaque achat effectué via l'application Gosholo dans un commerce local participant, obtenez une
-              chance de gagner une paire de billets pour le festival de musique le plus attendu de l'été.
+            <div className="mt-1 text-xs text-muted-foreground">
+              Pour chaque achat via l'application Gosholo, obtenez une chance de gagner.
             </div>
           </div>
-          <div className="flex flex-col space-y-4 py-4">
-            <div className="flex items-center space-x-2 bg-gosholo-light-blue p-3 rounded-md">
-              <MapPin className="h-5 w-5 text-gosholo-dark-teal" />
+          <div className="flex flex-col space-y-2 py-2">
+            <div className="flex items-center space-x-2 bg-gosholo-light-blue p-2 rounded-md text-xs">
+              <MapPin className="h-4 w-4 text-gosholo-dark-teal" />
               <span>Montréal, du 2 au 4 août 2025</span>
             </div>
-            <div className="text-center text-sm text-white bg-gosholo-orange p-3 rounded-md">
-              Le tirage aura lieu le 15 juillet 2025. Les gagnants seront contactés par courriel.
+            <div className="text-center text-xs text-white bg-gosholo-orange p-2 rounded-md">
+              Fin du concours: 15 juillet 2025
             </div>
           </div>
-          <DialogFooter className="flex flex-col gap-2 sm:flex-row sm:justify-center">
+          <DialogFooter className="flex flex-row gap-2 pt-2">
             <Button
-              className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group"
+              className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-xs h-8 px-3"
               onClick={() => {
                 setIsOpen(false)
+                // Faire défiler jusqu'à la section du concours après la fermeture du popup
                 setTimeout(() => {
-                  document.getElementById("concours")?.scrollIntoView({ behavior: "smooth" })
+                  const concoursSection = document.getElementById("concours")
+                  if (concoursSection) {
+                    concoursSection.scrollIntoView({ behavior: "smooth" })
+                  }
                 }, 100)
               }}
             >
-              En savoir plus sur le concours
-              <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              En savoir plus
+              <ChevronRight className="ml-1 h-3 w-3" />
             </Button>
-            <Button variant="outline" className="w-full" onClick={() => setIsOpen(false)}>
+            <Button variant="outline" className="text-xs h-8 px-3" onClick={() => setIsOpen(false)}>
               Fermer
             </Button>
           </DialogFooter>
