@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 184 97% 20%; /* Basé sur 016167 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 184 97% 20%; /* Basé sur 016167 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 184 97% 20%; /* Basé sur 016167 */
+
+    --primary: 184 97% 20%; /* Basé sur 016167 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 71% 61%; /* Basé sur 5BC4DB */
+    --secondary-foreground: 184 97% 20%; /* Basé sur 016167 */
+
+    --muted: 190 71% 95%; /* Version claire de 5BC4DB */
+    --muted-foreground: 184 97% 40%; /* Version plus claire de 016167 */
+
+    --accent: 108 98% 80%; /* Basé sur B2FD9D */
+    --accent-foreground: 184 97% 20%; /* Basé sur 016167 */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 190 71% 85%; /* Version plus claire de 5BC4DB */
+    --input: 190 71% 85%; /* Version plus claire de 5BC4DB */
+    --ring: 184 97% 20%; /* Basé sur 016167 */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 184 97% 10%; /* Version plus foncée de 016167 */
+    --foreground: 0 0% 95%;
+
+    --card: 184 97% 10%; /* Version plus foncée de 016167 */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 184 97% 10%; /* Version plus foncée de 016167 */
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 190 71% 61%; /* Basé sur 5BC4DB */
+    --primary-foreground: 184 97% 10%; /* Version plus foncée de 016167 */
+
+    --secondary: 108 98% 80%; /* Basé sur B2FD9D */
+    --secondary-foreground: 184 97% 10%; /* Version plus foncée de 016167 */
+
+    --muted: 184 97% 20%; /* Basé sur 016167 */
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 108 98% 80%; /* Basé sur B2FD9D */
+    --accent-foreground: 184 97% 10%; /* Version plus foncée de 016167 */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 184 97% 30%; /* Version plus claire de 016167 */
+    --input: 184 97% 30%; /* Version plus claire de 016167 */
+    --ring: 190 71% 61%; /* Basé sur 5BC4DB */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
