@@ -53,11 +53,12 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Nouvelles couleurs personnalisées
+        // Couleurs personnalisées
         gosholo: {
           "light-blue": "#5BC4DB",
           "light-green": "#B2FD9D",
           "dark-teal": "#016167",
+          orange: "#FF6233",
         },
       },
       borderRadius: {
