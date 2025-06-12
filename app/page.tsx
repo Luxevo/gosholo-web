@@ -119,7 +119,7 @@ export default function Home() {
       </header>
 
       {/* Section héro */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-gosholo-light-blue/20 to-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-blue/10">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-6">
@@ -159,14 +159,12 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gosholo-light-green rounded-full opacity-60 blur-xl"></div>
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-gosholo-light-blue rounded-full opacity-60 blur-xl"></div>
               <Image
                 src="/placeholder.svg?height=550&width=550"
                 width={550}
                 height={550}
                 alt="Commerces locaux"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square relative z-10 shadow-lg"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg"
               />
             </div>
           </div>
@@ -411,10 +409,7 @@ export default function Home() {
       </section>
 
       {/* Section concours */}
-      <section
-        id="concours"
-        className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gosholo-light-green/20"
-      >
+      <section id="concours" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-green/10">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-gosholo-light-green text-gosholo-dark-teal">
@@ -474,8 +469,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col space-y-4">
-                <div className="relative">
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-gosholo-light-blue rounded-full opacity-30 blur-lg"></div>
+                <div>
                   <Image
                     src="/placeholder.svg?height=300&width=500"
                     width={500}
@@ -627,16 +621,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 w-24 h-24 bg-gosholo-light-green rounded-full opacity-20 blur-xl"></div>
-                <Image
-                  src="/placeholder.svg?height=300&width=200&text=App+Mobile"
-                  width={200}
-                  height={400}
-                  alt="Application mobile Gosholo"
-                  className="rounded-xl shadow-lg border-8 border-white"
-                />
-              </div>
+              <Image
+                src="/placeholder.svg?height=300&width=200&text=App+Mobile"
+                width={200}
+                height={400}
+                alt="Application mobile Gosholo"
+                className="rounded-xl shadow-lg border-8 border-white"
+              />
             </div>
           </div>
         </div>
@@ -797,16 +788,13 @@ export default function Home() {
             <DialogTitle className="text-2xl font-bold text-center">Concours Osheaga!</DialogTitle>
           </DialogHeader>
           <div className="py-4 text-center">
-            <div className="relative">
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gosholo-light-green rounded-full opacity-30 blur-lg"></div>
-              <Image
-                src="/placeholder.svg?height=200&width=400"
-                width={400}
-                height={200}
-                alt="Festival Osheaga"
-                className="mx-auto rounded-lg object-cover shadow-md"
-              />
-            </div>
+            <Image
+              src="/placeholder.svg?height=200&width=400"
+              width={400}
+              height={200}
+              alt="Festival Osheaga"
+              className="mx-auto rounded-lg object-cover shadow-md"
+            />
             <div className="mt-4 text-lg font-medium text-gosholo-dark-teal">
               Participez à notre concours et gagnez des billets pour le festival Osheaga!
             </div>
