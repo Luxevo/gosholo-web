@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import {
   Building2,
   MapPin,
@@ -15,6 +15,9 @@ import {
   ArrowRight,
   Menu,
   X,
+  Smartphone,
+  Gift,
+  Coffee,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -32,6 +35,13 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* En-tête */}
@@ -48,6 +58,9 @@ export default function Home() {
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 mx-6">
             <Link href="/" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               Accueil
+            </Link>
+            <Link href="#who-we-are" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+              Qui nous sommes
             </Link>
             <Link href="#about" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               À propos
@@ -82,6 +95,13 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Accueil
+              </Link>
+              <Link
+                href="#who-we-are"
+                className="text-sm font-medium p-2 hover:bg-gosholo-light-blue/10 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Qui nous sommes
               </Link>
               <Link
                 href="#about"
@@ -122,9 +142,15 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-6">
-              <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-gosholo-orange text-white">
-                <Star className="mr-1 h-3 w-3" /> Nouveau concours Osheaga
-              </div>
+              <button
+                onClick={() => scrollToSection("concours")}
+                className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto hover:bg-gosholo-orange/90 cursor-pointer group"
+                aria-label="Voir le concours Osheaga"
+              >
+                <Star className="mr-1.5 h-4 w-4 group-hover:scale-110 transition-transform" />
+                <span className="px-0.5 group-hover:underline">Nouveau concours Osheaga</span>
+                <ChevronRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
                   Découvrez et soutenez les <span className="text-gosholo-light-green">commerces locaux</span>
@@ -156,6 +182,46 @@ export default function Home() {
                 alt="Repas local partagé"
                 className="mx-auto overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Qui nous sommes */}
+      <section id="who-we-are" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-gosholo-orange text-white">
+              Qui nous sommes
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-dark-teal">
+              Découvrez Gosholo
+            </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-6">
+            <p className="text-lg leading-relaxed text-gray-700">
+              Une application innovante qui transforme ta façon de découvrir et de profiter des offres locales ! À
+              chaque achat chez nos partenaires, tu accumules des points que tu peux utiliser pour débloquer des offres
+              exclusives, des réductions et des expériences uniques.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-700">
+              Que tu aies envie d'un café, de faire des courses, ou de découvrir de nouvelles activités, gosholo te
+              permet de soutenir les commerces de ton quartier tout en économisant.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
+                <Smartphone className="h-5 w-5 text-gosholo-dark-teal" />
+                <span className="font-medium">Application mobile</span>
+              </div>
+              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
+                <Gift className="h-5 w-5 text-gosholo-dark-teal" />
+                <span className="font-medium">Récompenses</span>
+              </div>
+              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
+                <Coffee className="h-5 w-5 text-gosholo-dark-teal" />
+                <span className="font-medium">Commerces locaux</span>
+              </div>
             </div>
           </div>
         </div>
@@ -700,7 +766,7 @@ export default function Home() {
               Fin du concours: 15 juillet 2025
             </div>
           </div>
-          <DialogFooter className="flex flex-row gap-2 pt-2">
+          <div className="flex flex-row space-y-0 gap-2 py-2">
             <Button
               className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-xs h-8 px-3"
               onClick={() => {
@@ -720,7 +786,7 @@ export default function Home() {
             <Button variant="outline" className="text-xs h-8 px-3" onClick={() => setIsOpen(false)}>
               Fermer
             </Button>
-          </DialogFooter>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
