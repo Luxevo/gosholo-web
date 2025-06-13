@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 import {
   Building2,
   MapPin,
@@ -1106,54 +1106,34 @@ export default function Home() {
 
       {/* Pop-up du concours Osheaga */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md p-4">
-          <DialogHeader className="pb-2">
-            <DialogTitle className="text-xl font-bold text-center">Concours Osheaga!</DialogTitle>
-          </DialogHeader>
-          <div className="py-2 text-center">
+        <DialogContent className="sm:max-w-md p-0 overflow-hidden border-0">
+          <div className="relative">
             <Image
-              src="/placeholder.svg?height=150&width=300"
-              width={300}
-              height={150}
-              alt="Festival Osheaga"
-              className="mx-auto rounded-lg object-cover shadow-md"
+              src="/images/concours-popup.png"
+              width={400}
+              height={500}
+              alt="Concours Osheaga - Shop local avec Gosholo"
+              className="w-full h-auto object-cover max-h-96"
             />
-            <div className="mt-2 text-base font-medium text-gosholo-orange">
-              Gagnez des billets pour le festival Osheaga!
+            <div className="p-4" style={{ backgroundColor: "#016167" }}>
+              <Button
+                size="default"
+                className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group"
+                onClick={() => {
+                  setIsOpen(false)
+                  // Faire défiler jusqu'à la section du concours après la fermeture du popup
+                  setTimeout(() => {
+                    const concoursSection = document.getElementById("concours")
+                    if (concoursSection) {
+                      concoursSection.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }, 100)
+                }}
+              >
+                Voir les détails du concours
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
             </div>
-            <div className="mt-1 text-xs text-muted-foreground">
-              Pour chaque achat via l'application Gosholo, obtenez une chance de gagner.
-            </div>
-          </div>
-          <div className="flex flex-col space-y-2 py-2">
-            <div className="flex items-center space-x-2 bg-gosholo-light-blue p-2 rounded-md text-xs">
-              <MapPin className="h-4 w-4 text-gosholo-dark-teal" />
-              <span>Montréal, du 2 au 4 août 2025</span>
-            </div>
-            <div className="text-center text-xs text-white bg-gosholo-orange p-2 rounded-md">
-              Fin du concours: 15 juillet 2025
-            </div>
-          </div>
-          <div className="flex flex-row space-y-0 gap-2 py-2">
-            <Button
-              className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-xs h-8 px-3"
-              onClick={() => {
-                setIsOpen(false)
-                // Faire défiler jusqu'à la section du concours après la fermeture du popup
-                setTimeout(() => {
-                  const concoursSection = document.getElementById("concours")
-                  if (concoursSection) {
-                    concoursSection.scrollIntoView({ behavior: "smooth" })
-                  }
-                }, 100)
-              }}
-            >
-              En savoir plus
-              <ChevronRight className="ml-1 h-3 w-3" />
-            </Button>
-            <Button variant="outline" className="text-xs h-8 px-3" onClick={() => setIsOpen(false)}>
-              Fermer
-            </Button>
           </div>
         </DialogContent>
       </Dialog>
