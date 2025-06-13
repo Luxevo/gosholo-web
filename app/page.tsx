@@ -6,7 +6,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 import {
   Building2,
   MapPin,
-  ShoppingBag,
   TrendingUp,
   Users,
   ChevronRight,
@@ -57,11 +56,14 @@ export default function Home() {
       <header className="sticky top-0 z-40 w-full border-b bg-white">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-full bg-gosholo-dark-teal flex items-center justify-center">
-                <ShoppingBag className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-bold text-xl">Gosholo</span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/gosholo-logo.png"
+                alt="Gosholo Logo"
+                width={160}
+                height={40}
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 mx-6">
@@ -76,9 +78,6 @@ export default function Home() {
             </Link>
             <Link href="#concours" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               Concours
-            </Link>
-            <Link href="#signup" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
-              S'inscrire
             </Link>
           </nav>
           <div className="ml-auto flex items-center space-x-4">
@@ -434,7 +433,7 @@ export default function Home() {
                     <div className="mt-4 pt-4 border-t">
                       <div className="flex items-center justify-between">
                         <div className="text-sm">Temps restant:</div>
-                        <div className="font-bold text-gosholo-orange">32 jours</div>
+                        <div className="font-bold text-gosholo-orange">31 jours</div>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
                         <div className="bg-gosholo-orange h-2.5 rounded-full" style={{ width: "65%" }}></div>
@@ -958,35 +957,39 @@ export default function Home() {
 
       {/* Pied de page */}
       <footer className="border-t bg-white">
-        <div className="container flex flex-col gap-6 py-8 md:flex-row md:py-12">
-          <div className="flex flex-col gap-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-full bg-gosholo-dark-teal flex items-center justify-center">
-                <ShoppingBag className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-bold text-xl">Gosholo</span>
-            </Link>
-            <p className="text-sm text-muted-foreground">Soutenir les commerces locaux, un achat à la fois.</p>
-            <div className="flex gap-4 mt-2">
-              <Link href="#" className="text-muted-foreground hover:text-gosholo-orange">
-                <span className="sr-only">Facebook</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
+        <div className="container py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-6">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/images/gosholo-logo.png"
+                  alt="Gosholo Logo"
+                  width={140}
+                  height={35}
+                  className="h-10 w-auto"
+                />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-gosholo-orange">
-                <span className="sr-only">Instagram</span>
+              <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <Link href="/" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+                  Accueil
+                </Link>
+                <Link href="#who-we-are" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+                  Qui nous sommes
+                </Link>
+                <Link href="#about" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+                  À propos
+                </Link>
+                <Link href="#concours" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+                  Concours
+                </Link>
+              </nav>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://www.instagram.com/gosholo/"
+                className="text-muted-foreground hover:text-gosholo-orange"
+                aria-label="Instagram"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -1004,102 +1007,10 @@ export default function Home() {
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-gosholo-orange">
-                <span className="sr-only">Twitter</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                </svg>
-              </Link>
             </div>
           </div>
-          <div className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-3">
-            <div className="flex flex-col gap-2">
-              <h3 className="font-medium">Entreprise</h3>
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    À propos
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Carrières
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-medium">Ressources</h3>
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-medium">Légal</h3>
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Confidentialité
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gosholo-orange">
-                    Cookies
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="border-t py-6">
-          <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-center text-sm text-muted-foreground md:text-left">
-              © {new Date().getFullYear()} Gosholo. Tous droits réservés.
-            </p>
-            <div className="flex items-center">
-              <Button variant="link" size="sm" className="text-xs text-muted-foreground hover:text-gosholo-orange">
-                Politique de confidentialité
-              </Button>
-              <span className="text-muted-foreground mx-2">|</span>
-              <Button variant="link" size="sm" className="text-xs text-muted-foreground hover:text-gosholo-orange">
-                Conditions d'utilisation
-              </Button>
-            </div>
+          <div className="mt-6 border-t pt-6 text-center md:text-left">
+            <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Gosholo. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
