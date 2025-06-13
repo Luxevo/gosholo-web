@@ -18,6 +18,12 @@ import {
   Smartphone,
   Gift,
   Coffee,
+  Store,
+  User,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -25,6 +31,8 @@ import Image from "next/image"
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<"user" | "business">("user")
+  const [showPassword, setShowPassword] = useState(false)
 
   useEffect(() => {
     // Ouvrir le pop-up après un court délai
@@ -71,13 +79,18 @@ export default function Home() {
             <Link href="#commerces" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               Commerces
             </Link>
-            <Link href="#" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
-              Contact
+            <Link href="#signup" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
+              S'inscrire
             </Link>
           </nav>
           <div className="ml-auto flex items-center space-x-4">
             <div className="hidden md:block">
-              <Button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white">S'inscrire</Button>
+              <Button
+                className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white"
+                onClick={() => scrollToSection("signup")}
+              >
+                S'inscrire
+              </Button>
             </div>
             <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Menu">
               {mobileMenuOpen ? <X /> : <Menu />}
@@ -125,13 +138,21 @@ export default function Home() {
                 Commerces
               </Link>
               <Link
-                href="#"
+                href="#signup"
                 className="text-sm font-medium p-2 hover:bg-gosholo-light-blue/10 rounded-md transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Contact
+                S'inscrire
               </Link>
-              <Button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white mt-2">S'inscrire</Button>
+              <Button
+                className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white mt-2"
+                onClick={() => {
+                  scrollToSection("signup")
+                  setMobileMenuOpen(false)
+                }}
+              >
+                S'inscrire
+              </Button>
             </nav>
           </div>
         )}
@@ -188,39 +209,39 @@ export default function Home() {
       </section>
 
       {/* Section Qui nous sommes */}
-      <section id="who-we-are" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <section id="who-we-are" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-dark-teal">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-gosholo-orange text-white">
               Qui nous sommes
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-dark-teal">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-light-green">
               Découvrez Gosholo
             </h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-6">
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-lg leading-relaxed text-gosholo-light-green">
               Une application innovante qui transforme ta façon de découvrir et de profiter des offres locales ! À
               chaque achat chez nos partenaires, tu accumules des points que tu peux utiliser pour débloquer des offres
               exclusives, des réductions et des expériences uniques.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-lg leading-relaxed text-gosholo-light-green">
               Que tu aies envie d'un café, de faire des courses, ou de découvrir de nouvelles activités, gosholo te
               permet de soutenir les commerces de ton quartier tout en économisant.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
-                <Smartphone className="h-5 w-5 text-gosholo-dark-teal" />
-                <span className="font-medium">Application mobile</span>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                <Smartphone className="h-5 w-5 text-gosholo-light-green" />
+                <span className="font-medium text-gosholo-light-green">Application mobile</span>
               </div>
-              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
-                <Gift className="h-5 w-5 text-gosholo-dark-teal" />
-                <span className="font-medium">Récompenses</span>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                <Gift className="h-5 w-5 text-gosholo-light-green" />
+                <span className="font-medium text-gosholo-light-green">Récompenses</span>
               </div>
-              <div className="flex items-center gap-2 bg-gosholo-light-blue/10 px-4 py-2 rounded-full">
-                <Coffee className="h-5 w-5 text-gosholo-dark-teal" />
-                <span className="font-medium">Commerces locaux</span>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                <Coffee className="h-5 w-5 text-gosholo-light-green" />
+                <span className="font-medium text-gosholo-light-green">Commerces locaux</span>
               </div>
             </div>
           </div>
@@ -583,6 +604,281 @@ export default function Home() {
                 alt="Application mobile Gosholo"
                 className="rounded-xl shadow-lg border-8 border-white"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Inscription */}
+      <section id="signup" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-dark-teal">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-gosholo-orange text-white">
+              Rejoignez-nous
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-light-green">
+              Créez votre compte
+            </h2>
+            <p className="max-w-[700px] text-white/80 md:text-xl/relaxed">
+              Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              {/* Onglets */}
+              <div className="flex border-b">
+                <button
+                  className={`flex-1 py-4 px-6 text-center font-medium text-lg transition-colors ${
+                    activeTab === "user"
+                      ? "bg-gosholo-light-green/10 text-gosholo-dark-teal border-b-2 border-gosholo-dark-teal"
+                      : "text-gray-500 hover:text-gosholo-dark-teal"
+                  }`}
+                  onClick={() => setActiveTab("user")}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <User className="h-5 w-5" />
+                    <span>Utilisateur</span>
+                  </div>
+                </button>
+                <button
+                  className={`flex-1 py-4 px-6 text-center font-medium text-lg transition-colors ${
+                    activeTab === "business"
+                      ? "bg-gosholo-light-green/10 text-gosholo-dark-teal border-b-2 border-gosholo-dark-teal"
+                      : "text-gray-500 hover:text-gosholo-dark-teal"
+                  }`}
+                  onClick={() => setActiveTab("business")}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <Store className="h-5 w-5" />
+                    <span>Commerce</span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Contenu des onglets */}
+              <div className="p-6 md:p-8">
+                {activeTab === "user" ? (
+                  <div className="space-y-6">
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold mb-2">Inscription utilisateur</h3>
+                      <p className="text-gray-500">
+                        Créez votre compte pour découvrir et soutenir les commerces locaux.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
+                          Prénom
+                        </label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="Votre prénom"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
+                          Nom
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="Votre nom"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="userEmail" className="text-sm font-medium text-gray-700">
+                        Email
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                        <input
+                          type="email"
+                          id="userEmail"
+                          className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="votre.email@exemple.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="userPassword" className="text-sm font-medium text-gray-700">
+                        Mot de passe
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="userPassword"
+                          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="Votre mot de passe"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        >
+                          {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                        </button>
+                      </div>
+                      <p className="text-xs text-gray-500">Le mot de passe doit contenir au moins 8 caractères.</p>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="termsUser"
+                        className="h-4 w-4 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal"
+                      />
+                      <label htmlFor="termsUser" className="ml-2 block text-sm text-gray-700">
+                        J'accepte les{" "}
+                        <a href="#" className="text-gosholo-orange hover:underline">
+                          conditions d'utilisation
+                        </a>{" "}
+                        et la{" "}
+                        <a href="#" className="text-gosholo-orange hover:underline">
+                          politique de confidentialité
+                        </a>
+                      </label>
+                    </div>
+
+                    <Button className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white">
+                      Créer mon compte
+                    </Button>
+
+                    <div className="text-center text-sm text-gray-500">
+                      Vous avez déjà un compte?{" "}
+                      <a href="#" className="text-gosholo-orange hover:underline font-medium">
+                        Connectez-vous
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold mb-2">Inscription commerce</h3>
+                      <p className="text-gray-500">
+                        Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="businessName" className="text-sm font-medium text-gray-700">
+                        Nom du commerce
+                      </label>
+                      <input
+                        type="text"
+                        id="businessName"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                        placeholder="Nom de votre commerce"
+                      />
+                    </div>
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <label htmlFor="businessType" className="text-sm font-medium text-gray-700">
+                          Type de commerce
+                        </label>
+                        <select
+                          id="businessType"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                        >
+                          <option value="">Sélectionnez une catégorie</option>
+                          <option value="restaurant">Restaurant</option>
+                          <option value="cafe">Café</option>
+                          <option value="retail">Commerce de détail</option>
+                          <option value="service">Service</option>
+                          <option value="other">Autre</option>
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="businessLocation" className="text-sm font-medium text-gray-700">
+                          Ville
+                        </label>
+                        <input
+                          type="text"
+                          id="businessLocation"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="Votre ville"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="businessEmail" className="text-sm font-medium text-gray-700">
+                        Email professionnel
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                        <input
+                          type="email"
+                          id="businessEmail"
+                          className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="commerce@exemple.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="businessPassword" className="text-sm font-medium text-gray-700">
+                        Mot de passe
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="businessPassword"
+                          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          placeholder="Votre mot de passe"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        >
+                          {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                        </button>
+                      </div>
+                      <p className="text-xs text-gray-500">Le mot de passe doit contenir au moins 8 caractères.</p>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="termsBusiness"
+                        className="h-4 w-4 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal"
+                      />
+                      <label htmlFor="termsBusiness" className="ml-2 block text-sm text-gray-700">
+                        J'accepte les{" "}
+                        <a href="#" className="text-gosholo-orange hover:underline">
+                          conditions d'utilisation
+                        </a>{" "}
+                        et la{" "}
+                        <a href="#" className="text-gosholo-orange hover:underline">
+                          politique de confidentialité
+                        </a>
+                      </label>
+                    </div>
+
+                    <Button className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white">
+                      Inscrire mon commerce
+                    </Button>
+
+                    <div className="text-center text-sm text-gray-500">
+                      Vous avez déjà un compte?{" "}
+                      <a href="#" className="text-gosholo-orange hover:underline font-medium">
+                        Connectez-vous
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
