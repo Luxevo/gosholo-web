@@ -166,7 +166,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button size="lg" className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group">
-                  Découvrir les commerces
+                  À venir
                   <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <Button
@@ -195,7 +195,7 @@ export default function Home() {
       <section id="who-we-are" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-dark-teal">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto hover:bg-gosholo-orange/90 cursor-pointer group">
+            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto">
               Qui nous sommes
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-light-green">
@@ -215,16 +215,16 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-                <Smartphone className="h-5 w-5 text-gosholo-light-green" />
-                <span className="font-medium text-gosholo-light-green">Application mobile</span>
+                <Smartphone className="h-5 w-5 text-[#FF6233]" />
+                <span className="font-medium text-white">Application mobile</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-                <Gift className="h-5 w-5 text-gosholo-light-green" />
-                <span className="font-medium text-gosholo-light-green">Récompenses</span>
+                <Gift className="h-5 w-5 text-[#FF6233]" />
+                <span className="font-medium text-white">Récompenses</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-                <Coffee className="h-5 w-5 text-gosholo-light-green" />
-                <span className="font-medium text-gosholo-light-green">Commerces locaux</span>
+                <Coffee className="h-5 w-5 text-[#FF6233]" />
+                <span className="font-medium text-white">Commerces locaux</span>
               </div>
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function Home() {
       <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-green">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto hover:bg-gosholo-orange/90 cursor-pointer group">
+            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto">
               Notre mission
             </div>
             <div className="space-y-2">
@@ -310,7 +310,7 @@ export default function Home() {
       <section id="concours" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-blue">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto hover:bg-gosholo-orange/90 cursor-pointer group">
+            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto">
               Événement spécial
             </div>
             <div className="space-y-2">
@@ -336,7 +336,7 @@ export default function Home() {
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium">
                           1
                         </div>
-                        <p>Téléchargez l'application Gosholo sur votre téléphone</p>
+                        <p>Téléchargez l'application Gosholo sur votre téléphone (bientôt disponible)</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium">
@@ -475,8 +475,8 @@ export default function Home() {
                       <p className="mb-2">Pour être admissible au tirage, les participants doivent :</p>
                       <ul className="list-disc pl-5 space-y-1">
                         <li>
-                          Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux
-                          sauter cette étape).
+                          Télécharger notre application gosholo et créer un compte (l'application sera disponible avant
+                          le début du concours - si tu es déjà inscrit, tu peux sauter cette étape).
                         </li>
                         <li>Suivre notre compte Instagram officiel : @gosholo</li>
                         <li>
@@ -551,7 +551,7 @@ export default function Home() {
             {/* Bouton d'action */}
             <div className="flex justify-center mt-12">
               <Button size="lg" className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group">
-                Télécharger l'application
+                Bientôt téléchargeable
                 <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
@@ -566,11 +566,11 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Prêt à découvrir les commerces locaux?
+                  Bientôt disponible pour découvrir les commerces locaux!
                 </h2>
                 <p className="text-white/80 md:text-xl/relaxed">
-                  Téléchargez l'application Gosholo dès aujourd'hui et commencez à explorer les trésors cachés de votre
-                  quartier.
+                  L'application Gosholo sera bientôt disponible pour vous permettre d'explorer les trésors cachés de
+                  votre quartier.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
@@ -597,7 +597,7 @@ export default function Home() {
                     <path d="m17.66 6.34 1.41-1.41"></path>
                     <path d="m4.93 19.07 1.41-1.41"></path>
                   </svg>
-                  App Store
+                  Bientôt sur App Store
                 </Button>
                 <Button className="bg-white text-gosholo-orange hover:bg-white/90">
                   <svg
@@ -618,7 +618,7 @@ export default function Home() {
                     <path d="M3 5h4"></path>
                     <path d="M17 19h4"></path>
                   </svg>
-                  Google Play
+                  Bientôt sur Google Play
                 </Button>
               </div>
             </div>
@@ -639,7 +639,7 @@ export default function Home() {
       <section id="signup" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-dark-teal">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto hover:bg-gosholo-orange/90 cursor-pointer group">
+            <div className="inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm md:text-base font-semibold transition-colors focus:outline-none border-transparent bg-gosholo-orange text-white w-auto mx-auto">
               Rejoignez-nous
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gosholo-light-green">
