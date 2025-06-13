@@ -11,7 +11,6 @@ import {
   Users,
   ChevronRight,
   Star,
-  Clock,
   ArrowRight,
   Menu,
   X,
@@ -24,6 +23,7 @@ import {
   Lock,
   Eye,
   EyeOff,
+  ChevronDown,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -33,6 +33,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<"user" | "business">("user")
   const [showPassword, setShowPassword] = useState(false)
+  const [rulesOpen, setRulesOpen] = useState(false)
 
   useEffect(() => {
     // Ouvrir le pop-up après un court délai
@@ -75,9 +76,6 @@ export default function Home() {
             </Link>
             <Link href="#concours" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               Concours
-            </Link>
-            <Link href="#commerces" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
-              Commerces
             </Link>
             <Link href="#signup" className="text-sm font-medium transition-colors hover:text-gosholo-dark-teal">
               S'inscrire
@@ -129,20 +127,6 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Concours
-              </Link>
-              <Link
-                href="#commerces"
-                className="text-sm font-medium p-2 hover:bg-gosholo-light-blue/10 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Commerces
-              </Link>
-              <Link
-                href="#signup"
-                className="text-sm font-medium p-2 hover:bg-gosholo-light-blue/10 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                S'inscrire
               </Link>
               <Button
                 className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white mt-2"
@@ -323,67 +307,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section commerces */}
-      <section id="commerces" className="w-full py-12 md:py-24 lg:py-32 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-gosholo-orange text-white">
-              Découvrez
-            </div>
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Commerces populaires</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Explorez les commerces locaux les mieux notés par notre communauté.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div
-                key={item}
-                className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-md"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <Image
-                    src={`/placeholder.svg?height=200&width=400&text=Commerce+${item}`}
-                    width={400}
-                    height={200}
-                    alt={`Commerce ${item}`}
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <div className="absolute top-2 right-2 bg-gosholo-orange px-2 py-1 rounded-md text-xs font-medium flex items-center text-white">
-                  <Star className="h-3 w-3 text-white mr-1" fill="currentColor" />
-                  4.{item + 3}/5
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold">Boutique Locale {item}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Catégorie · Quartier</p>
-                  <div className="flex items-center mt-3 text-sm">
-                    <Clock className="h-4 w-4 text-muted-foreground mr-1" />
-                    <span className="text-muted-foreground">Ouvert jusqu'à 19h</span>
-                  </div>
-                  <Button
-                    variant="outline"
-                    className="w-full mt-4 group-hover:bg-gosholo-orange group-hover:text-white border-gosholo-orange text-gosholo-orange"
-                  >
-                    Voir le commerce
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center mt-8">
-            <Button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white">
-              Voir tous les commerces
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Section concours */}
       <section id="concours" className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-blue">
         <div className="container px-4 md:px-6">
@@ -420,19 +343,19 @@ export default function Home() {
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium">
                           2
                         </div>
-                        <p>Effectuez un achat dans l'un de nos commerces locaux partenaires</p>
+                        <p>Suivez notre compte Instagram officiel : @gosholo</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium">
                           3
                         </div>
-                        <p>Scannez votre reçu dans l'application pour obtenir une participation</p>
+                        <p>Repostez en story Instagram la publication officielle du concours</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium">
                           4
                         </div>
-                        <p>Plus vous effectuez d'achats, plus vous avez de chances de gagner!</p>
+                        <p>Taguez 2 amis dans les commentaires de la publication</p>
                       </li>
                     </ul>
                   </div>
@@ -528,6 +451,111 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Règlement du concours */}
+            <div className="mt-12 bg-white rounded-lg shadow-sm border overflow-hidden">
+              <button
+                onClick={() => setRulesOpen(!rulesOpen)}
+                className="w-full flex items-center justify-between p-4 font-bold text-lg text-gosholo-dark-teal hover:bg-gosholo-light-blue/10 transition-colors"
+              >
+                Règlement officiel du concours
+                <ChevronDown className={`h-5 w-5 transition-transform ${rulesOpen ? "transform rotate-180" : ""}`} />
+              </button>
+
+              {rulesOpen && (
+                <div className="p-6 border-t text-sm">
+                  <h3 className="font-bold text-lg mb-4">Règlement officiel du concours – Osheaga 2025</h3>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">1. Durée du concours</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          Le concours débute le 16 juin 2025 à 9h00 et se termine le jeudi 17 juillet 2025 à 23h59
+                          (heure du Québec).
+                        </li>
+                        <li>Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">2. Conditions de participation</h4>
+                      <p className="mb-2">Pour être admissible au tirage, les participants doivent :</p>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux
+                          sauter cette étape).
+                        </li>
+                        <li>Suivre notre compte Instagram officiel : @gosholo</li>
+                        <li>
+                          Reposter en story Instagram la publication officielle du concours (la story doit inclure le
+                          tag @gosholo).
+                        </li>
+                        <li>Taguer 2 amis dans les commentaires de la publication du concours sur Instagram.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">3. Admissibilité</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>Ce concours est ouvert à toute personne âgée de 18 ans ou plus, résidant au Québec.</li>
+                        <li>Une seule participation par personne est autorisée.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">4. Tirage et attribution du prix</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          Le gagnant sera sélectionné au hasard parmi les personnes admissibles, ayant complété les 4
+                          étapes ci-dessus.
+                        </li>
+                        <li>
+                          Le gagnant sera contacté par message privé Instagram et devra fournir le courriel utilisé lors
+                          de l'inscription à l'app, afin de valider son identité.
+                        </li>
+                        <li>
+                          Si le gagnant ne répond pas dans un délai de 24 heures, un nouveau tirage sera effectué.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">5. Prix</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>Une paire de billets pour Osheaga – samedi 2 août 2025 (valeur approximative : 400 $)</li>
+                        <li>Le prix est non monnayable, non transférable et non échangeable.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">6. Limite de responsabilité</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          Ce concours n'est en aucun cas affilié, commandité ou géré par Instagram, Meta, Osheaga,
+                          evenko ou leurs partenaires.
+                        </li>
+                        <li>
+                          En participant, les utilisateurs dégagent Instagram et les autres tiers de toute
+                          responsabilité.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-gosholo-dark-teal mb-2">7. Consentement</h4>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          En participant à ce concours, les personnes acceptent que leur nom d'utilisateur et leur
+                          prénom puissent être mentionnés publiquement en cas de gain (réseaux sociaux ou site web de
+                          l'organisateur).
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -667,34 +695,54 @@ export default function Home() {
                       </p>
                     </div>
 
+                    <p className="text-xs text-gray-500 mb-4">
+                      Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires.
+                    </p>
+
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
-                          Prénom
+                          Prénom <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
                           id="firstName"
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="Votre prénom"
+                          required
                         />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
-                          Nom
+                          Nom <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
                           id="lastName"
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="Votre nom"
+                          required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
+                      <label htmlFor="userPostalCode" className="text-sm font-medium text-gray-700">
+                        Code postal <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="userPostalCode"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                        placeholder="Ex: H2X 1Y6"
+                        required
+                      />
+                      <p className="text-xs text-gray-500">Format: A1A 1A1 (code postal canadien)</p>
+                    </div>
+
+                    <div className="space-y-2">
                       <label htmlFor="userEmail" className="text-sm font-medium text-gray-700">
-                        Email
+                        Email <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -703,13 +751,14 @@ export default function Home() {
                           id="userEmail"
                           className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="votre.email@exemple.com"
+                          required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="userPassword" className="text-sm font-medium text-gray-700">
-                        Mot de passe
+                        Mot de passe <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -718,6 +767,7 @@ export default function Home() {
                           id="userPassword"
                           className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="Votre mot de passe"
+                          required
                         />
                         <button
                           type="button"
@@ -768,26 +818,32 @@ export default function Home() {
                       </p>
                     </div>
 
+                    <p className="text-xs text-gray-500 mb-4">
+                      Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires.
+                    </p>
+
                     <div className="space-y-2">
                       <label htmlFor="businessName" className="text-sm font-medium text-gray-700">
-                        Nom du commerce
+                        Nom du commerce <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         id="businessName"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                         placeholder="Nom de votre commerce"
+                        required
                       />
                     </div>
 
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="businessType" className="text-sm font-medium text-gray-700">
-                          Type de commerce
+                          Type de commerce <span className="text-red-500">*</span>
                         </label>
                         <select
                           id="businessType"
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                          required
                         >
                           <option value="">Sélectionnez une catégorie</option>
                           <option value="restaurant">Restaurant</option>
@@ -799,20 +855,35 @@ export default function Home() {
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="businessLocation" className="text-sm font-medium text-gray-700">
-                          Ville
+                          Ville <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
                           id="businessLocation"
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="Votre ville"
+                          required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
+                      <label htmlFor="businessPostalCode" className="text-sm font-medium text-gray-700">
+                        Code postal <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="businessPostalCode"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
+                        placeholder="Ex: H2X 1Y6"
+                        required
+                      />
+                      <p className="text-xs text-gray-500">Format: A1A 1A1 (code postal canadien)</p>
+                    </div>
+
+                    <div className="space-y-2">
                       <label htmlFor="businessEmail" className="text-sm font-medium text-gray-700">
-                        Email professionnel
+                        Email professionnel <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -821,13 +892,14 @@ export default function Home() {
                           id="businessEmail"
                           className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="commerce@exemple.com"
+                          required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="businessPassword" className="text-sm font-medium text-gray-700">
-                        Mot de passe
+                        Mot de passe <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -836,6 +908,7 @@ export default function Home() {
                           id="businessPassword"
                           className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal"
                           placeholder="Votre mot de passe"
+                          required
                         />
                         <button
                           type="button"
