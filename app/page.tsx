@@ -1395,6 +1395,15 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Pastille flottante "Site en construction" */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <div className="bg-gosholo-orange text-white px-4 py-2 rounded-full shadow-lg border-2 border-white flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl group">
+          <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+          <span className="text-sm font-medium whitespace-nowrap">Site en construction</span>
+          <div className="w-2 h-2 bg-gosholo-light-green rounded-full"></div>
+        </div>
+      </div>
     </div>
   )
 }
