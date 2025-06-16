@@ -1,4 +1,7 @@
 import type React from "react"
+
+export type Language = "fr" | "en"
+
 export interface NavigationItem {
   href: string
   label: string
@@ -40,4 +43,8 @@ export interface FormData {
   email: string
   password: string
   terms: boolean
+}
+
+export interface Translation {
+  [key: string]: string | Translation
 }

@@ -2,15 +2,19 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { NAVIGATION_ITEMS } from "@/constants"
+import { useTranslation } from "@/hooks/useTranslation"
+import type { NavigationItem } from "@/types"
 
 interface MobileMenuProps {
   isOpen: boolean
   onClose: () => void
   onScrollToSection: (sectionId: string) => void
+  navigationItems: NavigationItem[]
 }
 
-export function MobileMenu({ isOpen, onClose, onScrollToSection }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, onScrollToSection, navigationItems }: MobileMenuProps) {
+  const { t } = useTranslation()
+
   const handleLinkClick = (href: string) => {
     if (href.startsWith("#")) {
       onScrollToSection(href.substring(1))
@@ -22,10 +26,10 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection }: MobileMenuPro
     <div
       className={`md:hidden bg-white border-b transition-all duration-500 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
       role="navigation"
-      aria-label="Navigation mobile"
+      aria-label={t("nav.mobileNavigation")}
     >
       <nav className="flex flex-col p-4 space-y-2">
-        {NAVIGATION_ITEMS.map((item) => (
+        {navigationItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -41,9 +45,9 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection }: MobileMenuPro
             onScrollToSection("signup")
             onClose()
           }}
-          aria-label="Aller à la section d'inscription"
+          aria-label={t("hero.goToSignup")}
         >
-          S'inscrire
+          {t("nav.signup")}
         </Button>
       </nav>
     </div>

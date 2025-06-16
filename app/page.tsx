@@ -9,20 +9,29 @@ import { ContestPopup } from "@/components/ui/ContestPopup"
 import { ConstructionBadge } from "@/components/ui/ConstructionBadge"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { usePopupTimer } from "@/hooks/usePopupTimer"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "@/hooks/useTranslation"
 import { Button } from "@/components/ui/button"
 import { MapPin, Store, User, Mail, Lock, Eye, EyeOff, ChevronDown, Clock } from "lucide-react"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Home() {
   const { isVisible } = useScrollAnimation()
   const { isOpen, setIsOpen } = usePopupTimer()
+  const { language, isLoading } = useLanguage()
+  const { t } = useTranslation()
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<"user" | "business">("user")
   const [showPassword, setShowPassword] = useState(false)
   const [rulesOpen, setRulesOpen] = useState(false)
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+
+  // Update document language when language changes
+  useEffect(() => {
+    if (!isLoading) {
+      document.documentElement.lang = language
+    }
+  }, [language, isLoading])
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
@@ -32,7 +41,19 @@ export default function Home() {
   }
 
   const handleViewContest = () => {
-    scrollToSection("concours")
+    scrollToSection("contest")
+  }
+
+  // Show loading state while language is being determined
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gosholo-orange mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -43,13 +64,13 @@ export default function Home() {
         <HeroSection isVisible={isVisible} onScrollToSection={scrollToSection} />
         <WhoWeAreSection />
         <AboutSection />
-        {/* TODO: Add ContestSection, CTASection, SignupSection */}
-        {/* Section concours optimisée mobile */}
+
+        {/* Contest Section - Temporarily inline until refactored */}
         <section
-          id="concours"
+          id="contest"
           className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-light-blue"
           role="region"
-          aria-labelledby="concours-title"
+          aria-labelledby="contest-title"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -57,17 +78,17 @@ export default function Home() {
                 className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto"
                 role="presentation"
               >
-                Événement spécial
+                {t("contest.badge")}
               </div>
               <div className="space-y-2">
                 <h2
-                  id="concours-title"
+                  id="contest-title"
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white"
                 >
-                  Concours Osheaga
+                  {t("contest.title")}
                 </h2>
                 <p className="max-w-[900px] text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
-                  Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!
+                  {t("contest.description")}
                 </p>
               </div>
             </div>
@@ -76,7 +97,7 @@ export default function Home() {
               <div className="grid gap-6 sm:gap-8">
                 <div className="flex flex-col justify-center space-y-6">
                   <div className="border-2 border-dashed border-white p-4 sm:p-6 rounded-lg bg-gosholo-dark-teal">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">Comment participer</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">{t("contest.howToParticipate")}</h3>
                     <ol className="space-y-3 sm:space-y-4 text-white list-none">
                       <li className="flex items-start gap-3">
                         <div
@@ -85,7 +106,7 @@ export default function Home() {
                         >
                           1
                         </div>
-                        <p className="text-sm sm:text-base">Suivez notre compte Instagram officiel : @gosholo</p>
+                        <p className="text-sm sm:text-base">{t("contest.step1")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -94,9 +115,7 @@ export default function Home() {
                         >
                           2
                         </div>
-                        <p className="text-sm sm:text-base">
-                          Repostez en story Instagram la publication officielle du concours
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step2")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -105,7 +124,7 @@ export default function Home() {
                         >
                           3
                         </div>
-                        <p className="text-sm sm:text-base">Taguez 2 amis dans les commentaires de la publication</p>
+                        <p className="text-sm sm:text-base">{t("contest.step3")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -114,9 +133,7 @@ export default function Home() {
                         >
                           4
                         </div>
-                        <p className="text-sm sm:text-base">
-                          Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step4")}</p>
                       </li>
                     </ol>
                   </div>
@@ -142,7 +159,7 @@ export default function Home() {
                         <path d="m8 6 4-4 4 4"></path>
                         <path d="M12 2v14"></path>
                       </svg>
-                      <span className="text-base sm:text-xl">Détails du concours</span>
+                      <span className="text-base sm:text-xl">{t("contest.contestDetails")}</span>
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 p-2">
@@ -150,7 +167,7 @@ export default function Home() {
                           className="h-4 w-4 sm:h-5 sm:w-5 text-gosholo-orange flex-shrink-0"
                           aria-hidden="true"
                         />
-                        <span className="text-sm sm:text-base">Montréal, du 2 au 4 août 2025</span>
+                        <span className="text-sm sm:text-base">{t("contest.location")}</span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -171,7 +188,7 @@ export default function Home() {
                           <line x1="8" y1="2" x2="8" y2="6"></line>
                           <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        <span className="text-sm sm:text-base">Fin du concours: 15 juillet 2025</span>
+                        <span className="text-sm sm:text-base">{t("contest.endDate")}</span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -189,13 +206,13 @@ export default function Home() {
                         >
                           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
-                        <span className="text-sm sm:text-base">Les gagnants seront contactés par courriel</span>
+                        <span className="text-sm sm:text-base">{t("contest.contact")}</span>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t">
                       <div className="flex items-center justify-between">
-                        <div className="text-sm">Temps restant:</div>
-                        <div className="font-bold text-gosholo-orange">31 jours</div>
+                        <div className="text-sm">{t("contest.timeRemaining")}</div>
+                        <div className="font-bold text-gosholo-orange">{t("contest.daysLeft")}</div>
                       </div>
                       <div
                         className="w-full bg-gray-200 rounded-full h-2.5 mt-2"
@@ -203,7 +220,7 @@ export default function Home() {
                         aria-valuenow={65}
                         aria-valuemin={0}
                         aria-valuemax={100}
-                        aria-label="Progression du concours"
+                        aria-label={t("contest.progressLabel")}
                       >
                         <div className="bg-gosholo-orange h-2.5 rounded-full" style={{ width: "65%" }}></div>
                       </div>
@@ -212,7 +229,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Règlement du concours optimisé mobile */}
+              {/* Contest Rules */}
               <div className="mt-8 sm:mt-12 bg-white rounded-lg shadow-sm border overflow-hidden">
                 <button
                   onClick={() => setRulesOpen(!rulesOpen)}
@@ -220,123 +237,111 @@ export default function Home() {
                   aria-expanded={rulesOpen}
                   aria-controls="rules-content"
                 >
-                  <span>Règlement officiel du concours</span>
+                  <span>{t("contest.rulesTitle")}</span>
                   <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 ${rulesOpen ? "transform rotate-180" : ""}`}
+                    className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 ${rulesOpen ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
 
-                <div className={`${rulesOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
-                  <div
-                    className={`transition-all duration-500 ease-in-out ${rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
-                  >
-                    <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80">
-                      <h3 className="font-bold text-base sm:text-lg mb-4">
-                        Règlement officiel du concours – Osheaga 2025
-                      </h3>
+                <div
+                  className={`transition-all duration-500 ease-in-out ${rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
+                >
+                  <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80">
+                    <h3 className="font-bold text-base sm:text-lg mb-4">{t("contestRules.title")}</h3>
 
-                      <div className="space-y-4 sm:space-y-6">
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            1. Durée du concours
-                          </h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              Le concours débute le 16 juin 2025 à 9h00 et se termine le jeudi 17 juillet 2025 à 23h59
-                              (heure du Québec).
-                            </li>
-                            <li>Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.</li>
-                          </ul>
+                    <div className="space-y-4 sm:space-y-6">
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.duration")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.durationContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            2. Conditions de participation
-                          </h4>
-                          <p className="mb-2 text-xs sm:text-sm">
-                            Pour être admissible au tirage, les participants doivent :
-                          </p>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux
-                              sauter cette étape).
-                            </li>
-                            <li>Suivre notre compte Instagram officiel : @gosholo</li>
-                            <li>
-                              Reposter en story Instagram la publication officielle du concours (la story doit inclure
-                              le tag @gosholo).
-                            </li>
-                            <li>Taguer 2 amis dans les commentaires de la publication du concours sur Instagram.</li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.participation")}
+                        </h4>
+                        <p className="mb-2 text-xs sm:text-sm">{t("contestRules.participationIntro")}</p>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.participationContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index} className={item.startsWith("•") ? "ml-3" : ""}>
+                                {item}
+                              </p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            3. Admissibilité
-                          </h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>Ce concours est ouvert à toute personne âgée de 18 ans ou plus, résidant au Québec.</li>
-                            <li>Une seule participation par personne est autorisée.</li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.eligibility")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.eligibilityContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            4. Tirage et attribution du prix
-                          </h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              Le gagnant sera sélectionné au hasard parmi les personnes admissibles, ayant complété les
-                              4 étapes ci-dessus.
-                            </li>
-                            <li>
-                              Le gagnant sera contacté par message privé Instagram et devra fournir le courriel utilisé
-                              lors de l'inscription à l'app, afin de valider son identité.
-                            </li>
-                            <li>
-                              Si le gagnant ne répond pas dans un délai de 24 heures, un nouveau tirage sera effectué.
-                            </li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.draw")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.drawContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">5. Prix</h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              Une paire de billets pour Osheaga – samedi 2 août 2025 (valeur approximative : 400 $)
-                            </li>
-                            <li>Le prix est non monnayable, non transférable et non échangeable.</li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.prize")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.prizeContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            6. Limite de responsabilité
-                          </h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              Ce concours n'est en aucun cas affilié, commandité ou géré par Instagram, Meta, Osheaga,
-                              evenko ou leurs partenaires.
-                            </li>
-                            <li>
-                              En participant, les utilisateurs dégagent Instagram et les autres tiers de toute
-                              responsabilité.
-                            </li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.liability")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.liabilityContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
+                      </div>
 
-                        <div>
-                          <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                            7. Consentement
-                          </h4>
-                          <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
-                            <li>
-                              En participant à ce concours, les personnes acceptent que leur nom d'utilisateur et leur
-                              prénom puissent être mentionnés publiquement en cas de gain (réseaux sociaux ou site web
-                              de l'organisateur).
-                            </li>
-                          </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.consent")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {t("contestRules.consentContent")
+                            .split("|")
+                            .map((item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            ))}
                         </div>
                       </div>
                     </div>
@@ -344,7 +349,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Bouton d'action optimisé mobile */}
               <div className="flex justify-center mt-8 sm:mt-12">
                 <Button
                   size="lg"
@@ -352,14 +356,14 @@ export default function Home() {
                   disabled
                 >
                   <Clock className="mr-2 h-4 w-4 animate-spin" />
-                  Application bientôt disponible
+                  {t("contest.appComingSoon")}
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section CTA optimisée mobile */}
+        {/* CTA Section */}
         <section
           className="w-full py-8 sm:py-12 md:py-16 lg:py-24 bg-gosholo-orange text-white"
           role="region"
@@ -370,11 +374,10 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h2 id="cta-title" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter">
-                    Bientôt disponible pour découvrir les commerces locaux!
+                    {t("cta.title")}
                   </h2>
                   <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
-                    L'application Gosholo sera bientôt disponible pour vous permettre d'explorer les trésors cachés de
-                    votre quartier.
+                    {t("cta.description")}
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -405,7 +408,7 @@ export default function Home() {
                       <path d="m17.66 6.34 1.41-1.41"></path>
                       <path d="m4.93 19.07 1.41-1.41"></path>
                     </svg>
-                    Bientôt sur App Store
+                    {t("cta.appStore")}
                   </Button>
                   <Button
                     className="bg-white text-gosholo-orange hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group touch-target-44 text-sm sm:text-base"
@@ -430,7 +433,7 @@ export default function Home() {
                       <path d="M3 5h4"></path>
                       <path d="M17 19h4"></path>
                     </svg>
-                    Bientôt sur Google Play
+                    {t("cta.googlePlay")}
                   </Button>
                 </div>
               </div>
@@ -439,7 +442,7 @@ export default function Home() {
                   src="/placeholder.svg?height=300&width=200&text=App+Mobile"
                   width={200}
                   height={400}
-                  alt="Aperçu de l'application mobile Gosholo sur smartphone"
+                  alt={t("cta.appPreview")}
                   className="rounded-xl shadow-lg border-8 border-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:rotate-3 max-w-[200px] sm:max-w-[250px]"
                 />
               </div>
@@ -447,7 +450,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section Inscription optimisée mobile */}
+        {/* Signup Section */}
         <section
           id="signup"
           className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-dark-teal"
@@ -460,22 +463,22 @@ export default function Home() {
                 className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 role="presentation"
               >
-                Rejoignez-nous
+                {t("signup.badge")}
               </div>
               <h2
                 id="signup-title"
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-light-green"
               >
-                Créez votre compte
+                {t("signup.title")}
               </h2>
               <p className="max-w-[700px] text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
-                Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.
+                {t("signup.description")}
               </p>
             </div>
 
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                {/* Onglets optimisés mobile */}
+                {/* Tabs */}
                 <div className="flex border-b" role="tablist" aria-label="Type d'inscription">
                   <button
                     className={`flex-1 py-3 sm:py-4 px-4 sm:px-6 text-center font-medium text-sm sm:text-base lg:text-lg transition-all duration-500 touch-target-44 ${
@@ -494,7 +497,7 @@ export default function Home() {
                         className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${activeTab === "user" ? "scale-110" : ""}`}
                         aria-hidden="true"
                       />
-                      <span>Utilisateur</span>
+                      <span>{t("signup.userTab")}</span>
                     </div>
                   </button>
                   <button
@@ -514,12 +517,12 @@ export default function Home() {
                         className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${activeTab === "business" ? "scale-110" : ""}`}
                         aria-hidden="true"
                       />
-                      <span>Commerce</span>
+                      <span>{t("signup.businessTab")}</span>
                     </div>
                   </button>
                 </div>
 
-                {/* Contenu des onglets optimisé mobile */}
+                {/* Tab Content */}
                 <div className="p-4 sm:p-6 md:p-8">
                   {activeTab === "user" ? (
                     <div
@@ -529,22 +532,18 @@ export default function Home() {
                       className={`space-y-4 sm:space-y-6 transition-all duration-500 ${activeTab === "user" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}
                     >
                       <div className="text-left">
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">Inscription utilisateur</h3>
-                        <p className="text-gray-500 text-sm sm:text-base">
-                          Créez votre compte pour découvrir et soutenir les commerces locaux.
-                        </p>
+                        <h3 className="text-lg sm:text-xl font-bold mb-2">{t("signup.userTitle")}</h3>
+                        <p className="text-gray-500 text-sm sm:text-base">{t("signup.userDescription")}</p>
                       </div>
 
-                      <p className="text-xs text-gray-500 mb-4">
-                        Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires.
-                      </p>
+                      <p className="text-xs text-gray-500 mb-4">{t("signup.requiredFields")}</p>
 
                       <form className="space-y-4 sm:space-y-6" noValidate>
                         <div className="grid gap-4 sm:grid-cols-2">
                           <div className="space-y-2">
                             <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
-                              Prénom{" "}
-                              <span className="text-red-500" aria-label="obligatoire">
+                              {t("signup.firstName")}{" "}
+                              <span className="text-red-500" aria-label={t("signup.required")}>
                                 *
                               </span>
                             </label>
@@ -553,15 +552,15 @@ export default function Home() {
                               id="firstName"
                               name="firstName"
                               className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="Votre prénom"
+                              placeholder={t("signup.yourFirstName")}
                               required
                               aria-required="true"
                             />
                           </div>
                           <div className="space-y-2">
                             <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
-                              Nom{" "}
-                              <span className="text-red-500" aria-label="obligatoire">
+                              {t("signup.lastName")}{" "}
+                              <span className="text-red-500" aria-label={t("signup.required")}>
                                 *
                               </span>
                             </label>
@@ -570,7 +569,7 @@ export default function Home() {
                               id="lastName"
                               name="lastName"
                               className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="Votre nom"
+                              placeholder={t("signup.yourLastName")}
                               required
                               aria-required="true"
                             />
@@ -579,8 +578,8 @@ export default function Home() {
 
                         <div className="space-y-2">
                           <label htmlFor="userPostalCode" className="text-sm font-medium text-gray-700">
-                            Code postal{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.postalCode")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -589,21 +588,21 @@ export default function Home() {
                             id="userPostalCode"
                             name="postalCode"
                             className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder="Ex: H2X 1Y6"
+                            placeholder={t("signup.postalCodeExample")}
                             pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d"
                             required
                             aria-required="true"
                             aria-describedby="postal-code-help"
                           />
                           <p id="postal-code-help" className="text-xs text-gray-500">
-                            Format: A1A 1A1 (code postal canadien)
+                            {t("signup.postalCodeFormat")}
                           </p>
                         </div>
 
                         <div className="space-y-2">
                           <label htmlFor="userEmail" className="text-sm font-medium text-gray-700">
-                            Email{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.email")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -617,7 +616,7 @@ export default function Home() {
                               id="userEmail"
                               name="email"
                               className="w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="votre.email@exemple.com"
+                              placeholder={t("signup.yourEmail")}
                               required
                               aria-required="true"
                             />
@@ -626,8 +625,8 @@ export default function Home() {
 
                         <div className="space-y-2">
                           <label htmlFor="userPassword" className="text-sm font-medium text-gray-700">
-                            Mot de passe{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.password")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -641,7 +640,7 @@ export default function Home() {
                               id="userPassword"
                               name="password"
                               className="w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="Votre mot de passe"
+                              placeholder={t("signup.yourPassword")}
                               minLength={8}
                               required
                               aria-required="true"
@@ -651,13 +650,13 @@ export default function Home() {
                               type="button"
                               onClick={() => setShowPassword(!showPassword)}
                               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
-                              aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                              aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
                             >
                               {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                             </button>
                           </div>
                           <p id="password-help" className="text-xs text-gray-500">
-                            Le mot de passe doit contenir au moins 8 caractères.
+                            {t("signup.passwordHelp")}
                           </p>
                         </div>
 
@@ -671,19 +670,19 @@ export default function Home() {
                             aria-required="true"
                           />
                           <label htmlFor="termsUser" className="ml-3 block text-sm text-gray-700">
-                            J'accepte les{" "}
+                            {t("signup.terms")}{" "}
                             <a
                               href="#"
                               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
                             >
-                              conditions d'utilisation
+                              {t("signup.termsOfUse")}
                             </a>{" "}
                             et la{" "}
                             <a
                               href="#"
                               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
                             >
-                              politique de confidentialité
+                              {t("signup.privacyPolicy")}
                             </a>
                           </label>
                         </div>
@@ -692,17 +691,17 @@ export default function Home() {
                           type="submit"
                           className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
                         >
-                          Créer mon compte
+                          {t("signup.createAccount")}
                         </Button>
                       </form>
 
                       <div className="text-center text-sm text-gray-500">
-                        Vous avez déjà un compte?{" "}
+                        {t("signup.alreadyHaveAccount")}{" "}
                         <a
                           href="#"
                           className="text-gosholo-orange hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
                         >
-                          Connectez-vous
+                          {t("signup.signIn")}
                         </a>
                       </div>
                     </div>
@@ -714,21 +713,17 @@ export default function Home() {
                       className={`space-y-4 sm:space-y-6 transition-all duration-500 ${activeTab === "business" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}
                     >
                       <div className="text-left">
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">Inscription commerce</h3>
-                        <p className="text-gray-500 text-sm sm:text-base">
-                          Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.
-                        </p>
+                        <h3 className="text-lg sm:text-xl font-bold mb-2">{t("signup.businessTitle")}</h3>
+                        <p className="text-gray-500 text-sm sm:text-base">{t("signup.businessDescription")}</p>
                       </div>
 
-                      <p className="text-xs text-gray-500 mb-4">
-                        Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires.
-                      </p>
+                      <p className="text-xs text-gray-500 mb-4">{t("signup.requiredFields")}</p>
 
                       <form className="space-y-4 sm:space-y-6" noValidate>
                         <div className="space-y-2">
                           <label htmlFor="businessName" className="text-sm font-medium text-gray-700">
-                            Nom du commerce{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.businessName")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -737,7 +732,7 @@ export default function Home() {
                             id="businessName"
                             name="businessName"
                             className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder="Nom de votre commerce"
+                            placeholder={t("signup.yourBusinessName")}
                             required
                             aria-required="true"
                           />
@@ -746,8 +741,8 @@ export default function Home() {
                         <div className="grid gap-4 sm:grid-cols-2">
                           <div className="space-y-2">
                             <label htmlFor="businessType" className="text-sm font-medium text-gray-700">
-                              Type de commerce{" "}
-                              <span className="text-red-500" aria-label="obligatoire">
+                              {t("signup.businessType")}{" "}
+                              <span className="text-red-500" aria-label={t("signup.required")}>
                                 *
                               </span>
                             </label>
@@ -758,18 +753,18 @@ export default function Home() {
                               required
                               aria-required="true"
                             >
-                              <option value="">Sélectionnez une catégorie</option>
-                              <option value="restaurant">Restaurant</option>
-                              <option value="cafe">Café</option>
-                              <option value="retail">Commerce de détail</option>
-                              <option value="service">Service</option>
-                              <option value="other">Autre</option>
+                              <option value="">{t("signup.selectCategory")}</option>
+                              <option value="restaurant">{t("signup.restaurant")}</option>
+                              <option value="cafe">{t("signup.cafe")}</option>
+                              <option value="retail">{t("signup.retail")}</option>
+                              <option value="service">{t("signup.service")}</option>
+                              <option value="other">{t("signup.other")}</option>
                             </select>
                           </div>
                           <div className="space-y-2">
                             <label htmlFor="businessLocation" className="text-sm font-medium text-gray-700">
-                              Ville{" "}
-                              <span className="text-red-500" aria-label="obligatoire">
+                              {t("signup.city")}{" "}
+                              <span className="text-red-500" aria-label={t("signup.required")}>
                                 *
                               </span>
                             </label>
@@ -778,7 +773,7 @@ export default function Home() {
                               id="businessLocation"
                               name="city"
                               className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="Votre ville"
+                              placeholder={t("signup.yourCity")}
                               required
                               aria-required="true"
                             />
@@ -787,8 +782,8 @@ export default function Home() {
 
                         <div className="space-y-2">
                           <label htmlFor="businessPostalCode" className="text-sm font-medium text-gray-700">
-                            Code postal{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.postalCode")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -797,21 +792,21 @@ export default function Home() {
                             id="businessPostalCode"
                             name="postalCode"
                             className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder="Ex: H2X 1Y6"
+                            placeholder={t("signup.postalCodeExample")}
                             pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d"
                             required
                             aria-required="true"
                             aria-describedby="business-postal-code-help"
                           />
                           <p id="business-postal-code-help" className="text-xs text-gray-500">
-                            Format: A1A 1A1 (code postal canadien)
+                            {t("signup.postalCodeFormat")}
                           </p>
                         </div>
 
                         <div className="space-y-2">
                           <label htmlFor="businessEmail" className="text-sm font-medium text-gray-700">
-                            Email professionnel{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.businessEmail")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -825,7 +820,7 @@ export default function Home() {
                               id="businessEmail"
                               name="email"
                               className="w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="commerce@exemple.com"
+                              placeholder={t("signup.businessEmailPlaceholder")}
                               required
                               aria-required="true"
                             />
@@ -834,8 +829,8 @@ export default function Home() {
 
                         <div className="space-y-2">
                           <label htmlFor="businessPassword" className="text-sm font-medium text-gray-700">
-                            Mot de passe{" "}
-                            <span className="text-red-500" aria-label="obligatoire">
+                            {t("signup.password")}{" "}
+                            <span className="text-red-500" aria-label={t("signup.required")}>
                               *
                             </span>
                           </label>
@@ -849,7 +844,7 @@ export default function Home() {
                               id="businessPassword"
                               name="password"
                               className="w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder="Votre mot de passe"
+                              placeholder={t("signup.yourPassword")}
                               minLength={8}
                               required
                               aria-required="true"
@@ -859,13 +854,13 @@ export default function Home() {
                               type="button"
                               onClick={() => setShowPassword(!showPassword)}
                               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
-                              aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                              aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
                             >
                               {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                             </button>
                           </div>
                           <p id="business-password-help" className="text-xs text-gray-500">
-                            Le mot de passe doit contenir au moins 8 caractères.
+                            {t("signup.passwordHelp")}
                           </p>
                         </div>
 
@@ -879,19 +874,19 @@ export default function Home() {
                             aria-required="true"
                           />
                           <label htmlFor="termsBusiness" className="ml-3 block text-sm text-gray-700">
-                            J'accepte les{" "}
+                            {t("signup.terms")}{" "}
                             <a
                               href="#"
                               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
                             >
-                              conditions d'utilisation
+                              {t("signup.termsOfUse")}
                             </a>{" "}
                             et la{" "}
                             <a
                               href="#"
                               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
                             >
-                              politique de confidentialité
+                              {t("signup.privacyPolicy")}
                             </a>
                           </label>
                         </div>
@@ -900,17 +895,17 @@ export default function Home() {
                           type="submit"
                           className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
                         >
-                          Inscrire mon commerce
+                          {t("signup.registerBusiness")}
                         </Button>
                       </form>
 
                       <div className="text-center text-sm text-gray-500">
-                        Vous avez déjà un compte?{" "}
+                        {t("signup.alreadyHaveAccount")}{" "}
                         <a
                           href="#"
                           className="text-gosholo-orange hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
                         >
-                          Connectez-vous
+                          {t("signup.signIn")}
                         </a>
                       </div>
                     </div>

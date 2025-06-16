@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface ContestPopupProps {
   isOpen: boolean
@@ -12,6 +13,8 @@ interface ContestPopupProps {
 }
 
 export function ContestPopup({ isOpen, onClose, onViewContest }: ContestPopupProps) {
+  const { t } = useTranslation()
+
   const handleViewContest = () => {
     onClose()
     setTimeout(() => {
@@ -32,7 +35,7 @@ export function ContestPopup({ isOpen, onClose, onViewContest }: ContestPopupPro
             src="/images/concours-popup.png"
             width={400}
             height={500}
-            alt="Concours Osheaga - Shop local avec Gosholo"
+            alt={t("popup.contestImageAlt")}
             className="w-full h-auto object-cover max-h-80 sm:max-h-96"
           />
           <div className="p-4" style={{ backgroundColor: "#016167" }}>
@@ -40,9 +43,9 @@ export function ContestPopup({ isOpen, onClose, onViewContest }: ContestPopupPro
               size="default"
               className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gosholo-dark-teal transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-sm sm:text-base py-3"
               onClick={handleViewContest}
-              aria-label="Voir les détails du concours Osheaga"
+              aria-label={t("popup.seeContestDetails")}
             >
-              Voir les détails du concours
+              {t("popup.seeContestDetails")}
               <ChevronRight
                 className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"

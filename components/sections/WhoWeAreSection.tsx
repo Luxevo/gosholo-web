@@ -1,8 +1,17 @@
 "use client"
 
-import { FEATURE_BADGES } from "@/constants"
+import { useTranslation } from "@/hooks/useTranslation"
+import { Smartphone, Gift, Coffee } from "lucide-react"
 
 export function WhoWeAreSection() {
+  const { t } = useTranslation()
+
+  const featureBadges = [
+    { icon: Smartphone, label: t("whoWeAre.mobileApp") },
+    { icon: Gift, label: t("whoWeAre.rewards") },
+    { icon: Coffee, label: t("whoWeAre.localBusinesses") },
+  ]
+
   return (
     <section
       id="who-we-are"
@@ -16,28 +25,25 @@ export function WhoWeAreSection() {
             className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
             role="presentation"
           >
-            Qui nous sommes
+            {t("whoWeAre.badge")}
           </div>
           <h2
             id="who-we-are-title"
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-light-green text-center"
           >
-            Découvrez gosholo
+            {t("whoWeAre.title")}
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
           <p className="text-base sm:text-lg leading-relaxed text-gosholo-light-green text-center sm:text-left">
-            Une application innovante qui transforme ta façon de découvrir et de profiter des offres locales ! À chaque
-            achat chez nos partenaires, tu accumules des points que tu peux utiliser pour débloquer des offres
-            exclusives, des réductions et des expériences uniques.
+            {t("whoWeAre.description1")}
           </p>
           <p className="text-base sm:text-lg leading-relaxed text-gosholo-light-green text-center sm:text-left">
-            Que tu aies envie d'un café, de faire des courses, ou de découvrir de nouvelles activités, gosholo te permet
-            de soutenir les commerces de ton quartier tout en économisant.
+            {t("whoWeAre.description2")}
           </p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
-            {FEATURE_BADGES.map((badge, index) => {
+            {featureBadges.map((badge, index) => {
               const IconComponent = badge.icon
               return (
                 <div

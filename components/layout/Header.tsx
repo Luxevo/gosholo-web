@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { NAVIGATION_ITEMS } from "@/constants"
 import { MobileMenu } from "./MobileMenu"
+import { LanguageSelector } from "@/components/ui/LanguageSelector"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface HeaderProps {
   isVisible: boolean
@@ -15,6 +16,14 @@ interface HeaderProps {
 
 export function Header({ isVisible, onScrollToSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t } = useTranslation()
+
+  const navigationItems = [
+    { href: "/", label: t("nav.home") },
+    { href: "#who-we-are", label: t("nav.whoWeAre") },
+    { href: "#about", label: t("nav.about") },
+    { href: "#contest", label: t("nav.contest") },
+  ]
 
   return (
     <header
@@ -22,7 +31,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
     >
       <div className="container flex h-14 sm:h-16 items-center px-4">
         <div className="mr-2 sm:mr-4 flex">
-          <Link href="/" className="flex items-center group" aria-label="Retour à l'accueil">
+          <Link href="/" className="flex items-center group" aria-label={t("nav.backToHome")}>
             <Image
               src="/images/gosholo-logo.png"
               alt="Logo Gosholo - Soutenez les commerces locaux"
@@ -37,9 +46,9 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
         <nav
           className="hidden md:flex items-center space-x-4 lg:space-x-6 mx-6"
           role="navigation"
-          aria-label="Navigation principale"
+          aria-label={t("nav.mainNavigation")}
         >
-          {NAVIGATION_ITEMS.map((item) => (
+          {navigationItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -51,20 +60,23 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
         </nav>
 
         <div className="ml-auto flex items-center space-x-2 sm:space-x-4">
+          <LanguageSelector />
+
           <div className="hidden sm:block">
             <Button
               size="sm"
               className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm px-3 sm:px-4"
               onClick={() => onScrollToSection("signup")}
-              aria-label="Aller à la section d'inscription"
+              aria-label={t("hero.goToSignup")}
             >
-              S'inscrire
+              {t("nav.signup")}
             </Button>
           </div>
+
           <button
             className={`md:hidden p-2 transition-all duration-300 hover:scale-110 touch-target-44 ${mobileMenuOpen ? "rotate-180" : "rotate-0"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={mobileMenuOpen}
             style={{ minWidth: "44px", minHeight: "44px" }}
           >
@@ -77,6 +89,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         onScrollToSection={onScrollToSection}
+        navigationItems={navigationItems}
       />
     </header>
   )
