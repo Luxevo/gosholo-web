@@ -74,3 +74,44 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Optimisations mobile critiques */
+@layer utilities {
+  .touch-target-44 {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Amélioration de la lisibilité sur mobile */
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px; /* Évite le zoom automatique sur iOS */
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 16px; /* Évite le zoom automatique sur iOS */
+    }
+  }
+
+  /* Optimisation des animations pour les appareils à faible performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Amélioration du contraste pour l'accessibilité */
+  @media (prefers-contrast: high) {
+    .text-white\/90 {
+      @apply text-white;
+    }
+
+    .text-gosholo-light-green {
+      filter: contrast(1.2);
+    }
+  }
+}
