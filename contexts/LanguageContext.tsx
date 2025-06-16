@@ -38,7 +38,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("gosholo-language", lang)
 
     // Update document language
-    document.documentElement.lang = lang
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang
+    }
   }
 
   return <LanguageContext.Provider value={{ language, setLanguage, isLoading }}>{children}</LanguageContext.Provider>

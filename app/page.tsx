@@ -7,31 +7,23 @@ import { WhoWeAreSection } from "@/components/sections/WhoWeAreSection"
 import { AboutSection } from "@/components/sections/AboutSection"
 import { ContestPopup } from "@/components/ui/ContestPopup"
 import { ConstructionBadge } from "@/components/ui/ConstructionBadge"
+import { ClientWrapper } from "@/components/ClientWrapper"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { usePopupTimer } from "@/hooks/usePopupTimer"
-import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "@/hooks/useTranslation"
 import { Button } from "@/components/ui/button"
 import { MapPin, Store, User, Mail, Lock, Eye, EyeOff, ChevronDown, Clock } from "lucide-react"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-export default function Home() {
+function HomeContent() {
   const { isVisible } = useScrollAnimation()
   const { isOpen, setIsOpen } = usePopupTimer()
-  const { language, isLoading } = useLanguage()
-  const { t } = useTranslation()
+  const { t, tArray } = useTranslation()
 
   const [activeTab, setActiveTab] = useState<"user" | "business">("user")
   const [showPassword, setShowPassword] = useState(false)
   const [rulesOpen, setRulesOpen] = useState(false)
-
-  // Update document language when language changes
-  useEffect(() => {
-    if (!isLoading) {
-      document.documentElement.lang = language
-    }
-  }, [language, isLoading])
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
@@ -44,18 +36,6 @@ export default function Home() {
     scrollToSection("contest")
   }
 
-  // Show loading state while language is being determined
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gosholo-orange mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header isVisible={isVisible} onScrollToSection={scrollToSection} />
@@ -65,7 +45,7 @@ export default function Home() {
         <WhoWeAreSection />
         <AboutSection />
 
-        {/* Contest Section - Temporarily inline until refactored */}
+        {/* Contest Section */}
         <section
           id="contest"
           className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-light-blue"
@@ -256,11 +236,9 @@ export default function Home() {
                           {t("contestRules.duration")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.durationContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.durationContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -270,13 +248,11 @@ export default function Home() {
                         </h4>
                         <p className="mb-2 text-xs sm:text-sm">{t("contestRules.participationIntro")}</p>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.participationContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index} className={item.startsWith("•") ? "ml-3" : ""}>
-                                {item}
-                              </p>
-                            ))}
+                          {tArray("contestRules.participationContent").map((item: string, index: number) => (
+                            <p key={index} className={item.startsWith("•") ? "ml-3" : ""}>
+                              {item}
+                            </p>
+                          ))}
                         </div>
                       </div>
 
@@ -285,11 +261,9 @@ export default function Home() {
                           {t("contestRules.eligibility")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.eligibilityContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.eligibilityContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -298,11 +272,9 @@ export default function Home() {
                           {t("contestRules.draw")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.drawContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.drawContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -311,11 +283,9 @@ export default function Home() {
                           {t("contestRules.prize")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.prizeContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.prizeContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -324,11 +294,9 @@ export default function Home() {
                           {t("contestRules.liability")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.liabilityContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.liabilityContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -337,11 +305,9 @@ export default function Home() {
                           {t("contestRules.consent")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {t("contestRules.consentContent")
-                            .split("|")
-                            .map((item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            ))}
+                          {tArray("contestRules.consentContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -923,5 +889,13 @@ export default function Home() {
 
       <ConstructionBadge />
     </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <ClientWrapper>
+      <HomeContent />
+    </ClientWrapper>
   )
 }
