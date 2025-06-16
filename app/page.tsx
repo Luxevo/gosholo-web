@@ -441,6 +441,8 @@ export default function Home() {
       </section>
 
       {/* Section concours avec animations interactives */}
+
+      {/* Section concours */}
       <section
         id="concours"
         className="w-full py-12 md:py-24 lg:py-32 bg-gosholo-light-blue"
@@ -450,7 +452,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div id="concours" className="flex flex-col items-center justify-center space-y-4 text-center">
             <div
-              className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto"
               role="presentation"
             >
               Événement spécial
@@ -468,290 +470,241 @@ export default function Home() {
           <div className="mx-auto max-w-4xl mt-12">
             <div className="grid gap-8">
               <div className="flex flex-col justify-center space-y-6">
-                <div className="relative group">
-                  <div
-                    className="absolute -top-2 -left-2 w-4 h-4 bg-gosholo-orange rounded-full animate-pulse"
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -top-2 -right-2 w-4 h-4 bg-gosholo-orange rounded-full animate-pulse"
-                    style={{ animationDelay: "0.5s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -bottom-2 -left-2 w-4 h-4 bg-gosholo-orange rounded-full animate-pulse"
-                    style={{ animationDelay: "1s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -bottom-2 -right-2 w-4 h-4 bg-gosholo-orange rounded-full animate-pulse"
-                    style={{ animationDelay: "1.5s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div className="border-2 border-dashed border-white p-6 rounded-lg bg-gosholo-dark-teal transition-all duration-300 hover:shadow-xl group-hover:scale-105">
-                    <h3 className="text-2xl font-bold mb-4 text-white">Comment participer</h3>
-                    <ol className="space-y-4 text-white list-none">
-                      <li className="flex items-start gap-3 transition-all duration-300 hover:translate-x-2">
-                        <div
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm transition-all duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          1
-                        </div>
-                        <p>Suivez notre compte Instagram officiel : @gosholo</p>
-                      </li>
-                      <li className="flex items-start gap-3 transition-all duration-300 hover:translate-x-2">
-                        <div
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm transition-all duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          2
-                        </div>
-                        <p>Repostez en story Instagram la publication officielle du concours</p>
-                      </li>
-                      <li className="flex items-start gap-3 transition-all duration-300 hover:translate-x-2">
-                        <div
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm transition-all duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          3
-                        </div>
-                        <p>Taguez 2 amis dans les commentaires de la publication</p>
-                      </li>
-                      <li className="flex items-start gap-3 transition-all duration-300 hover:translate-x-2">
-                        <div
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm transition-all duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          4
-                        </div>
-                        <p>Téléchargez l'application Gosholo quand elle sera disponible (avant le début du concours)</p>
-                      </li>
-                    </ol>
-                  </div>
+                <div className="border-2 border-dashed border-white p-6 rounded-lg bg-gosholo-dark-teal">
+                  <h3 className="text-2xl font-bold mb-4 text-white">Comment participer</h3>
+                  <ol className="space-y-4 text-white list-none">
+                    <li className="flex items-start gap-3">
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm"
+                        aria-hidden="true"
+                      >
+                        1
+                      </div>
+                      <p>Suivez notre compte Instagram officiel : @gosholo</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm"
+                        aria-hidden="true"
+                      >
+                        2
+                      </div>
+                      <p>Repostez en story Instagram la publication officielle du concours</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm"
+                        aria-hidden="true"
+                      >
+                        3
+                      </div>
+                      <p>Taguez 2 amis dans les commentaires de la publication</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full bg-gosholo-orange text-white font-medium text-sm"
+                        aria-hidden="true"
+                      >
+                        4
+                      </div>
+                      <p>Téléchargez l'application Gosholo quand elle sera disponible (avant le début du concours)</p>
+                    </li>
+                  </ol>
                 </div>
               </div>
 
               <div className="flex flex-col justify-center">
-                <div className="relative group">
-                  <div
-                    className="absolute -top-2 -left-2 w-4 h-4 bg-gosholo-orange rounded-full animate-bounce"
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -top-2 -right-2 w-4 h-4 bg-gosholo-orange rounded-full animate-bounce"
-                    style={{ animationDelay: "0.2s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -bottom-2 -left-2 w-4 h-4 bg-gosholo-orange rounded-full animate-bounce"
-                    style={{ animationDelay: "0.4s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div
-                    className="absolute -bottom-2 -right-2 w-4 h-4 bg-gosholo-orange rounded-full animate-bounce"
-                    style={{ animationDelay: "0.6s" }}
-                    aria-hidden="true"
-                  ></div>
-                  <div className="border-2 border-dashed border-white p-6 rounded-lg bg-white transition-all duration-300 hover:shadow-xl group-hover:scale-105">
-                    <h3 className="text-2xl font-bold mb-4 text-gosholo-dark-teal flex items-center">
+                <div className="border-2 border-dashed border-white p-6 rounded-lg bg-white">
+                  <h3 className="text-2xl font-bold mb-4 text-gosholo-dark-teal flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2 text-gosholo-orange"
+                      aria-hidden="true"
+                    >
+                      <path d="M21 8v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8"></path>
+                      <path d="m8 6 4-4 4 4"></path>
+                      <path d="M12 2v14"></path>
+                    </svg>
+                    Détails du concours
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 p-2">
+                      <MapPin className="h-5 w-5 text-gosholo-orange flex-shrink-0" aria-hidden="true" />
+                      <span>Montréal, du 2 au 4 août 2025</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="mr-2 text-gosholo-orange transition-transform duration-300 group-hover:scale-110"
+                        className="text-gosholo-orange flex-shrink-0"
                         aria-hidden="true"
                       >
-                        <path d="M21 8v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8"></path>
-                        <path d="m8 6 4-4 4 4"></path>
-                        <path d="M12 2v14"></path>
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
                       </svg>
-                      Détails du concours
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 p-2 hover:bg-gosholo-light-blue/5 rounded-md transition-all duration-300 hover:translate-x-2">
-                        <MapPin
-                          className="h-5 w-5 text-gosholo-orange flex-shrink-0 transition-transform duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        />
-                        <span>Montréal, du 2 au 4 août 2025</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-2 hover:bg-gosholo-light-blue/5 rounded-md transition-all duration-300 hover:translate-x-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-gosholo-orange flex-shrink-0 transition-transform duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                          <line x1="16" y1="2" x2="16" y2="6"></line>
-                          <line x1="8" y1="2" x2="8" y2="6"></line>
-                          <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <span>Fin du concours: 15 juillet 2025</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-2 hover:bg-gosholo-light-blue/5 rounded-md transition-all duration-300 hover:translate-x-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-gosholo-orange flex-shrink-0 transition-transform duration-300 hover:scale-110"
-                          aria-hidden="true"
-                        >
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        <span>Les gagnants seront contactés par courriel</span>
-                      </div>
+                      <span>Fin du concours: 15 juillet 2025</span>
                     </div>
-                    <div className="mt-4 pt-4 border-t">
-                      <div className="flex items-center justify-between">
-                        <div className="text-sm">Temps restant:</div>
-                        <div className="font-bold text-gosholo-orange">31 jours</div>
-                      </div>
-                      <div
-                        className="w-full bg-gray-200 rounded-full h-2.5 mt-2"
-                        role="progressbar"
-                        aria-valuenow={65}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-label="Progression du concours"
+                    <div className="flex items-center gap-2 p-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-gosholo-orange flex-shrink-0"
+                        aria-hidden="true"
                       >
-                        <div
-                          className="bg-gosholo-orange h-2.5 rounded-full transition-all duration-1000 ease-out animate-pulse"
-                          style={{ width: "65%" }}
-                        ></div>
-                      </div>
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Les gagnants seront contactés par courriel</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t">
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm">Temps restant:</div>
+                      <div className="font-bold text-gosholo-orange">31 jours</div>
+                    </div>
+                    <div
+                      className="w-full bg-gray-200 rounded-full h-2.5 mt-2"
+                      role="progressbar"
+                      aria-valuenow={65}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label="Progression du concours"
+                    >
+                      <div className="bg-gosholo-orange h-2.5 rounded-full" style={{ width: "65%" }}></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Règlement du concours avec animation d'accordéon */}
-            <div className="mt-12 bg-white rounded-lg shadow-sm border overflow-hidden transition-all duration-300 hover:shadow-lg">
+            {/* Règlement du concours */}
+            <div className="mt-12 bg-white rounded-lg shadow-sm border overflow-hidden">
               <button
                 onClick={() => setRulesOpen(!rulesOpen)}
-                className="w-full flex items-center justify-between p-4 font-bold text-lg text-gosholo-dark-teal hover:bg-gosholo-light-blue/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 group"
+                className="w-full flex items-center justify-between p-4 font-bold text-lg text-gosholo-dark-teal hover:bg-gosholo-light-blue/10 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2"
                 aria-expanded={rulesOpen}
                 aria-controls="rules-content"
               >
                 Règlement officiel du concours
-                <ChevronDown
-                  className={`h-5 w-5 transition-all duration-500 ${rulesOpen ? "transform rotate-180" : ""} group-hover:scale-110`}
-                  aria-hidden="true"
-                />
+                <ChevronDown className={`h-5 w-5 ${rulesOpen ? "transform rotate-180" : ""}`} aria-hidden="true" />
               </button>
 
-              <div
-                className={`transition-all duration-500 ease-in-out ${rulesOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
-              >
-                <div id="rules-content" className="p-6 border-t text-sm">
-                  <h3 className="font-bold text-lg mb-4">Règlement officiel du concours – Osheaga 2025</h3>
+              <div className={`${rulesOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
+                <div
+                  className={`transition-all duration-500 ease-in-out ${rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
+                >
+                  <div id="rules-content" className="p-6 border-t text-sm overflow-y-auto max-h-80">
+                    <h3 className="font-bold text-lg mb-4">Règlement officiel du concours – Osheaga 2025</h3>
 
-                  <div className="space-y-6">
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">1. Durée du concours</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          Le concours débute le 16 juin 2025 à 9h00 et se termine le jeudi 17 juillet 2025 à 23h59
-                          (heure du Québec).
-                        </li>
-                        <li>Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.</li>
-                      </ul>
-                    </div>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">1. Durée du concours</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>
+                            Le concours débute le 16 juin 2025 à 9h00 et se termine le jeudi 17 juillet 2025 à 23h59
+                            (heure du Québec).
+                          </li>
+                          <li>Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.</li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">2. Conditions de participation</h4>
-                      <p className="mb-2">Pour être admissible au tirage, les participants doivent :</p>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>Suivre notre compte Instagram officiel : @gosholo</li>
-                        <li>
-                          Reposter en story Instagram la publication officielle du concours (la story doit inclure le
-                          tag @gosholo).
-                        </li>
-                        <li>Taguer 2 amis dans les commentaires de la publication du concours sur Instagram.</li>
-                        <li>
-                          Télécharger notre application gosholo et créer un compte (l'application sera disponible avant
-                          le début du concours).
-                        </li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">2. Conditions de participation</h4>
+                        <p className="mb-2">Pour être admissible au tirage, les participants doivent :</p>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>
+                            Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux
+                            sauter cette étape).
+                          </li>
+                          <li>Suivre notre compte Instagram officiel : @gosholo</li>
+                          <li>
+                            Reposter en story Instagram la publication officielle du concours (la story doit inclure le
+                            tag @gosholo).
+                          </li>
+                          <li>Taguer 2 amis dans les commentaires de la publication du concours sur Instagram.</li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">3. Admissibilité</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>Ce concours est ouvert à toute personne âgée de 18 ans ou plus, résidant au Québec.</li>
-                        <li>Une seule participation par personne est autorisée.</li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">3. Admissibilité</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>Ce concours est ouvert à toute personne âgée de 18 ans ou plus, résidant au Québec.</li>
+                          <li>Une seule participation par personne est autorisée.</li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">4. Tirage et attribution du prix</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          Le gagnant sera sélectionné au hasard parmi les personnes admissibles, ayant complété les 4
-                          étapes ci-dessus.
-                        </li>
-                        <li>
-                          Le gagnant sera contacté par message privé Instagram et devra fournir le courriel utilisé lors
-                          de l'inscription à l'app, afin de valider son identité.
-                        </li>
-                        <li>
-                          Si le gagnant ne répond pas dans un délai de 24 heures, un nouveau tirage sera effectué.
-                        </li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">4. Tirage et attribution du prix</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>
+                            Le gagnant sera sélectionné au hasard parmi les personnes admissibles, ayant complété les 4
+                            étapes ci-dessus.
+                          </li>
+                          <li>
+                            Le gagnant sera contacté par message privé Instagram et devra fournir le courriel utilisé
+                            lors de l'inscription à l'app, afin de valider son identité.
+                          </li>
+                          <li>
+                            Si le gagnant ne répond pas dans un délai de 24 heures, un nouveau tirage sera effectué.
+                          </li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">5. Prix</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>Une paire de billets pour Osheaga – samedi 2 août 2025 (valeur approximative : 400 $)</li>
-                        <li>Le prix est non monnayable, non transférable et non échangeable.</li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">5. Prix</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>Une paire de billets pour Osheaga – samedi 2 août 2025 (valeur approximative : 400 $)</li>
+                          <li>Le prix est non monnayable, non transférable et non échangeable.</li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">6. Limite de responsabilité</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          Ce concours n'est en aucun cas affilié, commandité ou géré par Instagram, Meta, Osheaga,
-                          evenko ou leurs partenaires.
-                        </li>
-                        <li>
-                          En participant, les utilisateurs dégagent Instagram et les autres tiers de toute
-                          responsabilité.
-                        </li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">6. Limite de responsabilité</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>
+                            Ce concours n'est en aucun cas affilié, commandité ou géré par Instagram, Meta, Osheaga,
+                            evenko ou leurs partenaires.
+                          </li>
+                          <li>
+                            En participant, les utilisateurs dégagent Instagram et les autres tiers de toute
+                            responsabilité.
+                          </li>
+                        </ul>
+                      </div>
 
-                    <div className="transition-all duration-300 hover:translate-x-2">
-                      <h4 className="font-bold text-gosholo-dark-teal mb-2">7. Consentement</h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          En participant à ce concours, les personnes acceptent que leur nom d'utilisateur et leur
-                          prénom puissent être mentionnés publiquement en cas de gain (réseaux sociaux ou site web de
-                          l'organisateur).
-                        </li>
-                      </ul>
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2">7. Consentement</h4>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>
+                            En participant à ce concours, les personnes acceptent que leur nom d'utilisateur et leur
+                            prénom puissent être mentionnés publiquement en cas de gain (réseaux sociaux ou site web de
+                            l'organisateur).
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -759,11 +712,7 @@ export default function Home() {
             </div>
             {/* Bouton d'action */}
             <div className="flex justify-center mt-12">
-              <Button
-                size="lg"
-                className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white group transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                disabled
-              >
+              <Button size="lg" className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white" disabled>
                 <Clock className="mr-2 h-4 w-4 animate-spin" />
                 Application bientôt disponible
               </Button>
