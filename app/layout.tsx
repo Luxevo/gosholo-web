@@ -10,6 +10,9 @@ export const metadata = {
   title: "Gosholo - Soutenez les commerces locaux",
   description: "Découvrez et soutenez les commerces locaux avec Gosholo",
   generator: "v0.dev",
+  icons: {
+    icon: "/images/gosholo-logo.png", 
+  },
 }
 
 export default function RootLayout({
