@@ -224,6 +224,8 @@ export const en = {
     badge: "Support Center",
     title: "How can we help you?",
     description: "Our team is here to answer all your questions and solve your problems quickly.",
+    contactEmail: "Contact Email",
+    directContact: "You can also contact us directly",
     categories: {
       account: {
         title: "Account Problem",
