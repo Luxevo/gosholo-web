@@ -66,12 +66,14 @@ export const fr = {
   contest: {
     badge: "Événement spécial",
     title: "Concours Osheaga",
-    description: "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
+    description:
+      "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
     howToParticipate: "Comment participer",
     step1: "Suivez notre compte Instagram officiel : @gosholo",
     step2: "Repostez en story Instagram la publication officielle du concours",
     step3: "Taguez 2 amis dans les commentaires de la publication",
-    step4: "Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)",
+    step4:
+      "Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)",
     contestDetails: "Détails du concours",
     location: "Montréal, du 2 au 4 août 2025",
     endDate: "Fin du concours: 15 juillet 2025",
@@ -92,7 +94,8 @@ export const fr = {
       "Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.",
     ],
     participation: "2. Conditions de participation",
-    participationIntro: "Pour être admissible au tirage, les participants doivent :",
+    participationIntro:
+      "Pour être admissible au tirage, les participants doivent :",
     participationContent: [
       "• Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux sauter cette étape).",
       "• Suivre notre compte Instagram officiel : @gosholo",
@@ -140,13 +143,16 @@ export const fr = {
   signup: {
     badge: "Rejoignez-nous",
     title: "Créez votre compte",
-    description: "Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.",
+    description:
+      "Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.",
     userTab: "Utilisateur",
     businessTab: "Commerce",
     userTitle: "Inscription utilisateur",
-    userDescription: "Créez votre compte pour découvrir et soutenir les commerces locaux.",
+    userDescription:
+      "Créez votre compte pour découvrir et soutenir les commerces locaux.",
     businessTitle: "Inscription commerce",
-    businessDescription: "Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.",
+    businessDescription:
+      "Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.",
     required: "obligatoire",
     requiredFields: "Les champs marqués d'un * sont obligatoires.",
     firstName: "Prénom",
@@ -183,6 +189,8 @@ export const fr = {
     businessEmailPlaceholder: "commerce@exemple.com",
     yourPassword: "Votre mot de passe",
     postalCodeExample: "Ex: H2X 1Y6",
+    phoneNumber: "Numéro de téléphone",
+    phoneNumberPlaceholder: "Ex: 581-123-4567",
   },
 
   // Footer
@@ -222,4 +230,4 @@ export const fr = {
     delete: "Supprimer",
     confirm: "Confirmer",
   },
-}
+};

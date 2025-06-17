@@ -1,47 +1,63 @@
-"use client"
+"use client";
 
-import { Header } from "@/components/layout/Header"
-import { Footer } from "@/components/layout/Footer"
-import { HeroSection } from "@/components/sections/HeroSection"
-import { WhoWeAreSection } from "@/components/sections/WhoWeAreSection"
-import { AboutSection } from "@/components/sections/AboutSection"
-import { ContestPopup } from "@/components/ui/ContestPopup"
-import { ConstructionBadge } from "@/components/ui/ConstructionBadge"
-import { ClientWrapper } from "@/components/ClientWrapper"
-import { useScrollAnimation } from "@/hooks/useScrollAnimation"
-import { usePopupTimer } from "@/hooks/usePopupTimer"
-import { useTranslation } from "@/hooks/useTranslation"
-import { Button } from "@/components/ui/button"
-import { MapPin, Store, User, Mail, Lock, Eye, EyeOff, ChevronDown, Clock } from "lucide-react"
-import Image from "next/image"
-import { useState } from "react"
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { WhoWeAreSection } from "@/components/sections/WhoWeAreSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ContestPopup } from "@/components/ui/ContestPopup";
+import { ConstructionBadge } from "@/components/ui/ConstructionBadge";
+import { ClientWrapper } from "@/components/ClientWrapper";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { usePopupTimer } from "@/hooks/usePopupTimer";
+import { useTranslation } from "@/hooks/useTranslation";
+import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Store,
+  User,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  ChevronDown,
+  Clock,
+  Phone,
+} from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { UserSignupForm } from "@/components/sections/UserSignupForm";
+import { BusinessSignupForm } from "@/components/sections/BusinessSignupForm";
 
 function HomeContent() {
-  const { isVisible } = useScrollAnimation()
-  const { isOpen, setIsOpen } = usePopupTimer()
-  const { t, tArray } = useTranslation()
+  const { isVisible } = useScrollAnimation();
+  const { isOpen, setIsOpen } = usePopupTimer();
+  const { t, tArray } = useTranslation();
 
-  const [activeTab, setActiveTab] = useState<"user" | "business">("user")
-  const [showPassword, setShowPassword] = useState(false)
-  const [rulesOpen, setRulesOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<"user" | "business">("user");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rulesOpen, setRulesOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId)
+    const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const handleViewContest = () => {
-    scrollToSection("contest")
-  }
+    scrollToSection("contest");
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header isVisible={isVisible} onScrollToSection={scrollToSection} />
 
       <main>
-        <HeroSection isVisible={isVisible} onScrollToSection={scrollToSection} />
+        <HeroSection
+          isVisible={isVisible}
+          onScrollToSection={scrollToSection}
+        />
         <WhoWeAreSection />
         <AboutSection />
 
@@ -77,7 +93,9 @@ function HomeContent() {
               <div className="grid gap-6 sm:gap-8">
                 <div className="flex flex-col justify-center space-y-6">
                   <div className="border-2 border-dashed border-white p-4 sm:p-6 rounded-lg bg-gosholo-dark-teal">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">{t("contest.howToParticipate")}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">
+                      {t("contest.howToParticipate")}
+                    </h3>
                     <ol className="space-y-3 sm:space-y-4 text-white list-none">
                       <li className="flex items-start gap-3">
                         <div
@@ -86,7 +104,9 @@ function HomeContent() {
                         >
                           1
                         </div>
-                        <p className="text-sm sm:text-base">{t("contest.step1")}</p>
+                        <p className="text-sm sm:text-base">
+                          {t("contest.step1")}
+                        </p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -95,7 +115,9 @@ function HomeContent() {
                         >
                           2
                         </div>
-                        <p className="text-sm sm:text-base">{t("contest.step2")}</p>
+                        <p className="text-sm sm:text-base">
+                          {t("contest.step2")}
+                        </p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -104,7 +126,9 @@ function HomeContent() {
                         >
                           3
                         </div>
-                        <p className="text-sm sm:text-base">{t("contest.step3")}</p>
+                        <p className="text-sm sm:text-base">
+                          {t("contest.step3")}
+                        </p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -113,7 +137,9 @@ function HomeContent() {
                         >
                           4
                         </div>
-                        <p className="text-sm sm:text-base">{t("contest.step4")}</p>
+                        <p className="text-sm sm:text-base">
+                          {t("contest.step4")}
+                        </p>
                       </li>
                     </ol>
                   </div>
@@ -139,7 +165,9 @@ function HomeContent() {
                         <path d="m8 6 4-4 4 4"></path>
                         <path d="M12 2v14"></path>
                       </svg>
-                      <span className="text-base sm:text-xl">{t("contest.contestDetails")}</span>
+                      <span className="text-base sm:text-xl">
+                        {t("contest.contestDetails")}
+                      </span>
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 p-2">
@@ -147,7 +175,9 @@ function HomeContent() {
                           className="h-4 w-4 sm:h-5 sm:w-5 text-gosholo-orange flex-shrink-0"
                           aria-hidden="true"
                         />
-                        <span className="text-sm sm:text-base">{t("contest.location")}</span>
+                        <span className="text-sm sm:text-base">
+                          {t("contest.location")}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -163,12 +193,21 @@ function HomeContent() {
                           className="text-gosholo-orange flex-shrink-0 sm:w-5 sm:h-5"
                           aria-hidden="true"
                         >
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                          <rect
+                            x="3"
+                            y="4"
+                            width="18"
+                            height="18"
+                            rx="2"
+                            ry="2"
+                          ></rect>
                           <line x1="16" y1="2" x2="16" y2="6"></line>
                           <line x1="8" y1="2" x2="8" y2="6"></line>
                           <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        <span className="text-sm sm:text-base">{t("contest.endDate")}</span>
+                        <span className="text-sm sm:text-base">
+                          {t("contest.endDate")}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -186,13 +225,19 @@ function HomeContent() {
                         >
                           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
-                        <span className="text-sm sm:text-base">{t("contest.contact")}</span>
+                        <span className="text-sm sm:text-base">
+                          {t("contest.contact")}
+                        </span>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t">
                       <div className="flex items-center justify-between">
-                        <div className="text-sm">{t("contest.timeRemaining")}</div>
-                        <div className="font-bold text-gosholo-orange">{t("contest.daysLeft")}</div>
+                        <div className="text-sm">
+                          {t("contest.timeRemaining")}
+                        </div>
+                        <div className="font-bold text-gosholo-orange">
+                          {t("contest.daysLeft")}
+                        </div>
                       </div>
                       <div
                         className="w-full bg-gray-200 rounded-full h-2.5 mt-2"
@@ -202,7 +247,10 @@ function HomeContent() {
                         aria-valuemax={100}
                         aria-label={t("contest.progressLabel")}
                       >
-                        <div className="bg-gosholo-orange h-2.5 rounded-full" style={{ width: "65%" }}></div>
+                        <div
+                          className="bg-gosholo-orange h-2.5 rounded-full"
+                          style={{ width: "65%" }}
+                        ></div>
                       </div>
                     </div>
                   </div>
@@ -219,16 +267,27 @@ function HomeContent() {
                 >
                   <span>{t("contest.rulesTitle")}</span>
                   <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 ${rulesOpen ? "rotate-180" : ""}`}
+                    className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 ${
+                      rulesOpen ? "rotate-180" : ""
+                    }`}
                     aria-hidden="true"
                   />
                 </button>
 
                 <div
-                  className={`transition-all duration-500 ease-in-out ${rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
+                  className={`transition-all duration-500 ease-in-out ${
+                    rulesOpen
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0 overflow-hidden"
+                  }`}
                 >
-                  <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80">
-                    <h3 className="font-bold text-base sm:text-lg mb-4">{t("contestRules.title")}</h3>
+                  <div
+                    id="rules-content"
+                    className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80"
+                  >
+                    <h3 className="font-bold text-base sm:text-lg mb-4">
+                      {t("contestRules.title")}
+                    </h3>
 
                     <div className="space-y-4 sm:space-y-6">
                       <div>
@@ -236,9 +295,11 @@ function HomeContent() {
                           {t("contestRules.duration")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.durationContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.durationContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -246,13 +307,20 @@ function HomeContent() {
                         <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
                           {t("contestRules.participation")}
                         </h4>
-                        <p className="mb-2 text-xs sm:text-sm">{t("contestRules.participationIntro")}</p>
+                        <p className="mb-2 text-xs sm:text-sm">
+                          {t("contestRules.participationIntro")}
+                        </p>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.participationContent").map((item: string, index: number) => (
-                            <p key={index} className={item.startsWith("•") ? "ml-3" : ""}>
-                              {item}
-                            </p>
-                          ))}
+                          {tArray("contestRules.participationContent").map(
+                            (item: string, index: number) => (
+                              <p
+                                key={index}
+                                className={item.startsWith("•") ? "ml-3" : ""}
+                              >
+                                {item}
+                              </p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -261,9 +329,11 @@ function HomeContent() {
                           {t("contestRules.eligibility")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.eligibilityContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.eligibilityContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -272,9 +342,11 @@ function HomeContent() {
                           {t("contestRules.draw")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.drawContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.drawContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -283,9 +355,11 @@ function HomeContent() {
                           {t("contestRules.prize")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.prizeContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.prizeContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -294,9 +368,11 @@ function HomeContent() {
                           {t("contestRules.liability")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.liabilityContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.liabilityContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
 
@@ -305,9 +381,11 @@ function HomeContent() {
                           {t("contestRules.consent")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.consentContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
+                          {tArray("contestRules.consentContent").map(
+                            (item: string, index: number) => (
+                              <p key={index}>{item}</p>
+                            )
+                          )}
                         </div>
                       </div>
                     </div>
@@ -339,7 +417,10 @@ function HomeContent() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h2 id="cta-title" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter">
+                  <h2
+                    id="cta-title"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter"
+                  >
                     {t("cta.title")}
                   </h2>
                   <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
@@ -445,7 +526,11 @@ function HomeContent() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
                 {/* Tabs */}
-                <div className="flex border-b" role="tablist" aria-label="Type d'inscription">
+                <div
+                  className="flex border-b"
+                  role="tablist"
+                  aria-label="Type d'inscription"
+                >
                   <button
                     className={`flex-1 py-3 sm:py-4 px-4 sm:px-6 text-center font-medium text-sm sm:text-base lg:text-lg transition-all duration-500 touch-target-44 ${
                       activeTab === "user"
@@ -460,7 +545,9 @@ function HomeContent() {
                   >
                     <div className="flex items-center justify-center gap-2">
                       <User
-                        className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${activeTab === "user" ? "scale-110" : ""}`}
+                        className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
+                          activeTab === "user" ? "scale-110" : ""
+                        }`}
                         aria-hidden="true"
                       />
                       <span>{t("signup.userTab")}</span>
@@ -480,7 +567,9 @@ function HomeContent() {
                   >
                     <div className="flex items-center justify-center gap-2">
                       <Store
-                        className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${activeTab === "business" ? "scale-110" : ""}`}
+                        className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
+                          activeTab === "business" ? "scale-110" : ""
+                        }`}
                         aria-hidden="true"
                       />
                       <span>{t("signup.businessTab")}</span>
@@ -491,390 +580,9 @@ function HomeContent() {
                 {/* Tab Content */}
                 <div className="p-4 sm:p-6 md:p-8">
                   {activeTab === "user" ? (
-                    <div
-                      role="tabpanel"
-                      id="user-panel"
-                      aria-labelledby="user-tab"
-                      className={`space-y-4 sm:space-y-6 transition-all duration-500 ${activeTab === "user" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}
-                    >
-                      <div className="text-left">
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">{t("signup.userTitle")}</h3>
-                        <p className="text-gray-500 text-sm sm:text-base">{t("signup.userDescription")}</p>
-                      </div>
-
-                      <p className="text-xs text-gray-500 mb-4">{t("signup.requiredFields")}</p>
-
-                      <form className="space-y-4 sm:space-y-6" noValidate>
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <div className="space-y-2">
-                            <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
-                              {t("signup.firstName")}{" "}
-                              <span className="text-red-500" aria-label={t("signup.required")}>
-                                *
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              id="firstName"
-                              name="firstName"
-                              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourFirstName")}
-                              required
-                              aria-required="true"
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
-                              {t("signup.lastName")}{" "}
-                              <span className="text-red-500" aria-label={t("signup.required")}>
-                                *
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              id="lastName"
-                              name="lastName"
-                              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourLastName")}
-                              required
-                              aria-required="true"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="userPostalCode" className="text-sm font-medium text-gray-700">
-                            {t("signup.postalCode")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <input
-                            type="text"
-                            id="userPostalCode"
-                            name="postalCode"
-                            className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder={t("signup.postalCodeExample")}
-                            pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d"
-                            required
-                            aria-required="true"
-                            aria-describedby="postal-code-help"
-                          />
-                          <p id="postal-code-help" className="text-xs text-gray-500">
-                            {t("signup.postalCodeFormat")}
-                          </p>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="userEmail" className="text-sm font-medium text-gray-700">
-                            {t("signup.email")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <div className="relative group">
-                            <Mail
-                              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-dark-teal group-focus-within:scale-110"
-                              aria-hidden="true"
-                            />
-                            <input
-                              type="email"
-                              id="userEmail"
-                              name="email"
-                              className="w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourEmail")}
-                              required
-                              aria-required="true"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="userPassword" className="text-sm font-medium text-gray-700">
-                            {t("signup.password")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <div className="relative group">
-                            <Lock
-                              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-dark-teal group-focus-within:scale-110"
-                              aria-hidden="true"
-                            />
-                            <input
-                              type={showPassword ? "text" : "password"}
-                              id="userPassword"
-                              name="password"
-                              className="w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourPassword")}
-                              minLength={8}
-                              required
-                              aria-required="true"
-                              aria-describedby="password-help"
-                            />
-                            <button
-                              type="button"
-                              onClick={() => setShowPassword(!showPassword)}
-                              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
-                              aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
-                            >
-                              {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                            </button>
-                          </div>
-                          <p id="password-help" className="text-xs text-gray-500">
-                            {t("signup.passwordHelp")}
-                          </p>
-                        </div>
-
-                        <div className="flex items-start">
-                          <input
-                            type="checkbox"
-                            id="termsUser"
-                            name="terms"
-                            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
-                            required
-                            aria-required="true"
-                          />
-                          <label htmlFor="termsUser" className="ml-3 block text-sm text-gray-700">
-                            {t("signup.terms")}{" "}
-                            <a
-                              href="#"
-                              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
-                            >
-                              {t("signup.termsOfUse")}
-                            </a>{" "}
-                            et la{" "}
-                            <a
-                              href="#"
-                              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
-                            >
-                              {t("signup.privacyPolicy")}
-                            </a>
-                          </label>
-                        </div>
-
-                        <Button
-                          type="submit"
-                          className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
-                        >
-                          {t("signup.createAccount")}
-                        </Button>
-                      </form>
-
-                      <div className="text-center text-sm text-gray-500">
-                        {t("signup.alreadyHaveAccount")}{" "}
-                        <a
-                          href="#"
-                          className="text-gosholo-orange hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
-                        >
-                          {t("signup.signIn")}
-                        </a>
-                      </div>
-                    </div>
+                    <UserSignupForm activeTab={activeTab} />
                   ) : (
-                    <div
-                      role="tabpanel"
-                      id="business-panel"
-                      aria-labelledby="business-tab"
-                      className={`space-y-4 sm:space-y-6 transition-all duration-500 ${activeTab === "business" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}
-                    >
-                      <div className="text-left">
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">{t("signup.businessTitle")}</h3>
-                        <p className="text-gray-500 text-sm sm:text-base">{t("signup.businessDescription")}</p>
-                      </div>
-
-                      <p className="text-xs text-gray-500 mb-4">{t("signup.requiredFields")}</p>
-
-                      <form className="space-y-4 sm:space-y-6" noValidate>
-                        <div className="space-y-2">
-                          <label htmlFor="businessName" className="text-sm font-medium text-gray-700">
-                            {t("signup.businessName")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <input
-                            type="text"
-                            id="businessName"
-                            name="businessName"
-                            className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder={t("signup.yourBusinessName")}
-                            required
-                            aria-required="true"
-                          />
-                        </div>
-
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <div className="space-y-2">
-                            <label htmlFor="businessType" className="text-sm font-medium text-gray-700">
-                              {t("signup.businessType")}{" "}
-                              <span className="text-red-500" aria-label={t("signup.required")}>
-                                *
-                              </span>
-                            </label>
-                            <select
-                              id="businessType"
-                              name="businessType"
-                              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              required
-                              aria-required="true"
-                            >
-                              <option value="">{t("signup.selectCategory")}</option>
-                              <option value="restaurant">{t("signup.restaurant")}</option>
-                              <option value="cafe">{t("signup.cafe")}</option>
-                              <option value="retail">{t("signup.retail")}</option>
-                              <option value="service">{t("signup.service")}</option>
-                              <option value="other">{t("signup.other")}</option>
-                            </select>
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="businessLocation" className="text-sm font-medium text-gray-700">
-                              {t("signup.city")}{" "}
-                              <span className="text-red-500" aria-label={t("signup.required")}>
-                                *
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              id="businessLocation"
-                              name="city"
-                              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourCity")}
-                              required
-                              aria-required="true"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="businessPostalCode" className="text-sm font-medium text-gray-700">
-                            {t("signup.postalCode")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <input
-                            type="text"
-                            id="businessPostalCode"
-                            name="postalCode"
-                            className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                            placeholder={t("signup.postalCodeExample")}
-                            pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d"
-                            required
-                            aria-required="true"
-                            aria-describedby="business-postal-code-help"
-                          />
-                          <p id="business-postal-code-help" className="text-xs text-gray-500">
-                            {t("signup.postalCodeFormat")}
-                          </p>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="businessEmail" className="text-sm font-medium text-gray-700">
-                            {t("signup.businessEmail")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <div className="relative group">
-                            <Mail
-                              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-dark-teal group-focus-within:scale-110"
-                              aria-hidden="true"
-                            />
-                            <input
-                              type="email"
-                              id="businessEmail"
-                              name="email"
-                              className="w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.businessEmailPlaceholder")}
-                              required
-                              aria-required="true"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <label htmlFor="businessPassword" className="text-sm font-medium text-gray-700">
-                            {t("signup.password")}{" "}
-                            <span className="text-red-500" aria-label={t("signup.required")}>
-                              *
-                            </span>
-                          </label>
-                          <div className="relative group">
-                            <Lock
-                              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-dark-teal group-focus-within:scale-110"
-                              aria-hidden="true"
-                            />
-                            <input
-                              type={showPassword ? "text" : "password"}
-                              id="businessPassword"
-                              name="password"
-                              className="w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base"
-                              placeholder={t("signup.yourPassword")}
-                              minLength={8}
-                              required
-                              aria-required="true"
-                              aria-describedby="business-password-help"
-                            />
-                            <button
-                              type="button"
-                              onClick={() => setShowPassword(!showPassword)}
-                              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
-                              aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
-                            >
-                              {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                            </button>
-                          </div>
-                          <p id="business-password-help" className="text-xs text-gray-500">
-                            {t("signup.passwordHelp")}
-                          </p>
-                        </div>
-
-                        <div className="flex items-start">
-                          <input
-                            type="checkbox"
-                            id="termsBusiness"
-                            name="terms"
-                            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
-                            required
-                            aria-required="true"
-                          />
-                          <label htmlFor="termsBusiness" className="ml-3 block text-sm text-gray-700">
-                            {t("signup.terms")}{" "}
-                            <a
-                              href="#"
-                              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
-                            >
-                              {t("signup.termsOfUse")}
-                            </a>{" "}
-                            et la{" "}
-                            <a
-                              href="#"
-                              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
-                            >
-                              {t("signup.privacyPolicy")}
-                            </a>
-                          </label>
-                        </div>
-
-                        <Button
-                          type="submit"
-                          className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
-                        >
-                          {t("signup.registerBusiness")}
-                        </Button>
-                      </form>
-
-                      <div className="text-center text-sm text-gray-500">
-                        {t("signup.alreadyHaveAccount")}{" "}
-                        <a
-                          href="#"
-                          className="text-gosholo-orange hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
-                        >
-                          {t("signup.signIn")}
-                        </a>
-                      </div>
-                    </div>
+                    <BusinessSignupForm activeTab={activeTab} />
                   )}
                 </div>
               </div>
@@ -885,11 +593,15 @@ function HomeContent() {
 
       <Footer />
 
-      <ContestPopup isOpen={isOpen} onClose={() => setIsOpen(false)} onViewContest={handleViewContest} />
+      <ContestPopup
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onViewContest={handleViewContest}
+      />
 
       <ConstructionBadge />
     </div>
-  )
+  );
 }
 
 export default function Home() {
@@ -897,5 +609,5 @@ export default function Home() {
     <ClientWrapper>
       <HomeContent />
     </ClientWrapper>
-  )
+  );
 }
