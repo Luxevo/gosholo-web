@@ -128,7 +128,7 @@ function AssistanceContent() {
                   </p>
                   <div className="mt-3 pt-3 border-t border-gosholo-dark-teal/20">
                     <p className="text-xs sm:text-sm text-gosholo-dark-teal/80">
-                      {t("assistance.success.emailSent")} <strong>jolan@luxevotech.com</strong>
+                      {t("assistance.success.emailSent")} <strong>assistance@gosholo.com</strong>
                     </p>
                   </div>
                 </div>
@@ -209,10 +209,10 @@ function AssistanceContent() {
                         {t("assistance.contactEmail")}
                       </p>
                       <a
-                        href="mailto:jolan@luxevotech.com"
+                        href="mailto:assistance@gosholo.com"
                         className="text-gosholo-light-green hover:text-white transition-colors duration-300 font-semibold text-sm sm:text-base underline hover:no-underline"
                       >
-                        jolan@luxevotech.com
+                        assistance@gosholo.com
                       </a>
                     </div>
                   </div>

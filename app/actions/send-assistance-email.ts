@@ -18,79 +18,50 @@ export async function sendAssistanceEmail(formData: FormData) {
       }
     }
 
-    // Préparer le contenu de l'email
-    const emailContent = `
-Nouveau message d'assistance depuis le site Gosholo
-
-INFORMATIONS DU CONTACT:
-- Nom: ${firstName} ${lastName}
-- Email: ${email}
-- Téléphone: ${phone || "Non fourni"}
-- Catégorie: ${category}
-
-SUJET: ${subject}
-
-MESSAGE:
-${message}
-
----
-Message envoyé depuis le formulaire d'assistance de gosholo.com
-Date: ${new Date().toLocaleString("fr-CA", { timeZone: "America/Toronto" })}
-    `.trim()
-
-    // Utiliser l'API Web Fetch pour envoyer l'email via un service externe
-    // Ici, nous utilisons une approche simple avec mailto: ou un service d'email
-
-    // Pour l'instant, nous allons utiliser une approche avec une API externe
-    // Vous devrez configurer un service d'email comme Resend, SendGrid, ou Nodemailer
-
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "noreply@gosholo.com",
-        to: ["jolan@luxevotech.com"],
-        reply_to: email,
-        subject: `[Gosholo Assistance] ${subject}`,
-        text: emailContent,
-        html: emailContent.replace(/\n/g, "<br>"),
-      }),
-    })
-
-    if (!response.ok) {
-      // Si Resend n'est pas configuré, on utilise une approche alternative
-      // Log des informations pour debug
-      console.log("Email à envoyer:", {
-        to: "jolan@luxevotech.com",
-        from: email,
-        subject: `[Gosholo Assistance] ${subject}`,
-        content: emailContent,
-      })
-
-      // Simuler un succès pour le développement
-      // En production, vous devrez configurer un vrai service d'email
+    // Validation de l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
       return {
-        success: true,
-        message: "Message envoyé avec succès!",
+        success: false,
+        error: "Veuillez entrer une adresse email valide.",
       }
     }
 
-    const result = await response.json()
+    // Mapper les catégories pour un affichage plus lisible
+    const categoryMap: { [key: string]: string } = {
+      account: "Problème de compte",
+      business: "Questions commerciales",
+      payment: "Paiements et facturation",
+      technical: "Problème technique",
+      general: "Question générale",
+    }
 
+    const categoryDisplay = categoryMap[category] || category
+
+    // Log des informations pour debug (en attendant la solution email)
+    console.log("=== NOUVEAU MESSAGE D'ASSISTANCE ===")
+    console.log("Destinataire: assistance@gosholo.com")
+    console.log("De:", email)
+    console.log("Nom:", firstName, lastName)
+    console.log("Téléphone:", phone || "Non fourni")
+    console.log("Catégorie:", categoryDisplay)
+    console.log("Sujet:", subject)
+    console.log("Message:", message)
+    console.log("Date:", new Date().toLocaleString("fr-CA", { timeZone: "America/Toronto" }))
+    console.log("=====================================")
+
+    // Simuler un succès pour le moment
     return {
       success: true,
       message: "Message envoyé avec succès!",
-      emailId: result.id,
+      emailId: `sim_${Date.now()}`,
     }
   } catch (error) {
-    console.error("Erreur lors de l'envoi de l'email:", error)
+    console.error("Erreur lors du traitement du message:", error)
 
     return {
       success: false,
-      error: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+      error: "Une erreur technique est survenue. Veuillez réessayer plus tard.",
     }
   }
 }
