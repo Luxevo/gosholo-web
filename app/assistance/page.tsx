@@ -19,8 +19,10 @@ import {
   ArrowLeft,
   Send,
   Mail,
+  AlertCircle,
 } from "lucide-react"
 import Link from "next/link"
+import { sendAssistanceEmail } from "@/app/actions/send-assistance-email"
 
 function AssistanceContent() {
   const { isVisible } = useScrollAnimation()
@@ -28,6 +30,7 @@ function AssistanceContent() {
   const [selectedCategory, setSelectedCategory] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
@@ -77,12 +80,27 @@ function AssistanceContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    // Simuler l'envoi du formulaire
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const formData = new FormData(e.target as HTMLFormElement)
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      // Ajouter la catégorie sélectionnée au FormData
+      formData.append("category", selectedCategory)
+
+      const result = await sendAssistanceEmail(formData)
+
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        setError(result.error || "Une erreur est survenue lors de l'envoi du message.")
+      }
+    } catch (err) {
+      console.error("Erreur lors de l'envoi:", err)
+      setError("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -108,6 +126,11 @@ function AssistanceContent() {
                   <p className="text-gosholo-dark-teal text-sm sm:text-base">
                     {t("assistance.success.responseTimeValue")}
                   </p>
+                  <div className="mt-3 pt-3 border-t border-gosholo-dark-teal/20">
+                    <p className="text-xs sm:text-sm text-gosholo-dark-teal/80">
+                      {t("assistance.success.emailSent")} <strong>jolan@luxevotech.com</strong>
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -121,7 +144,11 @@ function AssistanceContent() {
                 <Button
                   variant="outline"
                   className="w-full sm:w-auto border-gosholo-dark-teal text-gosholo-dark-teal hover:bg-gosholo-dark-teal hover:text-white touch-target-44 text-sm sm:text-base"
-                  onClick={() => setIsSubmitted(false)}
+                  onClick={() => {
+                    setIsSubmitted(false)
+                    setSelectedCategory("")
+                    setError("")
+                  }}
                 >
                   {t("assistance.success.sendAnother")}
                 </Button>
@@ -209,6 +236,16 @@ function AssistanceContent() {
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gosholo-dark-teal mb-4 sm:mb-6 text-center">
                     {t("assistance.form.title")}
                   </h2>
+
+                  {error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                      <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-red-800 text-sm font-medium">{t("assistance.form.error")}</p>
+                        <p className="text-red-700 text-sm mt-1">{error}</p>
+                      </div>
+                    </div>
+                  )}
 
                   <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     {/* Category Selection */}

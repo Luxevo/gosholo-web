@@ -265,6 +265,7 @@ export const fr = {
       send: "Envoyer le message",
       sending: "Envoi en cours...",
       selectCategory: "Veuillez sélectionner une catégorie pour continuer",
+      error: "Erreur lors de l'envoi",
     },
     success: {
       title: "Message envoyé avec succès !",
@@ -272,6 +273,7 @@ export const fr = {
         "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais à l'adresse email que vous avez fournie.",
       responseTime: "Temps de réponse habituel :",
       responseTimeValue: "24-48 heures en jours ouvrables",
+      emailSent: "Votre message a été envoyé à :",
       sendAnother: "Envoyer un autre message",
     },
   },

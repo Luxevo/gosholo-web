@@ -260,6 +260,7 @@ export const en = {
       send: "Send message",
       sending: "Sending...",
       selectCategory: "Please select a category to continue",
+      error: "Error sending message",
     },
     success: {
       title: "Message sent successfully!",
@@ -267,6 +268,7 @@ export const en = {
         "Thank you for your message. Our team will respond to you as soon as possible at the email address you provided.",
       responseTime: "Usual response time:",
       responseTimeValue: "24-48 hours on business days",
+      emailSent: "Your message has been sent to:",
       sendAnother: "Send another message",
     },
   },
