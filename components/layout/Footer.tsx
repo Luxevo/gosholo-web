@@ -12,7 +12,7 @@ export function Footer() {
     { href: "/", label: t("nav.home") },
     { href: "#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "#contest", label: t("nav.contest") },
-    { href: "mailto:assistance@gosholo.com", label: t("nav.assistance") },
+    { href: "/assistance", label: t("nav.assistance") },
   ]
 
   const handleLinkClick = (href: string, e: React.MouseEvent) => {
@@ -24,6 +24,7 @@ export function Footer() {
         section.scrollIntoView({ behavior: "smooth" })
       }
     }
+    // Les liens vers d'autres pages (/assistance) fonctionneront normalement
   }
 
   return (

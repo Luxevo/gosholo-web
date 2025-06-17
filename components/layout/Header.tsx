@@ -23,7 +23,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
     { href: "/", label: t("nav.home") },
     { href: "#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "#contest", label: t("nav.contest") },
-    { href: "mailto:assistance@gosholo.com", label: t("nav.assistance") },
+    { href: "/assistance", label: t("nav.assistance") },
   ]
 
   const handleLinkClick = (href: string, e: React.MouseEvent) => {
@@ -32,7 +32,8 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
       const sectionId = href.substring(1)
       onScrollToSection(sectionId)
     }
-    // Les liens mailto: et autres liens externes fonctionneront normalement
+    // Supprimer le commentaire sur les liens mailto: car on n'en a plus
+    // Les liens vers d'autres pages (/assistance) fonctionneront normalement avec Next.js
   }
 
   return (
