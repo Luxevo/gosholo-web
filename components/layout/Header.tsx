@@ -8,6 +8,7 @@ import Image from "next/image"
 import { MobileMenu } from "./MobileMenu"
 import { LanguageSelector } from "@/components/ui/LanguageSelector"
 import { useTranslation } from "@/hooks/useTranslation"
+import type React from "react"
 
 interface HeaderProps {
   isVisible: boolean
@@ -20,10 +21,19 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
 
   const navigationItems = [
     { href: "/", label: t("nav.home") },
-    { href: "#who-we-are", label: t("nav.whoWeAre") },
-    { href: "#about", label: t("nav.about") },
+    { href: "#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "#contest", label: t("nav.contest") },
+    { href: "mailto:assistance@gosholo.com", label: t("nav.assistance") },
   ]
+
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      const sectionId = href.substring(1)
+      onScrollToSection(sectionId)
+    }
+    // Les liens mailto: et autres liens externes fonctionneront normalement
+  }
 
   return (
     <header
@@ -52,6 +62,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(e) => handleLinkClick(item.href, e)}
               className="text-sm font-medium transition-all duration-300 hover:text-gosholo-dark-teal hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gosholo-dark-teal after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}

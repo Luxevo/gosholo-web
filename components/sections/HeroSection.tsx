@@ -34,11 +34,10 @@ export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) 
             </button>
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-white leading-tight">
-                {t("hero.title")}{" "}
-                <span className="text-gosholo-light-green animate-pulse">{t("hero.titleHighlight")}</span>
+                {t("hero.newTitle")}
               </h1>
               <p className="max-w-[600px] text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
-                {t("hero.description")}
+                {t("hero.newDescription")}
               </p>
             </div>
             <div className="flex flex-col gap-3 min-[400px]:flex-row">

@@ -2,9 +2,9 @@ export const fr = {
   // Navigation
   nav: {
     home: "Accueil",
-    whoWeAre: "Qui nous sommes",
-    about: "À propos",
+    aboutGosholo: "À propos de gosholo",
     contest: "Concours",
+    assistance: "Assistance",
     signup: "S'inscrire",
     backToHome: "Retour à l'accueil",
     mainNavigation: "Navigation principale",
@@ -18,10 +18,9 @@ export const fr = {
   hero: {
     newContest: "Nouveau concours Osheaga",
     seeContest: "Voir le concours Osheaga",
-    title: "Découvrez et soutenez les",
-    titleHighlight: "commerces locaux",
-    description:
-      "gosholo vous aide à trouver les meilleures boutiques locales et vous encourage à soutenir l'économie de votre quartier.",
+    newTitle: "Découvre. Économise. Profite.",
+    newDescription:
+      "gosholo te connecte aux meilleures offres près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux",
     comingSoon: "Bientôt disponible",
     learnMore: "En savoir plus",
     goToSignup: "Aller à la section d'inscription",
@@ -39,6 +38,33 @@ export const fr = {
     mobileApp: "Application mobile",
     rewards: "Récompenses",
     localBusinesses: "Commerces locaux",
+  },
+
+  // About Gosholo Section
+  aboutGosholo: {
+    badge: "À propos",
+    title: "À propos de gosholo",
+    description1:
+      "gosholo, c'est l'application mobile qui te fait découvrir les meilleures offres autour de toi, dans tes commerces préférés et ailleurs en ville.",
+    description2:
+      "Cafés, restos, boutiques et services près de toi t'offrent des avantages réservés uniquement aux abonnés gosholo.",
+    description3: "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+    feature1Title: "Des offres faciles à réclamer",
+    feature1Description: "Valides en magasin ou en ligne et toujours près de toi",
+    feature2Title: "Simple. Rapide. Local.",
+    feature2Description: "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
+    feature3Title: "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+    feature3Description: "Découvre les événements près de chez toi en avant-première",
+    tagline: "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
+    benefit1: "Offres géolocalisées",
+    benefit2: "Communauté locale",
+    benefit3: "Récompenses exclusives",
+    benefit4: "Interface intuitive",
+    appTitle: "L'app qui change tout",
+    appDescription: "Découvre, économise et profite comme jamais auparavant",
+    comingSoon: "Bientôt disponible",
+    launchingSoon: "Lancement imminent",
+    stayTuned: "Reste connecté !",
   },
 
   // About Section
@@ -66,14 +92,12 @@ export const fr = {
   contest: {
     badge: "Événement spécial",
     title: "Concours Osheaga",
-    description:
-      "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
+    description: "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
     howToParticipate: "Comment participer",
     step1: "Suivez notre compte Instagram officiel : @gosholo",
     step2: "Repostez en story Instagram la publication officielle du concours",
     step3: "Taguez 2 amis dans les commentaires de la publication",
-    step4:
-      "Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)",
+    step4: "Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)",
     contestDetails: "Détails du concours",
     location: "Montréal, du 2 au 4 août 2025",
     endDate: "Fin du concours: 15 juillet 2025",
@@ -94,8 +118,7 @@ export const fr = {
       "Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.",
     ],
     participation: "2. Conditions de participation",
-    participationIntro:
-      "Pour être admissible au tirage, les participants doivent :",
+    participationIntro: "Pour être admissible au tirage, les participants doivent :",
     participationContent: [
       "• Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux sauter cette étape).",
       "• Suivre notre compte Instagram officiel : @gosholo",
@@ -131,11 +154,13 @@ export const fr = {
 
   // CTA Section
   cta: {
-    title: "Bientôt disponible pour découvrir les commerces locaux!",
-    description:
-      "L'application Gosholo sera bientôt disponible pour vous permettre d'explorer les trésors cachés de votre quartier.",
-    appStore: "Bientôt sur App Store",
-    googlePlay: "Bientôt sur Google Play",
+    newTitle: "Lancement bientôt !",
+    newDescription:
+      "L'application gosholo arrive très bientôt. Inscris-toi dès maintenant pour être parmi les premiers informés dès sa sortie !",
+    newAppStore: "Disponible sur App Store",
+    newGooglePlay: "Disponible sur Google Play",
+    signupNow: "S'inscrire maintenant",
+    signupButton: "Aller à la section d'inscription",
     appPreview: "Aperçu de l'application mobile Gosholo sur smartphone",
   },
 
@@ -143,16 +168,13 @@ export const fr = {
   signup: {
     badge: "Rejoignez-nous",
     title: "Créez votre compte",
-    description:
-      "Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.",
+    description: "Rejoignez notre communauté et commencez à profiter des avantages Gosholo dès aujourd'hui.",
     userTab: "Utilisateur",
     businessTab: "Commerce",
     userTitle: "Inscription utilisateur",
-    userDescription:
-      "Créez votre compte pour découvrir et soutenir les commerces locaux.",
+    userDescription: "Créez votre compte pour découvrir et soutenir les commerces locaux.",
     businessTitle: "Inscription commerce",
-    businessDescription:
-      "Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.",
+    businessDescription: "Rejoignez notre réseau de commerces locaux et augmentez votre visibilité.",
     required: "obligatoire",
     requiredFields: "Les champs marqués d'un * sont obligatoires.",
     firstName: "Prénom",
@@ -230,4 +252,4 @@ export const fr = {
     delete: "Supprimer",
     confirm: "Confirmer",
   },
-};
+}

@@ -18,6 +18,9 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection, navigationItems
   const handleLinkClick = (href: string) => {
     if (href.startsWith("#")) {
       onScrollToSection(href.substring(1))
+    } else if (href.startsWith("mailto:")) {
+      // Les liens mailto s'ouvriront normalement
+      window.location.href = href
     }
     onClose()
   }

@@ -3,16 +3,28 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslation } from "@/hooks/useTranslation"
+import type React from "react"
 
 export function Footer() {
   const { t } = useTranslation()
 
   const navigationItems = [
     { href: "/", label: t("nav.home") },
-    { href: "#who-we-are", label: t("nav.whoWeAre") },
-    { href: "#about", label: t("nav.about") },
+    { href: "#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "#contest", label: t("nav.contest") },
+    { href: "mailto:assistance@gosholo.com", label: t("nav.assistance") },
   ]
+
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      const sectionId = href.substring(1)
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
 
   return (
     <footer className="border-t bg-white" role="contentinfo">
@@ -37,6 +49,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleLinkClick(item.href, e)}
                   className="text-xs sm:text-sm font-medium transition-all duration-300 hover:text-gosholo-dark-teal focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded hover:scale-105 touch-target-44 p-2"
                 >
                   {item.label}

@@ -1,65 +1,54 @@
-"use client";
+"use client"
 
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { WhoWeAreSection } from "@/components/sections/WhoWeAreSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { ContestPopup } from "@/components/ui/ContestPopup";
-import { ConstructionBadge } from "@/components/ui/ConstructionBadge";
-import { ClientWrapper } from "@/components/ClientWrapper";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { usePopupTimer } from "@/hooks/usePopupTimer";
-import { useTranslation } from "@/hooks/useTranslation";
-import { Button } from "@/components/ui/button";
-import {
-  MapPin,
-  Store,
-  User,
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  ChevronDown,
-  Clock,
-  Phone,
-} from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
-import { UserSignupForm } from "@/components/sections/UserSignupForm";
-import { BusinessSignupForm } from "@/components/sections/BusinessSignupForm";
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
+import { HeroSection } from "@/components/sections/HeroSection"
+import { AboutGosholoSection } from "@/components/sections/AboutGosholoSection"
+import { ContestPopup } from "@/components/ui/ContestPopup"
+import { ConstructionBadge } from "@/components/ui/ConstructionBadge"
+import { ClientWrapper } from "@/components/ClientWrapper"
+import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { usePopupTimer } from "@/hooks/usePopupTimer"
+import { useTranslation } from "@/hooks/useTranslation"
+import { Button } from "@/components/ui/button"
+import { MapPin, Store, User, ChevronDown, Clock, UserPlus } from "lucide-react"
+import { useState } from "react"
+import { UserSignupForm } from "@/components/sections/UserSignupForm"
+import { BusinessSignupForm } from "@/components/sections/BusinessSignupForm"
 
 function HomeContent() {
-  const { isVisible } = useScrollAnimation();
-  const { isOpen, setIsOpen } = usePopupTimer();
-  const { t, tArray } = useTranslation();
+  const { isVisible } = useScrollAnimation()
+  const { isOpen, setIsOpen } = usePopupTimer()
+  const { t, tArray } = useTranslation()
 
-  const [activeTab, setActiveTab] = useState<"user" | "business">("user");
-  const [showPassword, setShowPassword] = useState(false);
-  const [rulesOpen, setRulesOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<"user" | "business">("user")
+  const [rulesOpen, setRulesOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
+    const section = document.getElementById(sectionId)
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = 64 // Hauteur approximative du header
+      const elementPosition = section.offsetTop - headerHeight
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      })
     }
-  };
+  }
 
   const handleViewContest = () => {
-    scrollToSection("contest");
-  };
+    scrollToSection("contest")
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header isVisible={isVisible} onScrollToSection={scrollToSection} />
 
       <main>
-        <HeroSection
-          isVisible={isVisible}
-          onScrollToSection={scrollToSection}
-        />
-        <WhoWeAreSection />
-        <AboutSection />
+        <HeroSection isVisible={isVisible} onScrollToSection={scrollToSection} />
+
+        {/* About Gosholo Section */}
+        <AboutGosholoSection />
 
         {/* Contest Section */}
         <section
@@ -93,9 +82,7 @@ function HomeContent() {
               <div className="grid gap-6 sm:gap-8">
                 <div className="flex flex-col justify-center space-y-6">
                   <div className="border-2 border-dashed border-white p-4 sm:p-6 rounded-lg bg-gosholo-dark-teal">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">
-                      {t("contest.howToParticipate")}
-                    </h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">{t("contest.howToParticipate")}</h3>
                     <ol className="space-y-3 sm:space-y-4 text-white list-none">
                       <li className="flex items-start gap-3">
                         <div
@@ -104,9 +91,7 @@ function HomeContent() {
                         >
                           1
                         </div>
-                        <p className="text-sm sm:text-base">
-                          {t("contest.step1")}
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step1")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -115,9 +100,7 @@ function HomeContent() {
                         >
                           2
                         </div>
-                        <p className="text-sm sm:text-base">
-                          {t("contest.step2")}
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step2")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -126,9 +109,7 @@ function HomeContent() {
                         >
                           3
                         </div>
-                        <p className="text-sm sm:text-base">
-                          {t("contest.step3")}
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step3")}</p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -137,9 +118,7 @@ function HomeContent() {
                         >
                           4
                         </div>
-                        <p className="text-sm sm:text-base">
-                          {t("contest.step4")}
-                        </p>
+                        <p className="text-sm sm:text-base">{t("contest.step4")}</p>
                       </li>
                     </ol>
                   </div>
@@ -165,9 +144,7 @@ function HomeContent() {
                         <path d="m8 6 4-4 4 4"></path>
                         <path d="M12 2v14"></path>
                       </svg>
-                      <span className="text-base sm:text-xl">
-                        {t("contest.contestDetails")}
-                      </span>
+                      <span className="text-base sm:text-xl">{t("contest.contestDetails")}</span>
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 p-2">
@@ -175,9 +152,7 @@ function HomeContent() {
                           className="h-4 w-4 sm:h-5 sm:w-5 text-gosholo-orange flex-shrink-0"
                           aria-hidden="true"
                         />
-                        <span className="text-sm sm:text-base">
-                          {t("contest.location")}
-                        </span>
+                        <span className="text-sm sm:text-base">{t("contest.location")}</span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -193,21 +168,12 @@ function HomeContent() {
                           className="text-gosholo-orange flex-shrink-0 sm:w-5 sm:h-5"
                           aria-hidden="true"
                         >
-                          <rect
-                            x="3"
-                            y="4"
-                            width="18"
-                            height="18"
-                            rx="2"
-                            ry="2"
-                          ></rect>
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                           <line x1="16" y1="2" x2="16" y2="6"></line>
                           <line x1="8" y1="2" x2="8" y2="6"></line>
                           <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        <span className="text-sm sm:text-base">
-                          {t("contest.endDate")}
-                        </span>
+                        <span className="text-sm sm:text-base">{t("contest.endDate")}</span>
                       </div>
                       <div className="flex items-center gap-2 p-2">
                         <svg
@@ -225,19 +191,13 @@ function HomeContent() {
                         >
                           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
-                        <span className="text-sm sm:text-base">
-                          {t("contest.contact")}
-                        </span>
+                        <span className="text-sm sm:text-base">{t("contest.contact")}</span>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t">
                       <div className="flex items-center justify-between">
-                        <div className="text-sm">
-                          {t("contest.timeRemaining")}
-                        </div>
-                        <div className="font-bold text-gosholo-orange">
-                          {t("contest.daysLeft")}
-                        </div>
+                        <div className="text-sm">{t("contest.timeRemaining")}</div>
+                        <div className="font-bold text-gosholo-orange">{t("contest.daysLeft")}</div>
                       </div>
                       <div
                         className="w-full bg-gray-200 rounded-full h-2.5 mt-2"
@@ -247,10 +207,7 @@ function HomeContent() {
                         aria-valuemax={100}
                         aria-label={t("contest.progressLabel")}
                       >
-                        <div
-                          className="bg-gosholo-orange h-2.5 rounded-full"
-                          style={{ width: "65%" }}
-                        ></div>
+                        <div className="bg-gosholo-orange h-2.5 rounded-full" style={{ width: "65%" }}></div>
                       </div>
                     </div>
                   </div>
@@ -276,18 +233,11 @@ function HomeContent() {
 
                 <div
                   className={`transition-all duration-500 ease-in-out ${
-                    rulesOpen
-                      ? "max-h-96 opacity-100"
-                      : "max-h-0 opacity-0 overflow-hidden"
+                    rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
                   }`}
                 >
-                  <div
-                    id="rules-content"
-                    className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80"
-                  >
-                    <h3 className="font-bold text-base sm:text-lg mb-4">
-                      {t("contestRules.title")}
-                    </h3>
+                  <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80">
+                    <h3 className="font-bold text-base sm:text-lg mb-4">{t("contestRules.title")}</h3>
 
                     <div className="space-y-4 sm:space-y-6">
                       <div>
@@ -295,11 +245,9 @@ function HomeContent() {
                           {t("contestRules.duration")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.durationContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.durationContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -307,20 +255,13 @@ function HomeContent() {
                         <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
                           {t("contestRules.participation")}
                         </h4>
-                        <p className="mb-2 text-xs sm:text-sm">
-                          {t("contestRules.participationIntro")}
-                        </p>
+                        <p className="mb-2 text-xs sm:text-sm">{t("contestRules.participationIntro")}</p>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.participationContent").map(
-                            (item: string, index: number) => (
-                              <p
-                                key={index}
-                                className={item.startsWith("•") ? "ml-3" : ""}
-                              >
-                                {item}
-                              </p>
-                            )
-                          )}
+                          {tArray("contestRules.participationContent").map((item: string, index: number) => (
+                            <p key={index} className={item.startsWith("•") ? "ml-3" : ""}>
+                              {item}
+                            </p>
+                          ))}
                         </div>
                       </div>
 
@@ -329,11 +270,9 @@ function HomeContent() {
                           {t("contestRules.eligibility")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.eligibilityContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.eligibilityContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -342,11 +281,9 @@ function HomeContent() {
                           {t("contestRules.draw")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.drawContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.drawContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -355,11 +292,9 @@ function HomeContent() {
                           {t("contestRules.prize")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.prizeContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.prizeContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -368,11 +303,9 @@ function HomeContent() {
                           {t("contestRules.liability")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.liabilityContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.liabilityContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
 
@@ -381,11 +314,9 @@ function HomeContent() {
                           {t("contestRules.consent")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.consentContent").map(
-                            (item: string, index: number) => (
-                              <p key={index}>{item}</p>
-                            )
-                          )}
+                          {tArray("contestRules.consentContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -414,85 +345,24 @@ function HomeContent() {
           aria-labelledby="cta-title"
         >
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2
-                    id="cta-title"
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter"
-                  >
-                    {t("cta.title")}
-                  </h2>
-                  <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
-                    {t("cta.description")}
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    className="bg-white text-gosholo-orange hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group touch-target-44 text-sm sm:text-base"
-                    disabled
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="mr-2 transition-transform duration-300 group-hover:scale-110 sm:w-5 sm:h-5"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"></path>
-                      <path d="M12 19v2"></path>
-                      <path d="M12 3V1"></path>
-                      <path d="m4.93 4.93 1.41 1.41"></path>
-                      <path d="m17.66 17.66 1.41 1.41"></path>
-                      <path d="M19 12h2"></path>
-                      <path d="M1 12h2"></path>
-                      <path d="m17.66 6.34 1.41-1.41"></path>
-                      <path d="m4.93 19.07 1.41-1.41"></path>
-                    </svg>
-                    {t("cta.appStore")}
-                  </Button>
-                  <Button
-                    className="bg-white text-gosholo-orange hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group touch-target-44 text-sm sm:text-base"
-                    disabled
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="mr-2 transition-transform duration-300 group-hover:scale-110 sm:w-5 sm:h-5"
-                      aria-hidden="true"
-                    >
-                      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
-                      <path d="M5 3v4"></path>
-                      <path d="M19 17v4"></path>
-                      <path d="M3 5h4"></path>
-                      <path d="M17 19h4"></path>
-                    </svg>
-                    {t("cta.googlePlay")}
-                  </Button>
-                </div>
+            <div className="flex flex-col items-center justify-center text-center space-y-6">
+              <div className="space-y-4">
+                <h2 id="cta-title" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter">
+                  {t("cta.newTitle")}
+                </h2>
+                <p className="max-w-[800px] text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                  {t("cta.newDescription")}
+                </p>
               </div>
-              <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">
-                <Image
-                  src="/placeholder.svg?height=300&width=200&text=App+Mobile"
-                  width={200}
-                  height={400}
-                  alt={t("cta.appPreview")}
-                  className="rounded-xl shadow-lg border-8 border-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:rotate-3 max-w-[200px] sm:max-w-[250px]"
-                />
-              </div>
+              <Button
+                size="lg"
+                className="bg-white text-gosholo-orange hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group touch-target-44 text-base sm:text-lg px-8 py-4"
+                onClick={() => scrollToSection("signup")}
+                aria-label={t("cta.signupButton")}
+              >
+                <UserPlus className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                {t("cta.signupNow")}
+              </Button>
             </div>
           </div>
         </section>
@@ -526,11 +396,7 @@ function HomeContent() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
                 {/* Tabs */}
-                <div
-                  className="flex border-b"
-                  role="tablist"
-                  aria-label="Type d'inscription"
-                >
+                <div className="flex border-b" role="tablist" aria-label="Type d'inscription">
                   <button
                     className={`flex-1 py-3 sm:py-4 px-4 sm:px-6 text-center font-medium text-sm sm:text-base lg:text-lg transition-all duration-500 touch-target-44 ${
                       activeTab === "user"
@@ -593,15 +459,11 @@ function HomeContent() {
 
       <Footer />
 
-      <ContestPopup
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onViewContest={handleViewContest}
-      />
+      <ContestPopup isOpen={isOpen} onClose={() => setIsOpen(false)} onViewContest={handleViewContest} />
 
       <ConstructionBadge />
     </div>
-  );
+  )
 }
 
 export default function Home() {
@@ -609,5 +471,5 @@ export default function Home() {
     <ClientWrapper>
       <HomeContent />
     </ClientWrapper>
-  );
+  )
 }
