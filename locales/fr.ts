@@ -94,10 +94,11 @@ export const fr = {
     title: "Concours Osheaga",
     description: "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
     howToParticipate: "Comment participer",
-    step1: "Suivez notre compte Instagram officiel : @gosholo",
-    step2: "Repostez en story Instagram la publication officielle du concours",
-    step3: "Taguez 2 amis dans les commentaires de la publication",
-    step4: "Téléchargez l'application gosholo quand elle sera disponible (avant le début du concours)",
+    step1: "Remplis le formulaire d'inscription directement sur notre site web.",
+    step2: "Suis notre compte Instagram ou Facebook officiel : @gosholo",
+    step3:
+      "Repartage en story Instagram ou Facebook la publication officielle du concours (assure-toi d'inclure le tag @gosholo).",
+    step4: "Identifie 2 amis dans les commentaires de la publication officielle.",
     contestDetails: "Détails du concours",
     location: "Montréal, du 2 au 4 août 2025",
     endDate: "Fin du concours: 15 juillet 2025",
@@ -107,49 +108,57 @@ export const fr = {
     progressLabel: "Progression du concours",
     rulesTitle: "Règlement officiel du concours",
     appComingSoon: "Application bientôt disponible",
+    participateNow: "Participer maintenant",
   },
 
   // Contest Rules
   contestRules: {
-    title: "Règlement officiel du concours – Osheaga 2025",
-    duration: "1. Durée du concours",
+    title: "Règlement et détails du concours – Osheaga 2025",
+    prize: "Prix",
+    prizeContent: [
+      "Une paire de billets pour Osheaga – journée du samedi 2 août 2025 (valeur approximative : 400 $).",
+      "Le prix est non monnayable, non transférable et non échangeable.",
+    ],
+    duration: "Durée du concours",
     durationContent: [
-      "Le concours débute le 16 juin 2025 à 9h00 et se termine le jeudi 17 juillet 2025 à 23h59 (heure du Québec).",
-      "Le tirage aura lieu le vendredi 18 juillet 2025 à 15h.",
+      "Le concours débute le 16 juin 2025 à 9h00 et se termine le 17 juillet 2025 à 23h59 (heure du Québec).",
+      "Le tirage aura lieu le 18 juillet 2025 à 15h.",
     ],
-    participation: "2. Conditions de participation",
-    participationIntro: "Pour être admissible au tirage, les participants doivent :",
+    participation: "Conditions de participation",
+    participationIntro: "Pour être admissible au tirage, les participants doivent compléter les étapes suivantes :",
     participationContent: [
-      "• Télécharger notre application gosholo et créer un compte (si tu es déjà inscrit, tu peux sauter cette étape).",
-      "• Suivre notre compte Instagram officiel : @gosholo",
-      "• Reposter en story Instagram la publication officielle du concours (la story doit inclure le tag @gosholo).",
-      "• Taguer 2 amis dans les commentaires de la publication du concours sur Instagram.",
+      "• Remplis le formulaire d'inscription directement sur notre site web.",
+      "• Suis notre compte Instagram ou Facebook officiel : @gosholo",
+      "• Repartage en story Instagram ou Facebook la publication officielle du concours (assure-toi d'inclure le tag @gosholo).",
+      "• Identifie 2 amis dans les commentaires de la publication officielle.",
+      "Toutes ces étapes doivent être complétées pour que la participation soit valide.",
     ],
-    eligibility: "3. Admissibilité",
+    eligibility: "Admissibilité",
     eligibilityContent: [
       "Ce concours est ouvert à toute personne âgée de 18 ans ou plus, résidant au Québec.",
       "Une seule participation par personne est autorisée.",
     ],
-    draw: "4. Tirage et attribution du prix",
+    draw: "Tirage et attribution du prix",
     drawContent: [
-      "Le gagnant sera sélectionné au hasard parmi les personnes admissibles, ayant complété les 4 étapes ci-dessus.",
-      "Le gagnant sera contacté par message privé Instagram et devra fournir le courriel utilisé lors de l'inscription à l'app, afin de valider son identité.",
-      "Si le gagnant ne répond pas dans un délai de 24 heures, un nouveau tirage sera effectué.",
+      "Le gagnant sera sélectionné au hasard parmi les participants admissibles ayant complété toutes les étapes de participation.",
+      "Le gagnant sera contacté par SMS et devra confirmer son identité en fournissant l'adresse courriel utilisée lors de l'inscription au concours via le site web.",
+      "Si le gagnant ne répond pas dans un délai de 24 heures suivant le message, un nouveau tirage sera effectué.",
     ],
-    prize: "5. Prix",
-    prizeContent: [
-      "Une paire de billets pour Osheaga – samedi 2 août 2025 (valeur approximative : 400 $)",
-      "Le prix est non monnayable, non transférable et non échangeable.",
-    ],
-    liability: "6. Limite de responsabilité",
+    liability: "Limite de responsabilité",
     liabilityContent: [
       "Ce concours n'est en aucun cas affilié, commandité ou géré par Instagram, Meta, Osheaga, evenko ou leurs partenaires.",
-      "En participant, les utilisateurs dégagent Instagram et les autres tiers de toute responsabilité.",
+      "En participant, les utilisateurs dégagent Instagram, Meta, Osheaga, evenko et tous les partenaires de toute responsabilité.",
     ],
-    consent: "7. Consentement",
+    consent: "Consentement",
     consentContent: [
-      "En participant à ce concours, les personnes acceptent que leur nom d'utilisateur et leur prénom puissent être mentionnés publiquement en cas de gain (réseaux sociaux ou site web de l'organisateur).",
+      "En participant à ce concours, les personnes consentent à ce que leur prénom et leur nom d'utilisateur Instagram puissent être mentionnés publiquement sur les réseaux sociaux ou le site web de gosholo en cas de gain.",
     ],
+    communications: "Communications promotionnelles",
+    communicationsContent: [
+      "En s'inscrivant au concours, chaque participant accepte de recevoir les communications promotionnelles de gosholo, incluant infolettres, offres et mises à jour par courriel et par message texte (SMS).",
+      'Les participants peuvent se désabonner en tout temps soit en utilisant le lien de désabonnement présent dans chaque courriel envoyé, soit en répondant "ARRÊT" ou "STOP" aux messages textes reçus.',
+    ],
+    participateButton: "Participer au concours",
   },
 
   // CTA Section
@@ -213,6 +222,56 @@ export const fr = {
     postalCodeExample: "Ex: H2X 1Y6",
     phoneNumber: "Numéro de téléphone",
     phoneNumberPlaceholder: "Ex: 581-123-4567",
+  },
+
+  // Assistance Section
+  assistance: {
+    badge: "Centre d'assistance",
+    title: "Comment pouvons-nous vous aider ?",
+    description: "Notre équipe est là pour répondre à toutes vos questions et résoudre vos problèmes rapidement.",
+    categories: {
+      account: {
+        title: "Problème de compte",
+        description: "Connexion, inscription, mot de passe oublié",
+      },
+      business: {
+        title: "Questions commerciales",
+        description: "Inscription commerce, partenariats, visibilité",
+      },
+      payment: {
+        title: "Paiements et facturation",
+        description: "Problèmes de paiement, remboursements, factures",
+      },
+      technical: {
+        title: "Problème technique",
+        description: "Bugs, erreurs, problèmes de fonctionnement",
+      },
+      general: {
+        title: "Question générale",
+        description: "Informations, suggestions, autres questions",
+      },
+    },
+    form: {
+      title: "Envoyez-nous un message",
+      category: "Catégorie de votre demande",
+      subject: "Sujet",
+      subjectPlaceholder: "Résumé de votre demande",
+      message: "Message",
+      messagePlaceholder: "Décrivez votre problème ou votre question en détail...",
+      messageHelp: "Plus vous nous donnez de détails, plus nous pourrons vous aider efficacement.",
+      optional: "optionnel",
+      send: "Envoyer le message",
+      sending: "Envoi en cours...",
+      selectCategory: "Veuillez sélectionner une catégorie pour continuer",
+    },
+    success: {
+      title: "Message envoyé avec succès !",
+      message:
+        "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais à l'adresse email que vous avez fournie.",
+      responseTime: "Temps de réponse habituel :",
+      responseTimeValue: "24-48 heures en jours ouvrables",
+      sendAnother: "Envoyer un autre message",
+    },
   },
 
   // Footer

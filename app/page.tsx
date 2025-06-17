@@ -11,7 +11,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { usePopupTimer } from "@/hooks/usePopupTimer"
 import { useTranslation } from "@/hooks/useTranslation"
 import { Button } from "@/components/ui/button"
-import { MapPin, Store, User, ChevronDown, Clock, UserPlus } from "lucide-react"
+import { MapPin, Store, User, ChevronDown, Clock, UserPlus, Trophy } from "lucide-react"
 import { useState } from "react"
 import { UserSignupForm } from "@/components/sections/UserSignupForm"
 import { BusinessSignupForm } from "@/components/sections/BusinessSignupForm"
@@ -100,7 +100,18 @@ function HomeContent() {
                         >
                           2
                         </div>
-                        <p className="text-sm sm:text-base">{t("contest.step2")}</p>
+                        <p className="text-sm sm:text-base">
+                          {t("contest.step2").split("@gosholo")[0]}
+                          <a
+                            href="https://www.instagram.com/gosholo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gosholo-orange hover:text-gosholo-light-green transition-colors duration-300 font-semibold underline hover:no-underline"
+                          >
+                            @gosholo
+                          </a>
+                          {t("contest.step2").split("@gosholo")[1]}
+                        </p>
                       </li>
                       <li className="flex items-start gap-3">
                         <div
@@ -233,13 +244,24 @@ function HomeContent() {
 
                 <div
                   className={`transition-all duration-500 ease-in-out ${
-                    rulesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+                    rulesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
                   }`}
                 >
-                  <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-80">
+                  <div id="rules-content" className="p-4 sm:p-6 border-t text-sm overflow-y-auto max-h-96">
                     <h3 className="font-bold text-base sm:text-lg mb-4">{t("contestRules.title")}</h3>
 
                     <div className="space-y-4 sm:space-y-6">
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.prize")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {tArray("contestRules.prizeContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
+                        </div>
+                      </div>
+
                       <div>
                         <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
                           {t("contestRules.duration")}
@@ -289,17 +311,6 @@ function HomeContent() {
 
                       <div>
                         <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
-                          {t("contestRules.prize")}
-                        </h4>
-                        <div className="space-y-1 text-xs sm:text-sm">
-                          {tArray("contestRules.prizeContent").map((item: string, index: number) => (
-                            <p key={index}>{item}</p>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
                           {t("contestRules.liability")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -319,6 +330,30 @@ function HomeContent() {
                           ))}
                         </div>
                       </div>
+
+                      <div>
+                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                          {t("contestRules.communications")}
+                        </h4>
+                        <div className="space-y-1 text-xs sm:text-sm">
+                          {tArray("contestRules.communicationsContent").map((item: string, index: number) => (
+                            <p key={index}>{item}</p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bouton de participation à la fin des règlements */}
+                    <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                      <Button
+                        size="lg"
+                        className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg group touch-target-44 text-sm sm:text-base px-6 sm:px-8"
+                        onClick={() => scrollToSection("signup")}
+                        aria-label={t("contestRules.participateButton")}
+                      >
+                        <Trophy className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                        {t("contestRules.participateButton")}
+                      </Button>
                     </div>
                   </div>
                 </div>

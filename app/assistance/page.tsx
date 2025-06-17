@@ -8,18 +8,7 @@ import { ClientWrapper } from "@/components/ClientWrapper"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { useTranslation } from "@/hooks/useTranslation"
 import { Button } from "@/components/ui/button"
-import {
-  Mail,
-  MessageCircle,
-  HelpCircle,
-  Bug,
-  CreditCard,
-  Store,
-  User,
-  CheckCircle,
-  ArrowLeft,
-  Send,
-} from "lucide-react"
+import { MessageCircle, HelpCircle, Bug, CreditCard, Store, User, CheckCircle, ArrowLeft, Send } from "lucide-react"
 import Link from "next/link"
 
 function AssistanceContent() {
@@ -45,32 +34,32 @@ function AssistanceContent() {
     {
       id: "account",
       icon: User,
-      title: "Problème de compte",
-      description: "Connexion, inscription, mot de passe oublié",
+      title: t("assistance.categories.account.title"),
+      description: t("assistance.categories.account.description"),
     },
     {
       id: "business",
       icon: Store,
-      title: "Questions commerciales",
-      description: "Inscription commerce, partenariats, visibilité",
+      title: t("assistance.categories.business.title"),
+      description: t("assistance.categories.business.description"),
     },
     {
       id: "payment",
       icon: CreditCard,
-      title: "Paiements et facturation",
-      description: "Problèmes de paiement, remboursements, factures",
+      title: t("assistance.categories.payment.title"),
+      description: t("assistance.categories.payment.description"),
     },
     {
       id: "technical",
       icon: Bug,
-      title: "Problème technique",
-      description: "Bugs, erreurs, problèmes de fonctionnement",
+      title: t("assistance.categories.technical.title"),
+      description: t("assistance.categories.technical.description"),
     },
     {
       id: "general",
       icon: HelpCircle,
-      title: "Question générale",
-      description: "Informations, suggestions, autres questions",
+      title: t("assistance.categories.general.title"),
+      description: t("assistance.categories.general.description"),
     },
   ]
 
@@ -96,15 +85,12 @@ function AssistanceContent() {
               <div className="mb-8">
                 <CheckCircle className="h-16 w-16 text-gosholo-orange mx-auto mb-4" />
                 <h1 className="text-3xl md:text-4xl font-bold text-gosholo-dark-teal mb-4">
-                  Message envoyé avec succès !
+                  {t("assistance.success.title")}
                 </h1>
-                <p className="text-lg text-gosholo-dark-teal mb-8">
-                  Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais à l'adresse email que
-                  vous avez fournie.
-                </p>
+                <p className="text-lg text-gosholo-dark-teal mb-8">{t("assistance.success.message")}</p>
                 <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 mb-8">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-2">Temps de réponse habituel :</h3>
-                  <p className="text-gosholo-dark-teal">24-48 heures en jours ouvrables</p>
+                  <h3 className="font-semibold text-gosholo-dark-teal mb-2">{t("assistance.success.responseTime")}</h3>
+                  <p className="text-gosholo-dark-teal">{t("assistance.success.responseTimeValue")}</p>
                 </div>
               </div>
 
@@ -112,7 +98,7 @@ function AssistanceContent() {
                 <Link href="/">
                   <Button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Retour à l'accueil
+                    {t("nav.backToHome")}
                   </Button>
                 </Link>
                 <Button
@@ -120,7 +106,7 @@ function AssistanceContent() {
                   className="border-gosholo-dark-teal text-gosholo-dark-teal hover:bg-gosholo-dark-teal hover:text-white"
                   onClick={() => setIsSubmitted(false)}
                 >
-                  Envoyer un autre message
+                  {t("assistance.success.sendAnother")}
                 </Button>
               </div>
             </div>
@@ -147,51 +133,19 @@ function AssistanceContent() {
                   className="inline-flex items-center text-white/80 hover:text-white transition-colors duration-300 mb-4"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Retour à l'accueil
+                  {t("nav.backToHome")}
                 </Link>
               </div>
 
               <div className="inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto mb-6">
                 <MessageCircle className="mr-2 h-4 w-4" />
-                Centre d'assistance
+                {t("assistance.badge")}
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white mb-4">
-                Comment pouvons-nous vous aider ?
+                {t("assistance.title")}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                Notre équipe est là pour répondre à toutes vos questions et résoudre vos problèmes rapidement.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Info */}
-        <section className="w-full py-8 bg-white border-b">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="flex flex-col items-center p-4">
-                  <Mail className="h-8 w-8 text-gosholo-orange mb-3" />
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-1">Email</h3>
-                  <a
-                    href="mailto:assistance@gosholo.com"
-                    className="text-gosholo-dark-teal hover:text-gosholo-orange transition-colors"
-                  >
-                    assistance@gosholo.com
-                  </a>
-                </div>
-                <div className="flex flex-col items-center p-4">
-                  <MessageCircle className="h-8 w-8 text-gosholo-orange mb-3" />
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-1">Réponse</h3>
-                  <p className="text-gosholo-dark-teal">24-48h en jours ouvrables</p>
-                </div>
-                <div className="flex flex-col items-center p-4">
-                  <HelpCircle className="h-8 w-8 text-gosholo-orange mb-3" />
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-1">Support</h3>
-                  <p className="text-gosholo-dark-teal">Lun-Ven 9h-17h</p>
-                </div>
-              </div>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t("assistance.description")}</p>
             </div>
           </div>
         </section>
@@ -203,14 +157,14 @@ function AssistanceContent() {
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="p-6 md:p-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-gosholo-dark-teal mb-6 text-center">
-                    Envoyez-nous un message
+                    {t("assistance.form.title")}
                   </h2>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Category Selection */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-4">
-                        Catégorie de votre demande <span className="text-red-500">*</span>
+                        {t("assistance.form.category")} <span className="text-red-500">*</span>
                       </label>
                       <div className="grid md:grid-cols-2 gap-3">
                         {categories.map((category) => {
@@ -247,7 +201,7 @@ function AssistanceContent() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                          Prénom <span className="text-red-500">*</span>
+                          {t("signup.firstName")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -255,12 +209,12 @@ function AssistanceContent() {
                           name="firstName"
                           required
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300"
-                          placeholder="Votre prénom"
+                          placeholder={t("signup.yourFirstName")}
                         />
                       </div>
                       <div>
                         <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                          Nom <span className="text-red-500">*</span>
+                          {t("signup.lastName")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -268,7 +222,7 @@ function AssistanceContent() {
                           name="lastName"
                           required
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300"
-                          placeholder="Votre nom"
+                          placeholder={t("signup.yourLastName")}
                         />
                       </div>
                     </div>
@@ -276,7 +230,7 @@ function AssistanceContent() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email <span className="text-red-500">*</span>
+                          {t("signup.email")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="email"
@@ -284,19 +238,20 @@ function AssistanceContent() {
                           name="email"
                           required
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300"
-                          placeholder="votre.email@exemple.com"
+                          placeholder={t("signup.yourEmail")}
                         />
                       </div>
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                          Téléphone <span className="text-gray-400">(optionnel)</span>
+                          {t("signup.phoneNumber")}{" "}
+                          <span className="text-gray-400">({t("assistance.form.optional")})</span>
                         </label>
                         <input
                           type="tel"
                           id="phone"
                           name="phone"
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300"
-                          placeholder="581-123-4567"
+                          placeholder={t("signup.phoneNumberPlaceholder")}
                         />
                       </div>
                     </div>
@@ -304,7 +259,7 @@ function AssistanceContent() {
                     {/* Subject */}
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                        Sujet <span className="text-red-500">*</span>
+                        {t("assistance.form.subject")} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -312,14 +267,14 @@ function AssistanceContent() {
                         name="subject"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300"
-                        placeholder="Résumé de votre demande"
+                        placeholder={t("assistance.form.subjectPlaceholder")}
                       />
                     </div>
 
                     {/* Message */}
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Message <span className="text-red-500">*</span>
+                        {t("assistance.form.message")} <span className="text-red-500">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -327,46 +282,9 @@ function AssistanceContent() {
                         rows={6}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:border-transparent transition-all duration-300 resize-vertical"
-                        placeholder="Décrivez votre problème ou votre question en détail..."
+                        placeholder={t("assistance.form.messagePlaceholder")}
                       />
-                      <p className="text-sm text-gray-500 mt-2">
-                        Plus vous nous donnez de détails, plus nous pourrons vous aider efficacement.
-                      </p>
-                    </div>
-
-                    {/* Priority */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-3">Priorité</label>
-                      <div className="flex gap-4">
-                        <label className="flex items-center">
-                          <input
-                            type="radio"
-                            name="priority"
-                            value="low"
-                            className="h-4 w-4 text-gosholo-orange border-gray-300 focus:ring-gosholo-orange"
-                          />
-                          <span className="ml-2 text-sm font-medium text-green-600">Faible</span>
-                        </label>
-                        <label className="flex items-center">
-                          <input
-                            type="radio"
-                            name="priority"
-                            value="medium"
-                            defaultChecked
-                            className="h-4 w-4 text-gosholo-orange border-gray-300 focus:ring-gosholo-orange"
-                          />
-                          <span className="ml-2 text-sm font-medium text-yellow-600">Moyenne</span>
-                        </label>
-                        <label className="flex items-center">
-                          <input
-                            type="radio"
-                            name="priority"
-                            value="high"
-                            className="h-4 w-4 text-gosholo-orange border-gray-300 focus:ring-gosholo-orange"
-                          />
-                          <span className="ml-2 text-sm font-medium text-red-600">Élevée</span>
-                        </label>
-                      </div>
+                      <p className="text-sm text-gray-500 mt-2">{t("assistance.form.messageHelp")}</p>
                     </div>
 
                     {/* Submit Button */}
@@ -379,68 +297,20 @@ function AssistanceContent() {
                         {isSubmitting ? (
                           <>
                             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                            Envoi en cours...
+                            {t("assistance.form.sending")}
                           </>
                         ) : (
                           <>
                             <Send className="mr-2 h-5 w-5" />
-                            Envoyer le message
+                            {t("assistance.form.send")}
                           </>
                         )}
                       </Button>
                       {!selectedCategory && (
-                        <p className="text-sm text-red-500 mt-2 text-center">
-                          Veuillez sélectionner une catégorie pour continuer
-                        </p>
+                        <p className="text-sm text-red-500 mt-2 text-center">{t("assistance.form.selectCategory")}</p>
                       )}
                     </div>
                   </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="w-full py-12 md:py-16 bg-white">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-gosholo-dark-teal mb-8 text-center">
-                Questions fréquentes
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gosholo-light-green/20 rounded-lg p-6">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-3">Comment créer un compte gosholo ?</h3>
-                  <p className="text-gosholo-dark-teal">
-                    Vous pouvez créer votre compte directement depuis notre page d'accueil en cliquant sur 'S'inscrire'.
-                    L'application sera bientôt disponible !
-                  </p>
-                </div>
-                <div className="bg-gosholo-light-green/20 rounded-lg p-6">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-3">
-                    Quand l'application sera-t-elle disponible ?
-                  </h3>
-                  <p className="text-gosholo-dark-teal">
-                    L'application gosholo sera lancée très prochainement. Inscrivez-vous pour être informé dès sa sortie
-                    !
-                  </p>
-                </div>
-                <div className="bg-gosholo-light-green/20 rounded-lg p-6">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-3">
-                    Comment participer au concours Osheaga ?
-                  </h3>
-                  <p className="text-gosholo-dark-teal">
-                    Suivez les 4 étapes décrites dans la section concours de notre site web. N'oubliez pas de
-                    télécharger l'app quand elle sera disponible !
-                  </p>
-                </div>
-                <div className="bg-gosholo-light-green/20 rounded-lg p-6">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-3">Comment inscrire mon commerce ?</h3>
-                  <p className="text-gosholo-dark-teal">
-                    Utilisez l'onglet 'Commerce' dans le formulaire d'inscription sur notre page d'accueil pour
-                    rejoindre notre réseau de partenaires.
-                  </p>
                 </div>
               </div>
             </div>
