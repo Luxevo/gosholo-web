@@ -48,11 +48,14 @@ export const en = {
     description:
       "At gosholo, we believe in the power of local commerce to create stronger and more sustainable communities.",
     visibilityTitle: "Increased Visibility",
-    visibilityDescription: "We help local businesses become more visible online and attract new customers.",
+    visibilityDescription:
+      "We help local businesses become more visible online and attract new customers.",
     communityTitle: "Engaged Community",
-    communityDescription: "We create a community of engaged consumers who value local and sustainable shopping.",
+    communityDescription:
+      "We create a community of engaged consumers who value local and sustainable shopping.",
     impactTitle: "Economic Impact",
-    impactDescription: "We contribute to local economic growth by redirecting spending to neighborhood businesses.",
+    impactDescription:
+      "We contribute to local economic growth by redirecting spending to neighborhood businesses.",
     learnMore: "Learn More",
     learnMoreVisibility: "Learn more about increased visibility",
     learnMoreCommunity: "Learn more about engaged community",
@@ -63,12 +66,14 @@ export const en = {
   contest: {
     badge: "Special Event",
     title: "Osheaga Contest",
-    description: "Participate in our exclusive contest and win tickets to the Osheaga festival!",
+    description:
+      "Participate in our exclusive contest and win tickets to the Osheaga festival!",
     howToParticipate: "How to Participate",
     step1: "Follow our official Instagram account: @gosholo",
     step2: "Repost the official contest publication in your Instagram story",
     step3: "Tag 2 friends in the publication comments",
-    step4: "Download the gosholo app when it becomes available (before the contest starts)",
+    step4:
+      "Download the gosholo app when it becomes available (before the contest starts)",
     contestDetails: "Contest Details",
     location: "Montreal, August 2-4, 2025",
     endDate: "Contest ends: July 15, 2025",
@@ -126,7 +131,8 @@ export const en = {
   // CTA Section
   cta: {
     title: "Coming Soon to Discover Local Businesses!",
-    description: "The Gosholo app will soon be available to let you explore the hidden treasures of your neighborhood.",
+    description:
+      "The Gosholo app will soon be available to let you explore the hidden treasures of your neighborhood.",
     appStore: "Coming Soon on App Store",
     googlePlay: "Coming Soon on Google Play",
     appPreview: "Preview of the Gosholo mobile app on smartphone",
@@ -136,13 +142,16 @@ export const en = {
   signup: {
     badge: "Join Us",
     title: "Create Your Account",
-    description: "Join our community and start enjoying Gosholo benefits today.",
+    description:
+      "Join our community and start enjoying Gosholo benefits today.",
     userTab: "User",
     businessTab: "Business",
     userTitle: "User Registration",
-    userDescription: "Create your account to discover and support local businesses.",
+    userDescription:
+      "Create your account to discover and support local businesses.",
     businessTitle: "Business Registration",
-    businessDescription: "Join our network of local businesses and increase your visibility.",
+    businessDescription:
+      "Join our network of local businesses and increase your visibility.",
     required: "required",
     requiredFields: "Fields marked with * are required.",
     firstName: "First Name",
@@ -179,6 +188,8 @@ export const en = {
     businessEmailPlaceholder: "business@example.com",
     yourPassword: "Your password",
     postalCodeExample: "Ex: H2X 1Y6",
+    phoneNumber: "Phone Number",
+    phoneNumberPlaceholder: "Ex: 581-123-4567",
   },
 
   // Footer
@@ -218,4 +229,4 @@ export const en = {
     delete: "Delete",
     confirm: "Confirm",
   },
-}
+};
