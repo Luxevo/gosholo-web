@@ -94,16 +94,29 @@ export const en = {
     step2: "Follow our official Instagram or Facebook account: @gosholo",
     step3: "Share the official contest post to your Facebook or Instagram story (make sure to tag @gosholo).",
     step4: "Tag 2 friends in the comments of the official contest post on Instagram.",
-    contestDetails: "Contest Details",
-    location: "Montreal, August 2-4, 2025",
-    endDate: "Contest ends: July 15, 2025",
-    contact: "Winners will be contacted by email",
     timeRemaining: "Time remaining:",
     daysLeft: "31 days",
     progressLabel: "Contest progress",
-    rulesTitle: "Official Contest Rules",
     appComingSoon: "App Coming Soon",
     participateNow: "Participate Now",
+    // Contest form
+    contestForm: {
+      title: "Contest Registration",
+      description: "Fill out the form below to participate in the Osheaga contest.",
+      firstName: "First Name",
+      lastName: "Last Name",
+      phoneNumber: "Phone Number",
+      postalCode: "Postal Code",
+      email: "Email Address",
+      acceptRules: "I accept the contest rules",
+      submitContest: "Enter Contest",
+      requiredFields: "All fields are required.",
+      firstNamePlaceholder: "Your first name",
+      lastNamePlaceholder: "Your last name",
+      phoneNumberPlaceholder: "Ex: 581-123-4567",
+      postalCodePlaceholder: "Ex: H2X 1Y6",
+      emailPlaceholder: "your.email@example.com",
+    },
   },
 
   // Contest Rules
@@ -118,6 +131,13 @@ export const en = {
     durationContent: [
       "Starts on June 16, 2025 at 9:00 AM and ends on July 17, 2025 at 11:59 PM (Quebec time).",
       "The draw will take place on July 18, 2025 at 3:00 PM.",
+    ],
+    contestDetails: "Contest Details",
+    contestDetailsContent: [
+      "Location: Montreal, Saturday August 2, 2025",
+      "Contest ends: July 15, 2025",
+      "Winners will be contacted by email",
+      "Time remaining: 31 days",
     ],
     participation: "Participation Requirements",
     participationIntro: "To be eligible, participants must complete the following steps:",
@@ -153,7 +173,6 @@ export const en = {
       "By entering the contest, each participant agrees to receive promotional communications from gosholo, including newsletters, offers, and updates via email and SMS.",
       'Participants may unsubscribe at any time by clicking the unsubscribe link in emails or replying "STOP" to text messages.',
     ],
-    participateButton: "Enter Contest",
   },
 
   // CTA Section
@@ -168,45 +187,67 @@ export const en = {
     appPreview: "Preview of the Gosholo mobile app on smartphone",
   },
 
-  // Signup Section
-  signup: {
+  // Newsletter Section (formerly Signup)
+  newsletter: {
     badge: "Join Us",
-    title: "Create Your Account",
-    description: "Join our community and start enjoying Gosholo benefits today.",
-    userTab: "User",
-    businessTab: "Business",
-    userTitle: "User Registration",
-    userDescription: "Create your account to discover and support local businesses.",
-    businessTitle: "Business Registration",
-    businessDescription: "Join our network of local businesses and increase your visibility.",
+    title: "Subscribe to our newsletter",
+    description: "Be the first to know about the app launch and receive our latest news.",
+    newsletterTitle: "Newsletter subscription",
+    newsletterDescription: "Stay informed about the latest news and the launch of the gosholo app.",
     required: "required",
     requiredFields: "Fields marked with * are required.",
     firstName: "First Name",
     lastName: "Last Name",
-    businessName: "Business Name",
-    businessType: "Business Type",
-    selectCategory: "Select a category",
-    restaurant: "Restaurant",
-    cafe: "Café",
-    retail: "Retail",
-    service: "Service",
-    other: "Other",
     city: "City",
     postalCode: "Postal Code",
     postalCodeFormat: "Format: A1A 1A1 (Canadian postal code)",
     email: "Email",
-    businessEmail: "Business Email",
-    password: "Password",
-    passwordHelp: "Password must contain at least 8 characters.",
-    showPassword: "Show password",
-    hidePassword: "Hide password",
+    phoneNumber: "Phone Number",
+    phoneNumberPlaceholder: "Ex: 581-123-4567",
     terms: "I accept the",
     termsOfUse: "terms of use",
     privacyPolicy: "privacy policy",
     contestRules: "I accept the",
     contestRulesLink: "contest rules",
-    createAccount: "Create My Account",
-    registerBusiness: "Register My Business",
+    subscribeNewsletter: "Subscribe to newsletter",
+    yourFirstName: "Your first name",
+    yourLastName: "Your last name",
+    yourCity: "Your city",
+    yourEmail: "your.email@example.com",
+    postalCodeExample: "Ex: H2X 1Y6",
+  },
+
+  // Signup Section
+  signup: {
+    badge: "Join Us",
+    title: "Create your gosholo account",
+    description: "Choose your account type to start enjoying gosholo benefits.",
+    userTab: "Individual",
+    businessTab: "Business",
+    userTitle: "Individual Account",
+    userDescription: "Discover and enjoy the best local offers.",
+    businessTitle: "Business Account",
+    businessDescription: "Join our network of local partners.",
+    requiredFields: "Fields marked with * are required.",
+    firstName: "First Name",
+    lastName: "Last Name",
+    businessName: "Business Name",
+    businessType: "Business Type",
+    city: "City",
+    postalCode: "Postal Code",
+    postalCodeFormat: "Format: A1A 1A1 (Canadian postal code)",
+    email: "Email",
+    businessEmail: "Business Email",
+    phoneNumber: "Phone Number",
+    password: "Password",
+    passwordHelp: "Minimum 8 characters",
+    terms: "I accept the",
+    termsOfUse: "terms of use",
+    privacyPolicy: "privacy policy",
+    contestRules: "I accept the",
+    contestRulesLink: "contest rules",
+    createAccount: "Create Account",
+    registerBusiness: "Register Business",
     alreadyHaveAccount: "Already have an account?",
     signIn: "Sign In",
     yourFirstName: "Your first name",
@@ -214,11 +255,210 @@ export const en = {
     yourBusinessName: "Your business name",
     yourCity: "Your city",
     yourEmail: "your.email@example.com",
-    businessEmailPlaceholder: "business@example.com",
+    businessEmailPlaceholder: "contact@mybusiness.com",
     yourPassword: "Your password",
-    postalCodeExample: "Ex: H2X 1Y6",
-    phoneNumber: "Phone Number",
     phoneNumberPlaceholder: "Ex: 581-123-4567",
+    postalCodeExample: "Ex: H2X 1Y6",
+    selectCategory: "Select a category",
+    restaurant: "Restaurant",
+    cafe: "Café",
+    retail: "Retail",
+    service: "Service",
+    other: "Other",
+    showPassword: "Show password",
+    hidePassword: "Hide password",
+  },
+
+  // Terms of Use
+  termsOfUse: {
+    badge: "Legal Terms",
+    title: "Terms of Use",
+    lastUpdated: "Last updated: June 2025",
+    websiteUse: {
+      title: "Use of the gosholo Website",
+      content:
+        "This website, gosholo.com, including social networks, mobile applications, and other platforms owned and operated by gosholo (collectively, the 'Site'), is the property of gosholo, owned by Les Sociétés Haeyu Inc., with its head office located at 3626 rue Adam, Montreal, Quebec, H1W 1Y9. By accessing or browsing this Site, you unconditionally agree to be bound by these Terms of Use (the 'Terms') and all applicable laws. Use of our Site is for personal, non-commercial purposes only.",
+    },
+    modification: {
+      title: "Modification of These Terms",
+      content:
+        "gosholo reserves the right to modify these Terms at any time, without prior notice. The current Terms are available at all times on our Site, and by continuing your visit, you agree to the Terms then in effect. It is your responsibility to stay informed of the Terms and any changes, indicated by the update date.",
+    },
+    siteModification: {
+      title: "Modification of the Site, Services, and Offers",
+      content:
+        "gosholo reserves the right to modify, suspend, or remove any content, service, or offer on the Site at its sole discretion and without notice. gosholo is not responsible for any loss or damage resulting from such modifications.",
+    },
+    hyperlinks: {
+      title: "Hyperlinks",
+      content:
+        "The Site may contain hyperlinks to external sites operated by third parties. gosholo has no control over these sites and disclaims any responsibility for their content. Use of these sites is at the user's own risk, without any liability for gosholo.",
+    },
+    childProtection: {
+      title: "Child Protection",
+      content:
+        "gosholo complies with online child protection laws. Parents are encouraged to supervise their children's use of the Site.",
+    },
+    liability: {
+      title: "Limitation of Liability",
+      content:
+        "gosholo shall not be liable for any direct or indirect damages, including, without limitation, data loss, service interruptions, or product errors, even if gosholo has been advised of the possibility of such damages. Your sole remedy is to stop using the Site.",
+    },
+    internetRisks: {
+      title: "Risks Associated with Internet Use",
+      content:
+        "The Site is accessible based on its availability. While gosholo strives to keep the Site free of errors or viruses, there is no guarantee that the Site will always be free from technical issues. You are responsible for any damage to your device resulting from your browsing.",
+    },
+    security: {
+      title: "User ID, Password, and Security",
+      content:
+        "Where applicable, gosholo deploys security measures to protect your information, but complete confidentiality on the Internet is not guaranteed, and Internet use involves risks. You are responsible for the security of your credentials and must notify gosholo of any unauthorized use of your account.",
+    },
+    informationUse: {
+      title: "Use of Information and Errors",
+      content:
+        "The content of the Site is provided for informational purposes only. Although gosholo makes every effort to keep information accurate and up to date, errors may occur. gosholo reserves the right to correct these errors without prior notice.",
+    },
+    intellectualProperty: {
+      title: "Intellectual Property Rights",
+      content:
+        "All content on the Site, including text, images, videos, logos, and other elements, is protected by the intellectual property rights of gosholo or its partners. Any use without prior authorization is strictly prohibited.",
+    },
+    comments: {
+      title: "Comments and Suggestions",
+      content:
+        "By sending us comments or suggestions via the Site, you grant gosholo an irrevocable, perpetual, and royalty-free license to use this information.",
+    },
+    siteSecurity: {
+      title: "Site Security",
+      content:
+        "Use of the Site must comply with these Terms. Any attempt at unauthorized access or security breach may result in civil or criminal proceedings.",
+    },
+    termination: {
+      title: "Termination of Site Use",
+      content:
+        "gosholo reserves the right to terminate or suspend your access to the Site at its sole discretion and without notice.",
+    },
+    otherTerms: {
+      title: "Other Terms of Use",
+      content:
+        "Certain offers or services may be subject to additional specific conditions that will be communicated to you upon access.",
+    },
+    applicableLaws: {
+      title: "Applicable Laws",
+      content:
+        "Use of the Site is governed by the laws of the province of Quebec and Canada, and any dispute will be submitted to the courts of the province of Quebec, district of Montreal.",
+    },
+    contact: {
+      title: "Contact Us",
+      intro: "For any questions, please contact gosholo's Customer Service at the following address:",
+      ownership: "gosholo is a property of Les Sociétés Haeyu Inc.",
+    },
+  },
+
+  // Privacy Policy
+  privacyPolicy: {
+    badge: "Privacy",
+    title: "Privacy Policy",
+    lastUpdated: "Last updated: June 2025",
+    introduction:
+      "At gosholo, protecting your personal information is of utmost importance. This privacy policy explains how we collect, use, share, and protect your information when you use our online platform. By using the gosholo website and mobile application, you agree to the practices described in this policy.",
+    informationCollected: {
+      title: "1. Information We Collect",
+      intro: "We may collect the following types of information:",
+      personalInfo: {
+        title: "Personal Information",
+        description:
+          "Such as your name, email address, phone number, or any information that can directly identify you.",
+      },
+      technicalInfo: {
+        title: "Technical Information",
+        description: "Including IP address, device type, browser, visited pages, and duration of visits.",
+      },
+      transactionalData: {
+        title: "Transactional Data",
+        description:
+          "Any information about interactions with Gosholo offers and partners, including points accumulated and redeemed.",
+      },
+    },
+    useOfInformation: {
+      title: "2. Use of Information",
+      intro: "The collected information is used to:",
+      provideServices: {
+        title: "Provide and improve our services",
+        description: "To manage your account, facilitate transactions, and enhance user experience.",
+      },
+      communicate: {
+        title: "Communicate with you",
+        description: "By sending targeted notifications and offers and responding to your inquiries.",
+      },
+      analyze: {
+        title: "Analyze and understand platform usage",
+        description: "To improve our services, tailor content, and optimize our features.",
+      },
+      legalCompliance: {
+        title: "Legal Compliance",
+        description: "When required, to comply with laws, regulations, or other legal requests.",
+      },
+    },
+    sharingInformation: {
+      title: "3. Sharing Information",
+      intro: "We share your personal information only with:",
+      businessPartners: {
+        title: "Our business partners",
+        description:
+          "Solely for transactions related to offers, ensuring that shared information is limited to what is strictly necessary.",
+      },
+      serviceProviders: {
+        title: "Service providers",
+        description:
+          "Who work on our behalf, such as hosting or messaging services, always with agreements ensuring the confidentiality of your data.",
+      },
+      legalAuthorities: {
+        title: "Legal authorities",
+        description: "When required by law or to protect our rights, in compliance with applicable regulations.",
+      },
+    },
+    dataRetention: {
+      title: "4. Data Retention and Security",
+      content:
+        "We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy. We take reasonable security measures to protect your data from unauthorized access, disclosure, or destruction.",
+    },
+    yourRights: {
+      title: "5. Your Rights and Choices",
+      intro: "In accordance with Quebec and Canadian laws, you have rights related to your personal information:",
+      accessCorrection: {
+        title: "Access and Correction",
+        description: "You can request access to the information we hold about you and correct it if it is inaccurate.",
+      },
+      withdrawalConsent: {
+        title: "Withdrawal of Consent",
+        description: "You can withdraw your consent for certain uses of your data by contacting our customer service.",
+      },
+      rightErasure: {
+        title: "Right to Erasure",
+        description: "In certain cases, you may request the deletion of your data.",
+      },
+    },
+    cookies: {
+      title: "6. Cookies and Similar Technologies",
+      intro: "We use cookies and similar technologies to:",
+      improveExperience: "Improve your experience on our website.",
+      analyzeUsage: "Analyze and understand the use of our platform.",
+      personalizeContent: "Personalize the advertisements and content offered to you.",
+      manageCookies: "You can manage your cookie preferences by changing your browser settings.",
+    },
+    changes: {
+      title: "7. Changes to the Privacy Policy",
+      content:
+        "gosholo reserves the right to update this privacy policy to reflect changes in our privacy practices or applicable laws. Any changes will be posted on our website with the update date.",
+    },
+    contact: {
+      title: "8. Contact",
+      intro:
+        "For any questions, requests for access, correction, or withdrawal of consent, you can contact our Privacy Officer at:",
+      ownership: "gosholo is owned and operated by Les Sociétés Haeyu Inc.",
+    },
   },
 
   // Assistance Section

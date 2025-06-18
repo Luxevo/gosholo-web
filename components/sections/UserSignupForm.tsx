@@ -133,14 +133,14 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
           <label htmlFor="termsUser" className="ml-3 block text-sm text-gray-700">
             {t("signup.terms")}{" "}
             <a
-              href="#"
+              href="/conditions-utilisation"
               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("signup.termsOfUse")}
             </a>{" "}
             et la{" "}
             <a
-              href="#"
+              href="/politique-confidentialite"
               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("signup.privacyPolicy")}
