@@ -20,11 +20,11 @@ export const fr = {
     seeContest: "Voir le concours Osheaga",
     newTitle: "Découvre. Économise. Profite.",
     newDescription:
-      "gosholo te connecte aux meilleures offres près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux",
+      "gosholo te connecte aux meilleures offres près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux.",
     comingSoon: "Bientôt disponible",
     learnMore: "En savoir plus",
     goToSignup: "Aller à la section d'inscription",
-    heroImageAlt: "Personnes partageant un repas local dans un cadre convivial",
+    heroImageAlt: "Jeune femme souriante représentant l'esprit dynamique de Gosholo",
   },
 
   // Who We Are Section
@@ -199,8 +199,8 @@ export const fr = {
     city: "Ville",
     postalCode: "Code postal",
     postalCodeFormat: "Format: A1A 1A1 (code postal canadien)",
-    email: "Email",
-    businessEmail: "Email professionnel",
+    email: "Courriel",
+    businessEmail: "Courriel professionnel",
     password: "Mot de passe",
     passwordHelp: "Le mot de passe doit contenir au moins 8 caractères.",
     showPassword: "Afficher le mot de passe",
@@ -208,6 +208,8 @@ export const fr = {
     terms: "J'accepte les",
     termsOfUse: "conditions d'utilisation",
     privacyPolicy: "politique de confidentialité",
+    contestRules: "J'accepte les",
+    contestRulesLink: "règlements du concours",
     createAccount: "Créer mon compte",
     registerBusiness: "Inscrire mon commerce",
     alreadyHaveAccount: "Vous avez déjà un compte?",
@@ -216,7 +218,7 @@ export const fr = {
     yourLastName: "Votre nom",
     yourBusinessName: "Nom de votre commerce",
     yourCity: "Votre ville",
-    yourEmail: "votre.email@exemple.com",
+    yourEmail: "votre.courriel@exemple.com",
     businessEmailPlaceholder: "commerce@exemple.com",
     yourPassword: "Votre mot de passe",
     postalCodeExample: "Ex: H2X 1Y6",
@@ -229,7 +231,7 @@ export const fr = {
     badge: "Centre d'assistance",
     title: "Comment pouvons-nous vous aider ?",
     description: "Notre équipe est là pour répondre à toutes vos questions et résoudre vos problèmes rapidement.",
-    contactEmail: "Email de contact",
+    contactEmail: "Courriel de contact",
     directContact: "Vous pouvez aussi nous contacter directement",
     categories: {
       account: {
@@ -270,7 +272,7 @@ export const fr = {
     success: {
       title: "Message envoyé avec succès !",
       message:
-        "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais à l'adresse email que vous avez fournie.",
+        "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais à l'adresse courriel que vous avez fournie.",
       responseTime: "Temps de réponse habituel :",
       responseTimeValue: "24-48 heures en jours ouvrables",
       emailSent: "Votre message a été envoyé à :",

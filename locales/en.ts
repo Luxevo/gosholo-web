@@ -24,7 +24,7 @@ export const en = {
     comingSoon: "Coming Soon",
     learnMore: "Learn More",
     goToSignup: "Go to signup section",
-    heroImageAlt: "People sharing a local meal in a friendly setting",
+    heroImageAlt: "Smiling young woman representing Gosholo's dynamic spirit",
   },
 
   // Who We Are Section
@@ -203,6 +203,8 @@ export const en = {
     terms: "I accept the",
     termsOfUse: "terms of use",
     privacyPolicy: "privacy policy",
+    contestRules: "I accept the",
+    contestRulesLink: "contest rules",
     createAccount: "Create My Account",
     registerBusiness: "Register My Business",
     alreadyHaveAccount: "Already have an account?",

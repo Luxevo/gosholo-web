@@ -1,14 +1,16 @@
-import { Button } from "../ui/button";
-import { useTranslation } from "@/hooks/useTranslation";
-import { useState, useCallback, useMemo } from "react";
-import { Mail, Phone, Lock, Eye, EyeOff } from "lucide-react";
-import { FormInput } from "./form/FormInput";
+"use client"
+
+import type React from "react"
+
+import { Button } from "../ui/button"
+import { useTranslation } from "@/hooks/useTranslation"
+import { useState, useCallback, useMemo } from "react"
+import { Mail, Phone, Lock, Eye, EyeOff } from "lucide-react"
+import { FormInput } from "./form/FormInput"
 
 interface BusinessSignupFormProps {
-  activeTab: "user" | "business";
+  activeTab: "user" | "business"
 }
-
-// FormInput props interface
 
 // Extract reusable input styles to avoid repetition
 const INPUT_STYLES = {
@@ -22,9 +24,7 @@ const INPUT_STYLES = {
   required: "text-red-500",
   container: "space-y-2",
   group: "relative group",
-};
-
-// FormInput component defined inside the file
+}
 
 // Extract business type options to avoid inline repetition
 const BUSINESS_TYPES = [
@@ -34,56 +34,41 @@ const BUSINESS_TYPES = [
   { value: "retail", key: "retail" },
   { value: "service", key: "service" },
   { value: "other", key: "other" },
-];
+]
 
 export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
-  const { t } = useTranslation();
-  const [showPassword, setShowPassword] = useState(false);
+  const { t } = useTranslation()
+  const [showPassword, setShowPassword] = useState(false)
 
   // Memoize panel className to avoid recalculation
   const panelClassName = useMemo(
     () =>
       `space-y-4 sm:space-y-6 transition-all duration-500 ${
-        activeTab === "business"
-          ? "opacity-100 translate-x-0"
-          : "opacity-0 translate-x-4"
+        activeTab === "business" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
       }`,
-    [activeTab]
-  );
+    [activeTab],
+  )
 
   // Use useCallback for event handlers to prevent unnecessary re-renders
   const togglePassword = useCallback(() => {
-    setShowPassword((prev) => !prev);
-  }, []);
+    setShowPassword((prev) => !prev)
+  }, [])
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     // Add form submission logic here
-  }, []);
+  }, [])
 
   return (
-    <div
-      role="tabpanel"
-      id="business-panel"
-      aria-labelledby="business-tab"
-      className={panelClassName}
-    >
+    <div role="tabpanel" id="business-panel" aria-labelledby="business-tab" className={panelClassName}>
       <div className="text-left">
-        <h3 className="text-lg sm:text-xl font-bold mb-2">
-          {t("signup.businessTitle")}
-        </h3>
-        <p className="text-gray-500 text-sm sm:text-base">
-          {t("signup.businessDescription")}
-        </p>
+        <h3 className="text-lg sm:text-xl font-bold mb-2">{t("signup.businessTitle")}</h3>
+        <p className="text-gray-500 text-sm sm:text-base">{t("signup.businessDescription")}</p>
       </div>
 
       <p className="text-xs text-gray-500 mb-4">{t("signup.requiredFields")}</p>
 
-      <form
-        className="space-y-4 sm:space-y-6"
-        onSubmit={handleSubmit}
-        noValidate
-      >
+      <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit} noValidate>
         {/* Business Name */}
         <FormInput
           id="businessName"
@@ -102,13 +87,7 @@ export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
                 *
               </span>
             </label>
-            <select
-              id="businessType"
-              name="businessType"
-              className={INPUT_STYLES.base}
-              required
-              aria-required="true"
-            >
+            <select id="businessType" name="businessType" className={INPUT_STYLES.base} required aria-required="true">
               {BUSINESS_TYPES.map(({ value, key }) => (
                 <option key={value} value={value}>
                   {t(`signup.${key}`)}
@@ -180,15 +159,9 @@ export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
             type="button"
             onClick={togglePassword}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
-            aria-label={
-              showPassword ? t("signup.hidePassword") : t("signup.showPassword")
-            }
+            aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
           >
-            {showPassword ? (
-              <EyeOff className="h-5 w-5" />
-            ) : (
-              <Eye className="h-5 w-5" />
-            )}
+            {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
           </button>
         </FormInput>
 
@@ -202,10 +175,7 @@ export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
             required
             aria-required="true"
           />
-          <label
-            htmlFor="termsBusiness"
-            className="ml-3 block text-sm text-gray-700"
-          >
+          <label htmlFor="termsBusiness" className="ml-3 block text-sm text-gray-700">
             {t("signup.terms")}{" "}
             <a
               href="#"
@@ -219,6 +189,34 @@ export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
               className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("signup.privacyPolicy")}
+            </a>
+          </label>
+        </div>
+
+        {/* Contest Rules Checkbox */}
+        <div className="flex items-start">
+          <input
+            type="checkbox"
+            id="contestRulesBusiness"
+            name="contestRules"
+            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+            required
+            aria-required="true"
+          />
+          <label htmlFor="contestRulesBusiness" className="ml-3 block text-sm text-gray-700">
+            {t("signup.contestRules")}{" "}
+            <a
+              href="#contest"
+              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              onClick={(e) => {
+                e.preventDefault()
+                const section = document.getElementById("contest")
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" })
+                }
+              }}
+            >
+              {t("signup.contestRulesLink")}
             </a>
           </label>
         </div>
@@ -241,5 +239,5 @@ export function BusinessSignupForm({ activeTab }: BusinessSignupFormProps) {
         </a>
       </div>
     </div>
-  );
+  )
 }
