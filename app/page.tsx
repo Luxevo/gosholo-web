@@ -13,7 +13,7 @@ import { useTranslation } from "@/hooks/useTranslation"
 import { Button } from "@/components/ui/button"
 import { Clock, Mail } from "lucide-react"
 import { NewsletterForm } from "@/components/sections/NewsletterForm"
-import { ContestForm } from "@/components/sections/ContestForm"
+import ContestForm from "@/components/sections/ContestForm"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 
@@ -64,6 +64,8 @@ function HomeContent() {
 
       <main>
         <HeroSection isVisible={isVisible} onScrollToSection={scrollToSection} />
+        
+      
 
         {/* About Gosholo Section */}
         <AboutGosholoSection />
