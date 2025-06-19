@@ -9,6 +9,32 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  async headers() {
+    return [
+      {
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Service-Worker-Allowed",
+            value: "/",
+          },
+          {
+            key: "Cache-Control",
+            value: "no-cache",
+          },
+        ],
+      },
+      {
+        source: "/brevo-frame.html",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache",
+          },
+        ],
+      },
+    ];
+  },
+};
 
-export default nextConfig
+export default nextConfig;
