@@ -23,20 +23,17 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
+        <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                      console.log('Brevo SW registered: ', registration);
-                    })
-                    .catch(function(registrationError) {
-                      console.log('Brevo SW registration failed: ', registrationError);
-                    });
-                });
-              }
+              window.Brevo = window.Brevo || [];
+              Brevo.push([
+                  "init",
+                  {
+                  client_key: "9en0k6nurdgx9b49saw3a4zw"
+                  }
+              ]);
             `,
           }}
         />
