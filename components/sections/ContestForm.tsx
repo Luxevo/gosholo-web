@@ -10,7 +10,7 @@ const ContestForm: FC = () => {
         margin: "0 auto",
         height: "600px",
         overflow: "auto",
-        borderRadius: "12px",
+        borderRadius: "13px",
         background: "#fff",
       }}
     >
