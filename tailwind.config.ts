@@ -53,12 +53,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Couleurs personnalisées
+        // Couleurs personnalisées - Nouvelle hiérarchie
         gosholo: {
-          "light-blue": "#5BC4DB",
-          "light-green": "#B2FD9D",
-          "dark-teal": "#016167",
-          orange: "#FF6233",
+          // Couleurs principales
+          primary: "#016167", // Couleur principale (ancien dark-teal)
+          white: "#FFFFFF", // Blanc principal
+
+          // Couleurs secondaires/accents
+          "light-blue": "#5BC4DB", // Bleu clair secondaire
+          "light-green": "#B2FD9D", // Vert clair secondaire
+          orange: "#FF6233", // Orange accent
+
+          // Alias pour compatibilité
+          "dark-teal": "#016167", // Garde l'ancien nom pour compatibilité
         },
       },
       borderRadius: {

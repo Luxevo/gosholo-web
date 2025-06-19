@@ -15,7 +15,7 @@ export function WhoWeAreSection() {
   return (
     <section
       id="who-we-are"
-      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-dark-teal"
+      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-primary"
       role="region"
       aria-labelledby="who-we-are-title"
     >

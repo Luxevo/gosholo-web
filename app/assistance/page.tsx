@@ -109,21 +109,21 @@ function AssistanceContent() {
             <div className="max-w-2xl mx-auto text-center">
               <div className="mb-6 sm:mb-8">
                 <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-gosholo-orange mx-auto mb-4" />
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gosholo-dark-teal mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gosholo-primary mb-4">
                   {t("assistance.success.title")}
                 </h1>
-                <p className="text-base sm:text-lg text-gosholo-dark-teal mb-6 sm:mb-8 px-4">
+                <p className="text-base sm:text-lg text-gosholo-primary mb-6 sm:mb-8 px-4">
                   {t("assistance.success.message")}
                 </p>
                 <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 mx-4 sm:mx-0">
-                  <h3 className="font-semibold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold text-gosholo-primary mb-2 text-sm sm:text-base">
                     {t("assistance.success.responseTime")}
                   </h3>
-                  <p className="text-gosholo-dark-teal text-sm sm:text-base">
+                  <p className="text-gosholo-primary text-sm sm:text-base">
                     {t("assistance.success.responseTimeValue")}
                   </p>
-                  <div className="mt-3 pt-3 border-t border-gosholo-dark-teal/20">
-                    <p className="text-xs sm:text-sm text-gosholo-dark-teal/80">
+                  <div className="mt-3 pt-3 border-t border-gosholo-primary/20">
+                    <p className="text-xs sm:text-sm text-gosholo-primary/80">
                       {t("assistance.success.emailSent")} <strong>assistance@gosholo.com</strong>
                     </p>
                   </div>
@@ -139,7 +139,7 @@ function AssistanceContent() {
                 </Link>
                 <Button
                   variant="outline"
-                  className="w-full sm:w-auto border-gosholo-dark-teal text-gosholo-dark-teal hover:bg-gosholo-dark-teal hover:text-white touch-target-44 text-sm sm:text-base"
+                  className="w-full sm:w-auto border-gosholo-primary text-gosholo-primary hover:bg-gosholo-primary hover:text-white touch-target-44 text-sm sm:text-base"
                   onClick={() => {
                     setIsSubmitted(false)
                     setSelectedCategory("")
@@ -193,7 +193,7 @@ function AssistanceContent() {
         </section>
 
         {/* Contact Info Section */}
-        <section className="w-full py-6 sm:py-8 bg-gosholo-dark-teal">
+        <section className="w-full py-6 sm:py-8 bg-gosholo-primary">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/20">
@@ -229,7 +229,7 @@ function AssistanceContent() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
                 <div className="p-4 sm:p-6 md:p-8">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gosholo-dark-teal mb-4 sm:mb-6 text-center">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gosholo-primary mb-4 sm:mb-6 text-center">
                     {t("assistance.form.title")}
                   </h2>
 

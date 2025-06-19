@@ -49,11 +49,11 @@ export function AboutSection() {
           <div className="space-y-2">
             <h2
               id="about-title"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-dark-teal"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-primary"
             >
               {t("about.title")}
             </h2>
-            <p className="max-w-[900px] text-gosholo-dark-teal text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
+            <p className="max-w-[900px] text-gosholo-primary text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
               {t("about.description")}
             </p>
           </div>
@@ -68,7 +68,7 @@ export function AboutSection() {
                 className="flex flex-col items-center space-y-4 rounded-lg border p-4 sm:p-6 shadow-sm transition-all duration-500 hover:shadow-xl bg-white hover:scale-105 hover:-translate-y-2 group"
               >
                 <div
-                  className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gosholo-dark-teal transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
+                  className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gosholo-primary transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
                   role="presentation"
                 >
                   <IconComponent
@@ -82,7 +82,7 @@ export function AboutSection() {
                 </div>
                 <Link
                   href={card.link}
-                  className="inline-flex items-center text-sm font-medium text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 group touch-target-44 p-2"
+                  className="inline-flex items-center text-sm font-medium text-gosholo-primary hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 group touch-target-44 p-2"
                   aria-label={card.ariaLabel}
                 >
                   {t("about.learnMore")}{" "}

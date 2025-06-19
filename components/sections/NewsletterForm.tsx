@@ -94,7 +94,7 @@ export function NewsletterForm() {
             type="checkbox"
             id="terms"
             name="terms"
-            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+            className="h-5 w-5 text-gosholo-primary border-gray-300 rounded focus:ring-gosholo-primary mt-0.5 transition-all duration-300 hover:scale-110"
             required
             aria-required="true"
           />
@@ -102,14 +102,14 @@ export function NewsletterForm() {
             {t("newsletter.terms")}{" "}
             <a
               href="/conditions-utilisation"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:text-gosholo-primary/80 focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("newsletter.termsOfUse")}
             </a>{" "}
             et la{" "}
             <a
               href="/politique-confidentialite"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:text-gosholo-primary/80 focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("newsletter.privacyPolicy")}
             </a>
@@ -122,7 +122,7 @@ export function NewsletterForm() {
             type="checkbox"
             id="contestRules"
             name="contestRules"
-            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+            className="h-5 w-5 text-gosholo-primary border-gray-300 rounded focus:ring-gosholo-primary mt-0.5 transition-all duration-300 hover:scale-110"
             required
             aria-required="true"
           />
@@ -130,7 +130,7 @@ export function NewsletterForm() {
             {t("newsletter.contestRules")}{" "}
             <a
               href="#contest"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:text-gosholo-primary/80 focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
               onClick={(e) => {
                 e.preventDefault()
                 const section = document.getElementById("contest")
@@ -146,7 +146,7 @@ export function NewsletterForm() {
 
         <Button
           type="submit"
-          className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
+          className="w-full bg-gosholo-primary hover:bg-gosholo-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
         >
           {t("newsletter.subscribeNewsletter")}
         </Button>

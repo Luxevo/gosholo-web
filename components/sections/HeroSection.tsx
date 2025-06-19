@@ -31,7 +31,7 @@ export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) 
             </div>
             <button
               onClick={() => onScrollToSection("contest")}
-              className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm font-semibold transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 border-transparent bg-gosholo-orange text-white w-fit hover:bg-gosholo-orange/90 cursor-pointer group hover:scale-105 hover:shadow-lg animate-pulse touch-target-44"
+              className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm font-semibold transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:ring-offset-2 border-transparent bg-gosholo-primary text-white w-fit hover:bg-gosholo-primary/90 cursor-pointer group hover:scale-105 hover:shadow-lg animate-pulse touch-target-44"
               aria-label={t("hero.seeContest")}
             >
               <Star className="mr-1.5 h-3 w-3 sm:h-4 sm:w-4 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12" />

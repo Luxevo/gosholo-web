@@ -115,7 +115,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
               key={item.href}
               href={item.href}
               onClick={(e) => handleLinkClick(item.href, e)}
-              className="text-sm font-medium transition-all duration-300 hover:text-gosholo-dark-teal hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gosholo-dark-teal after:transition-all after:duration-300 hover:after:w-full"
+              className="text-sm font-medium transition-all duration-300 hover:text-gosholo-primary hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gosholo-primary after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}
             </Link>
@@ -128,7 +128,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
           <div className="hidden sm:block">
             <Button
               size="sm"
-              className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm px-3 sm:px-4"
+              className="bg-gosholo-primary hover:bg-gosholo-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm px-3 sm:px-4"
               onClick={handleSignupClick}
               aria-label={t("hero.goToSignup")}
             >

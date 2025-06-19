@@ -46,7 +46,7 @@ export function AboutGosholoSection() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 sm:mb-16">
           <h2
             id="about-gosholo-title"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-dark-teal"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-primary"
           >
             {t("aboutGosholo.title")}
           </h2>
@@ -57,13 +57,13 @@ export function AboutGosholoSection() {
           {/* Left side - Text content */}
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-lg sm:text-xl leading-relaxed text-gosholo-dark-teal font-medium">
+              <p className="text-lg sm:text-xl leading-relaxed text-gosholo-primary font-medium">
                 {t("aboutGosholo.description1")}
               </p>
-              <p className="text-base sm:text-lg leading-relaxed text-gosholo-dark-teal">
+              <p className="text-base sm:text-lg leading-relaxed text-gosholo-primary">
                 {t("aboutGosholo.description2")}
               </p>
-              <p className="text-base sm:text-lg leading-relaxed text-gosholo-dark-teal">
+              <p className="text-base sm:text-lg leading-relaxed text-gosholo-primary">
                 {t("aboutGosholo.description3")}
               </p>
             </div>
@@ -97,10 +97,10 @@ export function AboutGosholoSection() {
                   >
                     <IconComponent className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gosholo-dark-teal mb-3 group-hover:text-gosholo-orange transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-gosholo-primary mb-3 group-hover:text-gosholo-primary transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gosholo-dark-teal leading-relaxed">{feature.description}</p>
+                  <p className="text-sm sm:text-base text-gosholo-primary leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             )
@@ -110,7 +110,7 @@ export function AboutGosholoSection() {
         {/* Call to action - Simplified */}
         <div className="text-center">
           <div className="max-w-2xl mx-auto">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gosholo-dark-teal">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gosholo-primary">
               {t("aboutGosholo.tagline")}
             </p>
           </div>

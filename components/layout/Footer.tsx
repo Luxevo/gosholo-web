@@ -100,7 +100,7 @@ export function Footer() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleLinkClick(item.href, e)}
-                  className="text-xs sm:text-sm font-medium transition-all duration-300 hover:text-gosholo-dark-teal focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded hover:scale-105 touch-target-44 p-2"
+                  className="text-xs sm:text-sm font-medium transition-all duration-300 hover:text-gosholo-primary focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:ring-offset-2 rounded hover:scale-105 touch-target-44 p-2"
                 >
                   {item.label}
                 </Link>

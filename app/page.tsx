@@ -99,7 +99,7 @@ function HomeContent() {
             <div className="mx-auto max-w-4xl mt-8 sm:mt-12">
               {/* How to Participate - Full Width */}
               <div className="mb-8 sm:mb-12">
-                <div className="border-2 border-dashed border-white p-4 sm:p-6 rounded-lg bg-gosholo-dark-teal">
+                <div className="border-2 border-dashed border-white p-4 sm:p-6 rounded-lg bg-gosholo-primary">
                   <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white text-center">
                     {t("contest.howToParticipate")}
                   </h3>
@@ -158,7 +158,7 @@ function HomeContent() {
               {/* Contest Rules - Collapsible with Vertical Layout */}
               <div className="mb-8 sm:mb-12">
                 <details className="bg-white rounded-lg shadow-sm border overflow-hidden">
-                  <summary className="p-4 sm:p-6 cursor-pointer flex items-center justify-between font-bold text-base sm:text-lg text-gosholo-dark-teal hover:bg-gray-50 transition-colors duration-300">
+                  <summary className="p-4 sm:p-6 cursor-pointer flex items-center justify-between font-bold text-base sm:text-lg text-gosholo-primary hover:bg-gray-50 transition-colors duration-300">
                     {t("contestRules.title")}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +178,7 @@ function HomeContent() {
                   <div className="p-4 sm:p-6 text-sm border-t max-h-96 overflow-y-auto">
                     <div className="space-y-6">
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.prize")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -189,7 +189,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.duration")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -200,7 +200,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.contestDetails")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -211,7 +211,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.participation")}
                         </h4>
                         <p className="mb-2 text-xs sm:text-sm">{t("contestRules.participationIntro")}</p>
@@ -225,7 +225,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.eligibility")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -236,7 +236,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.draw")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -247,7 +247,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.liability")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -258,7 +258,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.consent")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -269,7 +269,7 @@ function HomeContent() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-gosholo-dark-teal mb-2 text-sm sm:text-base">
+                        <h4 className="font-bold text-gosholo-primary mb-2 text-sm sm:text-base">
                           {t("contestRules.communications")}
                         </h4>
                         <div className="space-y-1 text-xs sm:text-sm">
@@ -334,7 +334,7 @@ function HomeContent() {
         {/* Newsletter Section - Now at the bottom */}
         <section
           id="newsletter"
-          className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-dark-teal"
+          className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-primary"
           role="region"
           aria-labelledby="newsletter-title"
         >

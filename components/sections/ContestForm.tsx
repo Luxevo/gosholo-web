@@ -19,9 +19,7 @@ export function ContestForm() {
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
       <div className="p-4 sm:p-6 md:p-8">
         <div className="text-center mb-6">
-          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gosholo-dark-teal">
-            {t("contest.contestForm.title")}
-          </h3>
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gosholo-primary">{t("contest.contestForm.title")}</h3>
           <p className="text-gray-500 text-sm sm:text-base">{t("contest.contestForm.description")}</p>
         </div>
 
@@ -88,7 +86,7 @@ export function ContestForm() {
               type="checkbox"
               id="contestRulesAccept"
               name="contestRulesAccept"
-              className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+              className="h-5 w-5 text-gosholo-primary border-gray-300 rounded focus:ring-gosholo-primary mt-0.5 transition-all duration-300 hover:scale-110"
               required
               aria-required="true"
             />
@@ -99,7 +97,7 @@ export function ContestForm() {
 
           <Button
             type="submit"
-            className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
+            className="w-full bg-gosholo-primary hover:bg-gosholo-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
           >
             {t("contest.contestForm.submitContest")}
           </Button>

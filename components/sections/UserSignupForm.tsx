@@ -113,7 +113,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
           <button
             type="button"
             onClick={togglePassword}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-110 touch-target-44 p-2"
             aria-label={showPassword ? t("signup.hidePassword") : t("signup.showPassword")}
           >
             {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -126,7 +126,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
             type="checkbox"
             id="termsUser"
             name="terms"
-            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+            className="h-5 w-5 text-gosholo-primary border-gray-300 rounded focus:ring-gosholo-primary mt-0.5 transition-all duration-300 hover:scale-110"
             required
             aria-required="true"
           />
@@ -134,14 +134,14 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
             {t("signup.terms")}{" "}
             <a
               href="/conditions-utilisation"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:underline focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("signup.termsOfUse")}
             </a>{" "}
             et la{" "}
             <a
               href="/politique-confidentialite"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:underline focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
             >
               {t("signup.privacyPolicy")}
             </a>
@@ -154,7 +154,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
             type="checkbox"
             id="contestRulesUser"
             name="contestRules"
-            className="h-5 w-5 text-gosholo-dark-teal border-gray-300 rounded focus:ring-gosholo-dark-teal mt-0.5 transition-all duration-300 hover:scale-110"
+            className="h-5 w-5 text-gosholo-primary border-gray-300 rounded focus:ring-gosholo-primary mt-0.5 transition-all duration-300 hover:scale-110"
             required
             aria-required="true"
           />
@@ -162,7 +162,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
             {t("signup.contestRules")}{" "}
             <a
               href="#contest"
-              className="text-gosholo-orange hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
+              className="text-gosholo-primary hover:underline focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105"
               onClick={(e) => {
                 e.preventDefault()
                 const section = document.getElementById("contest")
@@ -178,7 +178,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
 
         <Button
           type="submit"
-          className="w-full bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
+          className="w-full bg-gosholo-primary hover:bg-gosholo-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg touch-target-44 text-base py-3"
         >
           {t("signup.createAccount")}
         </Button>
@@ -188,7 +188,7 @@ export function UserSignupForm({ activeTab }: UserSignupFormProps) {
         {t("signup.alreadyHaveAccount")}{" "}
         <a
           href="#"
-          className="text-gosholo-orange hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-gosholo-orange focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
+          className="text-gosholo-primary hover:underline font-medium focus:outline-none focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 touch-target-44 p-1"
         >
           {t("signup.signIn")}
         </a>

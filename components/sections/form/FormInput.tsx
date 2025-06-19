@@ -1,19 +1,19 @@
-import React from "react";
+import type React from "react"
 
 interface FormInputProps {
-  id: string;
-  name: string;
-  label: string;
-  type?: string;
-  placeholder?: string;
-  required?: boolean;
-  pattern?: string;
-  minLength?: number;
-  children?: React.ReactNode;
-  helpText?: string;
-  helpId?: string;
-  icon?: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
-  className?: string;
+  id: string
+  name: string
+  label: string
+  type?: string
+  placeholder?: string
+  required?: boolean
+  pattern?: string
+  minLength?: number
+  children?: React.ReactNode
+  helpText?: string
+  helpId?: string
+  icon?: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
+  className?: string
 }
 
 export const FormInput = ({
@@ -37,25 +37,25 @@ export const FormInput = ({
     label: "text-sm font-medium text-gray-700",
     required: "text-red-500",
     group: "relative group",
-    icon: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-dark-teal group-focus-within:scale-110",
+    icon: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 transition-all duration-300 group-focus-within:text-gosholo-primary group-focus-within:scale-110",
     input: {
-      base: "w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
+      base: "w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
       withIcon:
-        "w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
+        "w-full pl-10 pr-3 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
       withPasswordToggle:
-        "w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-dark-teal focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
+        "w-full pl-10 pr-12 py-3 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:border-transparent transition-all duration-300 hover:border-gosholo-light-blue text-base",
     },
     helpText: "text-xs text-gray-500",
-  };
+  }
 
   // Auto-determine the appropriate input style based on props
   const getInputClassName = () => {
-    if (className) return className; // Use custom className if provided
+    if (className) return className // Use custom className if provided
 
-    if (Icon && children) return styles.input.withPasswordToggle; // Icon + children (password toggle)
-    if (Icon) return styles.input.withIcon; // Just icon
-    return styles.input.base; // Default
-  };
+    if (Icon && children) return styles.input.withPasswordToggle // Icon + children (password toggle)
+    if (Icon) return styles.input.withIcon // Just icon
+    return styles.input.base // Default
+  }
 
   return (
     <div className={styles.container}>
@@ -89,5 +89,5 @@ export const FormInput = ({
         </p>
       )}
     </div>
-  );
-};
+  )
+}
