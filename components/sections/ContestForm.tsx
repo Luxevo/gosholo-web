@@ -17,8 +17,7 @@ const ContestForm: FC = () => {
       <iframe 
         width="100%"
         height="100%"
-        src="https://ee01743d.sibforms.com/serve/MUIFAInKPBOgRBeFOa1lZXZ6u7_BdgtqJQsVFk981zBEt63U7jXqcwR5JU2HOiTwsKotdic3vkMqZZNNCPDcbdRKwKq7RkRpCwfRyyCUY5aM520okmFUcULqcH3_NzFIgEx9JKVDUzGsGj1dNQMwcR17VyTD66FVt8NPPwirciTwe81hBP_dnPrC2odyVMhCW26kMmtEITPNTcVe"
-        frameBorder="0"
+        src="https://ee01743d.sibforms.com/serve/MUIFAJzN40ltUDMctygblGpokf7xbneHmHbXvwKS5hGtVFspmhcSNwugxP9WM-d0U4TC1yNuh9I5iYvxto_7V17Vm0eCW_favpetN_V4u1NtaUIOcOtzWyNhIrjtEzck6VmwqpRiPGhltaYd105usPTHGe6MT51974TGnweLKvKgWHd5R22b9QzsF5NqkMnkXUsBqZXCT0_Nhvj3"        frameBorder="0"
         scrolling="auto"
         allowFullScreen
         style={{

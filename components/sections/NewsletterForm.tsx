@@ -24,8 +24,7 @@ export function NewsletterForm() {
     <iframe 
       width="100%"
       height="100%"
-      src="https://ee01743d.sibforms.com/serve/MUIFAPd3LI4cYuLIuKE2WThnBcMVSJgZEIoZFsVaOEmqhfln8qS2z-SS6DN4qfqSaIskRyfXAUj-fAq3s3Y5MmOaeeGh7M8uAjT_nJttI8m7eZGgZWgAv2ivYW-xEvmIjy8V8SnL00IlL2Ga215v_72WIHHCy2BNkubhVvHeSKQJTsDmIssuc4-RhJIfgCH9PJ3Q8aTdd_BgNOLw"      allowFullScreen
-      style={{
+      src="https://ee01743d.sibforms.com/serve/MUIFAAj8vqqwntD_syZmcDpKSF8zhcn0Qi75TDAodWD2icKhAufFSAdNjCmv5hyF8sRzQ79uaEFJW41nSzrPa0iARzh-ZPUThbRmtCXTdc4HMA5CBMt2ph1QbxL8X4sKAzZq_6XLzYCb1Y9rHth1Z-BRsQY_ZhkjNwuf7gT0javSe6OORPic01OLayNYt6pcBF-Ci9VKuUoD3SST"            style={{
         display: "block",
         marginLeft: "auto",
         marginRight: "auto",
