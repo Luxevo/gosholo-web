@@ -22,26 +22,22 @@ import {
   AlertCircle,
 } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { sendAssistanceEmail } from "@/app/actions/send-assistance-email"
 
 function AssistanceContent() {
   const { isVisible } = useScrollAnimation()
   const { t } = useTranslation()
+  const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState("")
 
+  // Fonction pour gérer la navigation vers les sections de la page d'accueil
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      const headerHeight = 64
-      const elementPosition = section.offsetTop - headerHeight
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      })
-    }
+    // Rediriger vers la page d'accueil avec l'ancre
+    router.push(`/#${sectionId}`)
   }
 
   const categories = [

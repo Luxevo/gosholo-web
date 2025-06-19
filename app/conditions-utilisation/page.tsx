@@ -6,21 +6,17 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { useTranslation } from "@/hooks/useTranslation"
 import { ArrowLeft, FileText } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 function TermsOfUseContent() {
   const { isVisible } = useScrollAnimation()
   const { t } = useTranslation()
+  const router = useRouter()
 
+  // Fonction pour gérer la navigation vers les sections de la page d'accueil
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      const headerHeight = 64
-      const elementPosition = section.offsetTop - headerHeight
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      })
-    }
+    // Rediriger vers la page d'accueil avec l'ancre
+    router.push(`/#${sectionId}`)
   }
 
   return (

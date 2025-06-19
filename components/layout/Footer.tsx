@@ -3,28 +3,72 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslation } from "@/hooks/useTranslation"
+import { useRouter, usePathname } from "next/navigation"
 import type React from "react"
 
 export function Footer() {
   const { t } = useTranslation()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const navigationItems = [
     { href: "/", label: t("nav.home") },
-    { href: "#about-gosholo", label: t("nav.aboutGosholo") },
-    { href: "#contest", label: t("nav.contest") },
+    { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
+    { href: "/#contest", label: t("nav.contest") },
     { href: "/assistance", label: t("nav.assistance") },
   ]
 
+  // Fonction pour gérer le retour à l'accueil (logo et lien accueil)
+  const handleHomeNavigation = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (pathname === "/") {
+      // On est déjà sur la page d'accueil, scroll vers le haut
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    } else {
+      // On est sur une autre page, redirection vers la page d'accueil
+      router.push("/")
+    }
+  }
+
   const handleLinkClick = (href: string, e: React.MouseEvent) => {
-    if (href.startsWith("#")) {
+    if (href === "/") {
+      handleHomeNavigation(e)
+    } else if (href.startsWith("/#")) {
       e.preventDefault()
-      const sectionId = href.substring(1)
-      const section = document.getElementById(sectionId)
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" })
+      const sectionId = href.substring(2) // Enlever "/#"
+
+      if (pathname === "/") {
+        // On est sur la page d'accueil, scroll direct
+        const section = document.getElementById(sectionId)
+        if (section) {
+          const headerHeight = 64
+          const elementPosition = section.offsetTop - headerHeight
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          })
+        }
+      } else {
+        // On est sur une autre page, redirection vers la page d'accueil
+        router.push("/")
+        // Attendre que la page se charge puis scroller
+        setTimeout(() => {
+          const element = document.getElementById(sectionId)
+          if (element) {
+            const headerHeight = 64
+            const elementPosition = element.offsetTop - headerHeight
+            window.scrollTo({
+              top: elementPosition,
+              behavior: "smooth",
+            })
+          }
+        }, 100)
       }
     }
-    // Les liens vers d'autres pages (/assistance) fonctionneront normalement
+    // Les autres liens (/assistance) fonctionnent normalement
   }
 
   return (
@@ -32,7 +76,12 @@ export function Footer() {
       <div className="container py-4 sm:py-6 px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <Link href="/" className="flex items-center group" aria-label={t("nav.backToHome")}>
+            <Link
+              href="/"
+              className="flex items-center group"
+              aria-label={t("nav.backToHome")}
+              onClick={handleHomeNavigation}
+            >
               <Image
                 src="/images/gosholo-logo.png"
                 alt="Logo Gosholo"

@@ -8,6 +8,7 @@ import Image from "next/image"
 import { MobileMenu } from "./MobileMenu"
 import { LanguageSelector } from "@/components/ui/LanguageSelector"
 import { useTranslation } from "@/hooks/useTranslation"
+import { useRouter, usePathname } from "next/navigation"
 import type React from "react"
 
 interface HeaderProps {
@@ -18,22 +19,67 @@ interface HeaderProps {
 export function Header({ isVisible, onScrollToSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { t } = useTranslation()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const navigationItems = [
     { href: "/", label: t("nav.home") },
-    { href: "#about-gosholo", label: t("nav.aboutGosholo") },
-    { href: "#contest", label: t("nav.contest") },
+    { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
+    { href: "/#contest", label: t("nav.contest") },
     { href: "/assistance", label: t("nav.assistance") },
   ]
 
-  const handleLinkClick = (href: string, e: React.MouseEvent) => {
-    if (href.startsWith("#")) {
-      e.preventDefault()
-      const sectionId = href.substring(1)
+  // Fonction pour gérer la navigation vers les sections
+  const handleSectionNavigation = (sectionId: string) => {
+    if (pathname === "/") {
+      // On est sur la page d'accueil, scroll direct
       onScrollToSection(sectionId)
+    } else {
+      // On est sur une autre page, redirection vers la page d'accueil
+      router.push("/")
+      // Attendre que la page se charge puis scroller
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          const headerHeight = 64
+          const elementPosition = element.offsetTop - headerHeight
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          })
+        }
+      }, 100)
     }
-    // Supprimer le commentaire sur les liens mailto: car on n'en a plus
-    // Les liens vers d'autres pages (/assistance) fonctionneront normalement avec Next.js
+  }
+
+  // Fonction pour gérer le retour à l'accueil (logo et lien accueil)
+  const handleHomeNavigation = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (pathname === "/") {
+      // On est déjà sur la page d'accueil, scroll vers le haut
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    } else {
+      // On est sur une autre page, redirection vers la page d'accueil
+      router.push("/")
+    }
+  }
+
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (href === "/") {
+      handleHomeNavigation(e)
+    } else if (href.startsWith("/#")) {
+      e.preventDefault()
+      const sectionId = href.substring(2) // Enlever "/#"
+      handleSectionNavigation(sectionId)
+    }
+    // Les autres liens (/assistance) fonctionnent normalement
+  }
+
+  const handleSignupClick = () => {
+    handleSectionNavigation("newsletter")
   }
 
   return (
@@ -42,7 +88,12 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
     >
       <div className="container flex h-14 sm:h-16 items-center px-4">
         <div className="mr-2 sm:mr-4 flex">
-          <Link href="/" className="flex items-center group" aria-label={t("nav.backToHome")}>
+          <Link
+            href="/"
+            className="flex items-center group"
+            aria-label={t("nav.backToHome")}
+            onClick={handleHomeNavigation}
+          >
             <Image
               src="/images/gosholo-logo.png"
               alt="Logo Gosholo - Soutenez les commerces locaux"
@@ -78,7 +129,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
             <Button
               size="sm"
               className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm px-3 sm:px-4"
-              onClick={() => onScrollToSection("signup")}
+              onClick={handleSignupClick}
               aria-label={t("hero.goToSignup")}
             >
               {t("nav.signup")}
@@ -100,7 +151,8 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
       <MobileMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        onScrollToSection={onScrollToSection}
+        onScrollToSection={handleSectionNavigation}
+        onHomeNavigation={handleHomeNavigation}
         navigationItems={navigationItems}
       />
     </header>

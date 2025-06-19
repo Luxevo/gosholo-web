@@ -1,26 +1,38 @@
 "use client"
 
+import type React from "react"
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useTranslation } from "@/hooks/useTranslation"
+import { usePathname } from "next/navigation"
 import type { NavigationItem } from "@/types"
 
 interface MobileMenuProps {
   isOpen: boolean
   onClose: () => void
   onScrollToSection: (sectionId: string) => void
+  onHomeNavigation: (e: React.MouseEvent) => void
   navigationItems: NavigationItem[]
 }
 
-export function MobileMenu({ isOpen, onClose, onScrollToSection, navigationItems }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigation, navigationItems }: MobileMenuProps) {
   const { t } = useTranslation()
+  const pathname = usePathname()
 
-  const handleLinkClick = (href: string) => {
-    if (href.startsWith("#")) {
-      onScrollToSection(href.substring(1))
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (href === "/") {
+      onHomeNavigation(e)
+    } else if (href.startsWith("/#")) {
+      e.preventDefault()
+      const sectionId = href.substring(2) // Enlever "/#"
+      onScrollToSection(sectionId)
     }
-    // Supprimer la partie mailto: car le lien assistance est maintenant "/assistance"
-    // Les liens vers d'autres pages fonctionneront normalement
+    onClose()
+  }
+
+  const handleSignupClick = () => {
+    onScrollToSection("newsletter")
     onClose()
   }
 
@@ -36,17 +48,14 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection, navigationItems
             key={item.href}
             href={item.href}
             className="text-sm font-medium p-3 hover:bg-gosholo-light-blue/10 rounded-md transition-all duration-300 hover:translate-x-2 touch-target-44"
-            onClick={() => handleLinkClick(item.href)}
+            onClick={(e) => handleLinkClick(item.href, e)}
           >
             {item.label}
           </Link>
         ))}
         <Button
           className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white mt-3 transition-all duration-300 hover:scale-105 touch-target-44"
-          onClick={() => {
-            onScrollToSection("signup")
-            onClose()
-          }}
+          onClick={handleSignupClick}
           aria-label={t("hero.goToSignup")}
         >
           {t("nav.signup")}
