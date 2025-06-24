@@ -46,13 +46,17 @@ export const en = {
     title: "About gosholo",
     description1:
       "gosholo is the mobile app that helps you unlock the best offers from your favorite local spots and hidden gems around you and all over the city.",
-    description2: "Cafés, restaurants, shops, and services near you offer deals available only to gosholo subscribers.",
-    description3: "Get front-row access to events happening near you with gosholo!",
+    description2:
+      "Cafés, restaurants, shops, and services near you offer deals available only to gosholo subscribers.",
+    description3:
+      "Get front-row access to events happening near you with gosholo!",
     feature1Title: "Easy-to-claim offers",
     feature1Description: "Valid in-store or online and always close to you",
     feature2Title: "Simple. Fast. Local.",
-    feature2Description: "A brand-new way to explore your neighborhood and your city!",
-    feature3Title: "Get front-row access to events happening near you with gosholo!",
+    feature2Description:
+      "A brand-new way to explore your neighborhood and your city!",
+    feature3Title:
+      "Get front-row access to events happening near you with gosholo!",
     feature3Description: "Discover events near you in preview",
     tagline: "A brand-new way to explore your neighborhood and your city!",
     benefit1: "Geolocated offers",
@@ -73,11 +77,14 @@ export const en = {
     description:
       "At gosholo, we believe in the power of local commerce to create stronger and more sustainable communities.",
     visibilityTitle: "Increased Visibility",
-    visibilityDescription: "We help local businesses become more visible online and attract new customers.",
+    visibilityDescription:
+      "We help local businesses become more visible online and attract new customers.",
     communityTitle: "Engaged Community",
-    communityDescription: "We create a community of engaged consumers who value local and sustainable shopping.",
+    communityDescription:
+      "We create a community of engaged consumers who value local and sustainable shopping.",
     impactTitle: "Economic Impact",
-    impactDescription: "We contribute to local economic growth by redirecting spending to neighborhood businesses.",
+    impactDescription:
+      "We contribute to local economic growth by redirecting spending to neighborhood businesses.",
     learnMore: "Learn More",
     learnMoreVisibility: "Learn more about increased visibility",
     learnMoreCommunity: "Learn more about engaged community",
@@ -88,22 +95,28 @@ export const en = {
   contest: {
     badge: "Special Event",
     title: "Osheaga Contest",
-    description: "Participate in our exclusive contest and win tickets to the Osheaga festival!",
+    description:
+      "Participate in our exclusive contest and win tickets to the Osheaga festival!",
     howToParticipate: "How to Participate",
     step1: "Fill out the registration form directly on our website",
     step2: "Follow our official Instagram or Facebook account: @gosholo",
     optionalTitle: "To increase your chances of winning (optional)",
-    step3: "Share the official giveaway post in your story on Instagram or Facebook (tagging @gosholo)",
-    step4: "Tag a friend in the comments of the official giveaway post on Instagram or Facebook",
+    optionalSteps: "Optional Steps (to increase your chances of winning)",
+    step3:
+      "Share the official giveaway post in your story on Instagram or Facebook (tagging @gosholo)",
+    step4:
+      "Tag a friend in the comments of the official giveaway post on Instagram or Facebook",
     timeRemaining: "Time remaining:",
     daysLeft: "31 days",
     progressLabel: "Contest progress",
     appComingSoon: "App Coming Soon",
     participateNow: "Participate Now",
+    toAugmentYourChances: "To increase your chances of winning (optional)",
     // Contest form
     contestForm: {
       title: "Contest Registration",
-      description: "Fill out the form below to participate in the Osheaga contest.",
+      description:
+        "Fill out the form below to participate in the Osheaga contest.",
       firstName: "First Name",
       lastName: "Last Name",
       phoneNumber: "Phone Number",
@@ -196,9 +209,11 @@ export const en = {
   newsletter: {
     badge: "Join Us",
     title: "Subscribe to our newsletter",
-    description: "Be the first to know about the app launch and receive our latest news.",
+    description:
+      "Be the first to know about the app launch and receive our latest news.",
     newsletterTitle: "Newsletter subscription",
-    newsletterDescription: "Stay informed about the latest news and the launch of the gosholo app.",
+    newsletterDescription:
+      "Stay informed about the latest news and the launch of the gosholo app.",
     required: "required",
     requiredFields: "Fields marked with * are required.",
     firstName: "First Name",
@@ -356,7 +371,8 @@ export const en = {
     },
     contact: {
       title: "Contact Us",
-      intro: "For any questions, please contact gosholo's Customer Service at the following address:",
+      intro:
+        "For any questions, please contact gosholo's Customer Service at the following address:",
       ownership: "gosholo is a property of Les Sociétés Haeyu Inc.",
     },
   },
@@ -378,7 +394,8 @@ export const en = {
       },
       technicalInfo: {
         title: "Technical Information",
-        description: "Including IP address, device type, browser, visited pages, and duration of visits.",
+        description:
+          "Including IP address, device type, browser, visited pages, and duration of visits.",
       },
       transactionalData: {
         title: "Transactional Data",
@@ -391,19 +408,23 @@ export const en = {
       intro: "The collected information is used to:",
       provideServices: {
         title: "Provide and improve our services",
-        description: "To manage your account, facilitate transactions, and enhance user experience.",
+        description:
+          "To manage your account, facilitate transactions, and enhance user experience.",
       },
       communicate: {
         title: "Communicate with you",
-        description: "By sending targeted notifications and offers and responding to your inquiries.",
+        description:
+          "By sending targeted notifications and offers and responding to your inquiries.",
       },
       analyze: {
         title: "Analyze and understand platform usage",
-        description: "To improve our services, tailor content, and optimize our features.",
+        description:
+          "To improve our services, tailor content, and optimize our features.",
       },
       legalCompliance: {
         title: "Legal Compliance",
-        description: "When required, to comply with laws, regulations, or other legal requests.",
+        description:
+          "When required, to comply with laws, regulations, or other legal requests.",
       },
     },
     sharingInformation: {
@@ -421,7 +442,8 @@ export const en = {
       },
       legalAuthorities: {
         title: "Legal authorities",
-        description: "When required by law or to protect our rights, in compliance with applicable regulations.",
+        description:
+          "When required by law or to protect our rights, in compliance with applicable regulations.",
       },
     },
     dataRetention: {
@@ -431,18 +453,22 @@ export const en = {
     },
     yourRights: {
       title: "5. Your Rights and Choices",
-      intro: "In accordance with Quebec and Canadian laws, you have rights related to your personal information:",
+      intro:
+        "In accordance with Quebec and Canadian laws, you have rights related to your personal information:",
       accessCorrection: {
         title: "Access and Correction",
-        description: "You can request access to the information we hold about you and correct it if it is inaccurate.",
+        description:
+          "You can request access to the information we hold about you and correct it if it is inaccurate.",
       },
       withdrawalConsent: {
         title: "Withdrawal of Consent",
-        description: "You can withdraw your consent for certain uses of your data by contacting our customer service.",
+        description:
+          "You can withdraw your consent for certain uses of your data by contacting our customer service.",
       },
       rightErasure: {
         title: "Right to Erasure",
-        description: "In certain cases, you may request the deletion of your data.",
+        description:
+          "In certain cases, you may request the deletion of your data.",
       },
     },
     cookies: {
@@ -450,8 +476,10 @@ export const en = {
       intro: "We use cookies and similar technologies to:",
       improveExperience: "Improve your experience on our website.",
       analyzeUsage: "Analyze and understand the use of our platform.",
-      personalizeContent: "Personalize the advertisements and content offered to you.",
-      manageCookies: "You can manage your cookie preferences by changing your browser settings.",
+      personalizeContent:
+        "Personalize the advertisements and content offered to you.",
+      manageCookies:
+        "You can manage your cookie preferences by changing your browser settings.",
     },
     changes: {
       title: "7. Changes to the Privacy Policy",
@@ -470,7 +498,8 @@ export const en = {
   assistance: {
     badge: "Support Center",
     title: "How can we help you?",
-    description: "Our team is here to answer all your questions and solve your problems quickly.",
+    description:
+      "Our team is here to answer all your questions and solve your problems quickly.",
     contactEmail: "Contact Email",
     directContact: "You can also contact us directly",
     categories: {
@@ -502,7 +531,8 @@ export const en = {
       subjectPlaceholder: "Summary of your request",
       message: "Message",
       messagePlaceholder: "Describe your problem or question in detail...",
-      messageHelp: "The more details you give us, the better we can help you effectively.",
+      messageHelp:
+        "The more details you give us, the better we can help you effectively.",
       optional: "optional",
       send: "Send message",
       sending: "Sending...",
@@ -557,4 +587,4 @@ export const en = {
     delete: "Delete",
     confirm: "Confirm",
   },
-}
+};
