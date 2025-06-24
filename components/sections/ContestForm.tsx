@@ -1,6 +1,23 @@
+"use client";
+
 import { FC } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContestForm: FC = () => {
+  const { language } = useLanguage();
+
+  // Form URLs for different languages
+  const formUrls = {
+    fr: "https://ee01743d.sibforms.com/serve/MUIFAJDvYFu8ihCUXD_rNX1YbxgvsnJhyTNezowgQ2LePzEHPXd2OxKXSylpdgg2-XZnlqGeGdSV5vBSbqWiAsnMbOsZtSipYblYo4_eU4M9D0jhUnMCqIH0zQUZuYEfBOvFIvAQZv8FjeIGHfVOKwHUVXZFhADlKTKL5AVocmHVIDDiBf8BdtV5rTveuhjmMKc3HlTU3RoNWGfN",
+    en: "https://ee01743d.sibforms.com/serve/MUIFAOyI5Mnwr-VZX3WLRGp66xJ1XuMmtQoNuAkfZ3ih7JQ5q3LfmlEEJQSivhE14VpmhZLg7cs2M6LYwo7Wk3Qixn9C0YXqVGKPXGZ4hJj588L1T6yz-erlM2SEgl4EepXuKYT3sb0Ssuog6sdbSF6ISNlrFzB2sJcj7xDYKPKYkA7Xn8pCqq6xm8vLij9un92YAhBZIEWSwTBX",
+  };
+
+  // Form titles for different languages
+  const formTitles = {
+    fr: "Inscription au concours Gosholo",
+    en: "Gosholo Contest Registration",
+  };
+
   return (
     <div
       className="custom-scrollbar"
@@ -14,10 +31,10 @@ const ContestForm: FC = () => {
         background: "#fff",
       }}
     >
-      <iframe 
+      <iframe
         width="100%"
         height="100%"
-        src="https://ee01743d.sibforms.com/serve/MUIFAInKPBOgRBeFOa1lZXZ6u7_BdgtqJQsVFk981zBEt63U7jXqcwR5JU2HOiTwsKotdic3vkMqZZNNCPDcbdRKwKq7RkRpCwfRyyCUY5aM520okmFUcULqcH3_NzFIgEx9JKVDUzGsGj1dNQMwcR17VyTD66FVt8NPPwirciTwe81hBP_dnPrC2odyVMhCW26kMmtEITPNTcVe"
+        src={formUrls[language]}
         frameBorder="0"
         scrolling="auto"
         allowFullScreen
@@ -28,7 +45,7 @@ const ContestForm: FC = () => {
           maxWidth: "100%",
           border: "none",
         }}
-        title="Inscription au concours Gosholo"
+        title={formTitles[language]}
       />
     </div>
   );
