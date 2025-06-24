@@ -24,7 +24,8 @@ export const fr = {
     comingSoon: "Bientôt disponible",
     learnMore: "En savoir plus",
     goToSignup: "Aller à la section d'inscription",
-    heroImageAlt: "Jeune femme souriante représentant l'esprit dynamique de Gosholo",
+    heroImageAlt:
+      "Jeune femme souriante représentant l'esprit dynamique de Gosholo",
   },
 
   // Who We Are Section
@@ -48,13 +49,18 @@ export const fr = {
       "gosholo, c'est l'application mobile qui te fait découvrir les meilleures offres autour de toi, dans tes commerces préférés et ailleurs en ville.",
     description2:
       "Cafés, restos, boutiques et services près de toi t'offrent des avantages réservés uniquement aux abonnés gosholo.",
-    description3: "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+    description3:
+      "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
     feature1Title: "Des offres faciles à réclamer",
-    feature1Description: "Valides en magasin ou en ligne et toujours près de toi",
+    feature1Description:
+      "Valides en magasin ou en ligne et toujours près de toi",
     feature2Title: "Simple. Rapide. Local.",
-    feature2Description: "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
-    feature3Title: "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
-    feature3Description: "Découvre les événements près de chez toi en avant-première",
+    feature2Description:
+      "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
+    feature3Title:
+      "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+    feature3Description:
+      "Découvre les événements près de chez toi en avant-première",
     tagline: "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
     benefit1: "Offres géolocalisées",
     benefit2: "Communauté locale",
@@ -92,22 +98,29 @@ export const fr = {
   contest: {
     badge: "Événement spécial",
     title: "Concours Osheaga",
-    description: "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
+    description:
+      "Participez à notre concours exclusif et gagnez des billets pour le festival Osheaga!",
     howToParticipate: "Comment participer",
     step1: "Remplis le formulaire d'inscription directement sur notre site web",
     step2: "Suis notre compte officiel sur Instagram ou Facebook : @gosholo",
     optionalTitle: "Pour augmenter tes chances de gagner (optionnel)",
-    step3: "Partage la publication officielle du concours en story sur Instagram ou Facebook (en taguant @gosholo)",
-    step4: "Identifie un(e) ami(e) dans les commentaires de la publication officielle sur Instagram ou Facebook",
+    optionalSteps: "Étapes optionnelles (pour augmenter tes chances de gagner)",
+    step3:
+      "Partage la publication officielle du concours en story sur Instagram ou Facebook (en taguant @gosholo)",
+    step4:
+      "Identifie un(e) ami(e) dans les commentaires de la publication officielle sur Instagram ou Facebook",
     timeRemaining: "Temps restant:",
     daysLeft: "31 jours",
     progressLabel: "Progression du concours",
     appComingSoon: "Application bientôt disponible",
     participateNow: "Participer maintenant",
+    toAugmentYourChances: "Pour augmenter tes chances de gagner (optionnel)",
+
     // Contest form
     contestForm: {
       title: "Inscription au concours",
-      description: "Remplissez le formulaire ci-dessous pour participer au concours Osheaga.",
+      description:
+        "Remplissez le formulaire ci-dessous pour participer au concours Osheaga.",
       firstName: "Prénom",
       lastName: "Nom",
       phoneNumber: "Numéro de téléphone",
@@ -145,7 +158,8 @@ export const fr = {
       "Temps restant : 31 jours",
     ],
     participation: "Conditions de participation",
-    participationIntro: "Pour être admissible au tirage, les participants doivent :",
+    participationIntro:
+      "Pour être admissible au tirage, les participants doivent :",
     participationContent: [
       "• Remplir le formulaire d'inscription sur notre site web",
       "• Suivre notre compte Instagram ou Facebook officiel : @gosholo",
@@ -199,9 +213,11 @@ export const fr = {
   newsletter: {
     badge: "Rejoignez-nous",
     title: "Inscrivez-vous à notre infolettre",
-    description: "Soyez les premiers informés du lancement de l'application et recevez nos dernières nouvelles.",
+    description:
+      "Soyez les premiers informés du lancement de l'application et recevez nos dernières nouvelles.",
     newsletterTitle: "Inscription à l'infolettre",
-    newsletterDescription: "Restez informé des dernières nouvelles et du lancement de l'application gosholo.",
+    newsletterDescription:
+      "Restez informé des dernières nouvelles et du lancement de l'application gosholo.",
     required: "obligatoire",
     requiredFields: "Les champs marqués d'un * sont obligatoires.",
     firstName: "Prénom",
@@ -229,7 +245,8 @@ export const fr = {
   signup: {
     badge: "Rejoignez-nous",
     title: "Créez votre compte gosholo",
-    description: "Choisissez votre type de compte pour commencer à profiter des avantages gosholo.",
+    description:
+      "Choisissez votre type de compte pour commencer à profiter des avantages gosholo.",
     userTab: "Particulier",
     businessTab: "Commerce",
     userTitle: "Compte Particulier",
@@ -313,15 +330,18 @@ export const fr = {
       },
       communicate: {
         title: "Communiquer avec vous",
-        description: "en envoyant des notifications et des offres ciblées, et en répondant à vos demandes.",
+        description:
+          "en envoyant des notifications et des offres ciblées, et en répondant à vos demandes.",
       },
       analyze: {
         title: "Analyser et comprendre l'utilisation de la plateforme",
-        description: "pour améliorer nos services, adapter notre contenu et optimiser nos fonctionnalités.",
+        description:
+          "pour améliorer nos services, adapter notre contenu et optimiser nos fonctionnalités.",
       },
       legalCompliance: {
         title: "Conformité légale",
-        description: "lorsque requis, pour respecter les lois, règlements ou autres demandes légales.",
+        description:
+          "lorsque requis, pour respecter les lois, règlements ou autres demandes légales.",
       },
     },
     sharingInformation: {
@@ -339,7 +359,8 @@ export const fr = {
       },
       legalAuthorities: {
         title: "Autorités légales",
-        description: "si requis par la loi ou pour protéger nos droits, en conformité avec les règlements en vigueur.",
+        description:
+          "si requis par la loi ou pour protéger nos droits, en conformité avec les règlements en vigueur.",
       },
     },
     dataRetention: {
@@ -363,7 +384,8 @@ export const fr = {
       },
       rightErasure: {
         title: "Droit à l'effacement",
-        description: "dans certains cas, vous pouvez demander que vos données soient supprimées.",
+        description:
+          "dans certains cas, vous pouvez demander que vos données soient supprimées.",
       },
     },
     cookies: {
@@ -371,8 +393,10 @@ export const fr = {
       intro: "Nous utilisons des cookies et des technologies similaires pour :",
       improveExperience: "Améliorer votre expérience sur notre site.",
       analyzeUsage: "Analyser et comprendre l'utilisation de notre plateforme.",
-      personalizeContent: "Personnaliser les publicités et contenus qui vous sont proposés.",
-      manageCookies: "Vous pouvez gérer vos préférences de cookies en modifiant les paramètres de votre navigateur.",
+      personalizeContent:
+        "Personnaliser les publicités et contenus qui vous sont proposés.",
+      manageCookies:
+        "Vous pouvez gérer vos préférences de cookies en modifiant les paramètres de votre navigateur.",
     },
     changes: {
       title: "7. Modifications de la Politique de Confidentialité",
@@ -469,7 +493,8 @@ export const fr = {
     },
     contact: {
       title: "Contactez-nous",
-      intro: "Pour toute question, veuillez contacter le Service clientèle de gosholo à l'adresse suivante :",
+      intro:
+        "Pour toute question, veuillez contacter le Service clientèle de gosholo à l'adresse suivante :",
       ownership: "gosholo est une propriété de Les Sociétés Haeyu Inc.",
     },
   },
@@ -478,7 +503,8 @@ export const fr = {
   assistance: {
     badge: "Centre d'assistance",
     title: "Comment pouvons-nous vous aider ?",
-    description: "Notre équipe est là pour répondre à toutes vos questions et résoudre vos problèmes rapidement.",
+    description:
+      "Notre équipe est là pour répondre à toutes vos questions et résoudre vos problèmes rapidement.",
     contactEmail: "Courriel de contact",
     directContact: "Vous pouvez aussi nous contacter directement",
     categories: {
@@ -509,8 +535,10 @@ export const fr = {
       subject: "Sujet",
       subjectPlaceholder: "Résumé de votre demande",
       message: "Message",
-      messagePlaceholder: "Décrivez votre problème ou votre question en détail...",
-      messageHelp: "Plus vous nous donnez de détails, plus nous pourrons vous aider efficacement.",
+      messagePlaceholder:
+        "Décrivez votre problème ou votre question en détail...",
+      messageHelp:
+        "Plus vous nous donnez de détails, plus nous pourrons vous aider efficacement.",
       optional: "optionnel",
       send: "Envoyer le message",
       sending: "Envoi en cours...",
@@ -565,4 +593,4 @@ export const fr = {
     delete: "Supprimer",
     confirm: "Confirmer",
   },
-}
+};
