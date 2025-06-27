@@ -20,7 +20,7 @@ export const en = {
     seeContest: "See Osheaga Contest",
     newTitle: "Discover. Save. Unlock.",
     newDescription:
-      "gosholo connects you to the best offers around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
+      "gosholo connects you to the best offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
     comingSoon: "Coming Soon",
     learnMore: "Learn More",
     goToSignup: "Go to signup section",
@@ -32,7 +32,7 @@ export const en = {
     badge: "Who We Are",
     title: "Discover gosholo",
     description1:
-      "An innovative app that transforms how you discover and enjoy local offers! With every purchase from our partners, you earn points that you can use to unlock exclusive offers, discounts, and unique experiences.",
+      "An innovative app that transforms how you discover and enjoy local offers and events! With every purchase from our partners, you earn points that you can use to unlock exclusive offers, discounts, and unique experiences.",
     description2:
       "Whether you want coffee, groceries, or to discover new activities, gosholo lets you support local businesses in your neighborhood while saving money.",
     mobileApp: "Mobile App",
@@ -59,7 +59,7 @@ export const en = {
       "Get front-row access to events happening near you with gosholo!",
     feature3Description: "Discover events near you in preview",
     tagline: "A brand-new way to explore your neighborhood and your city!",
-    benefit1: "Geolocated offers",
+    benefit1: "Geolocated offers and events",
     benefit2: "Local community",
     benefit3: "Exclusive rewards",
     benefit4: "Intuitive interface",
@@ -188,7 +188,7 @@ export const en = {
     ],
     communications: "Promotional Communications",
     communicationsContent: [
-      "By entering the contest, each participant agrees to receive promotional communications from gosholo, including newsletters, offers, and updates via email and SMS.",
+      "By entering the contest, each participant agrees to receive promotional communications from gosholo, including newsletters, offers, events and updates via email and SMS.",
       'Participants may unsubscribe at any time by clicking the unsubscribe link in emails or replying "STOP" to text messages.',
     ],
   },
@@ -245,7 +245,7 @@ export const en = {
     userTab: "Individual",
     businessTab: "Business",
     userTitle: "Individual Account",
-    userDescription: "Discover and enjoy the best local offers.",
+    userDescription: "Discover and enjoy the best local offers and events.",
     businessTitle: "Business Account",
     businessDescription: "Join our network of local partners.",
     requiredFields: "Fields marked with * are required.",
@@ -305,9 +305,9 @@ export const en = {
         "gosholo reserves the right to modify these Terms at any time, without prior notice. The current Terms are available at all times on our Site, and by continuing your visit, you agree to the Terms then in effect. It is your responsibility to stay informed of the Terms and any changes, indicated by the update date.",
     },
     siteModification: {
-      title: "Modification of the Site, Services, and Offers",
+      title: "Modification of the Site, Services, Offers and Events",
       content:
-        "gosholo reserves the right to modify, suspend, or remove any content, service, or offer on the Site at its sole discretion and without notice. gosholo is not responsible for any loss or damage resulting from such modifications.",
+        "gosholo reserves the right to modify, suspend, or remove any content, service, event or offer on the Site at its sole discretion and without notice. gosholo is not responsible for any loss or damage resulting from such modifications.",
     },
     hyperlinks: {
       title: "Hyperlinks",
@@ -362,7 +362,7 @@ export const en = {
     otherTerms: {
       title: "Other Terms of Use",
       content:
-        "Certain offers or services may be subject to additional specific conditions that will be communicated to you upon access.",
+        "Certain offers, events or services may be subject to additional specific conditions that will be communicated to you upon access.",
     },
     applicableLaws: {
       title: "Applicable Laws",
@@ -400,7 +400,7 @@ export const en = {
       transactionalData: {
         title: "Transactional Data",
         description:
-          "Any information about interactions with Gosholo offers and partners, including points accumulated and redeemed.",
+          "Any information about interactions with Gosholo offers, events and partners, including points accumulated and redeemed.",
       },
     },
     useOfInformation: {

@@ -11,7 +11,7 @@ export const metadata = {
   description: "Découvrez et soutenez les commerces locaux avec Gosholo",
   generator: "v0.dev",
   icons: {
-    icon: "/images/gosholo-logo.png",
+    icon: "/images/gosholo-logo-icon.png",
   },
 };
 

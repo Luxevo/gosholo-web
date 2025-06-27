@@ -20,7 +20,7 @@ export const fr = {
     seeContest: "Voir le concours Osheaga",
     newTitle: "Découvre. Économise. Profite.",
     newDescription:
-      "gosholo te connecte aux meilleures offres près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux.",
+      "gosholo te connecte aux meilleures offres et événements près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux.",
     comingSoon: "Bientôt disponible",
     learnMore: "En savoir plus",
     goToSignup: "Aller à la section d'inscription",
@@ -33,7 +33,7 @@ export const fr = {
     badge: "Qui nous sommes",
     title: "Découvrez gosholo",
     description1:
-      "Une application innovante qui transforme ta façon de découvrir et de profiter des offres locales ! À chaque achat chez nos partenaires, tu accumules des points que tu peux utiliser pour débloquer des offres exclusives, des réductions et des expériences uniques.",
+      "Une application innovante qui transforme ta façon de découvrir et de profiter des offres et événements locales ! À chaque achat chez nos partenaires, tu accumules des points que tu peux utiliser pour débloquer des offres exclusives, des réductions et des expériences uniques.",
     description2:
       "Que tu aies envie d'un café, de faire des courses, ou de découvrir de nouvelles activités, gosholo te permet de soutenir les commerces de ton quartier tout en économisant.",
     mobileApp: "Application mobile",
@@ -46,11 +46,11 @@ export const fr = {
     badge: "À propos",
     title: "À propos de gosholo",
     description1:
-      "gosholo, c'est l'application mobile qui te fait découvrir les meilleures offres autour de toi, dans tes commerces préférés et ailleurs en ville.",
+      "gosholo, c'est l'application mobile qui te fait découvrir les meilleures offres et événements autour de toi, dans tes commerces préférés et ailleurs en ville.",
     description2:
       "Cafés, restos, boutiques et services près de toi t'offrent des avantages réservés uniquement aux abonnés gosholo.",
     description3:
-      "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+      "Sois en première loge pour découvrir les offres et événements près de chez toi avec gosholo !",
     feature1Title: "Des offres faciles à réclamer",
     feature1Description:
       "Valides en magasin ou en ligne et toujours près de toi",
@@ -58,11 +58,11 @@ export const fr = {
     feature2Description:
       "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
     feature3Title:
-      "Sois en première loge pour découvrir les événements près de chez toi avec gosholo !",
+      "Sois en première loge pour découvrir les offres et événements près de chez toi avec gosholo !",
     feature3Description:
       "Découvre les événements près de chez toi en avant-première",
     tagline: "Une toute nouvelle façon de découvrir ton quartier, ta ville !",
-    benefit1: "Offres géolocalisées",
+    benefit1: "Offres et événements géolocalisées",
     benefit2: "Communauté locale",
     benefit3: "Récompenses exclusives",
     benefit4: "Interface intuitive",
@@ -192,7 +192,7 @@ export const fr = {
     ],
     communications: "Communications promotionnelles",
     communicationsContent: [
-      "En s'inscrivant au concours, chaque participant accepte de recevoir les communications promotionnelles de gosholo, incluant infolettres, offres et mises à jour par courriel et par message texte (SMS).",
+      "En s'inscrivant au concours, chaque participant accepte de recevoir les communications promotionnelles de gosholo, incluant infolettres, offres, événements et mises à jour par courriel et par message texte (SMS).",
       'Les participants peuvent se désabonner en tout temps soit en utilisant le lien de désabonnement présent dans chaque courriel envoyé, soit en répondant "ARRÊT" ou "STOP" aux messages textes reçus.',
     ],
   },
@@ -250,7 +250,7 @@ export const fr = {
     userTab: "Particulier",
     businessTab: "Commerce",
     userTitle: "Compte Particulier",
-    userDescription: "Découvrez et profitez des meilleures offres locales.",
+    userDescription: "Découvrez et profitez des meilleures offres et événements locales.",
     businessTitle: "Compte Commerce",
     businessDescription: "Rejoignez notre réseau de partenaires locaux.",
     requiredFields: "Les champs marqués d'un * sont obligatoires.",
@@ -317,7 +317,7 @@ export const fr = {
       transactionalData: {
         title: "Données transactionnelles",
         description:
-          "toute information sur les interactions avec les offres et les partenaires de gosholo, y compris les points accumulés et échangés.",
+          "toute information sur les interactions avec les offres, les événements et les partenaires de gosholo, y compris les points accumulés et échangés.",
       },
     },
     useOfInformation: {
@@ -350,7 +350,7 @@ export const fr = {
       businessPartners: {
         title: "Nos partenaires commerciaux",
         description:
-          "uniquement pour les transactions en lien avec les offres, en veillant à limiter les informations partagées à ce qui est strictement nécessaire.",
+          "uniquement pour les transactions en lien avec les offres et les événements, en veillant à limiter les informations partagées à ce qui est strictement nécessaire.",
       },
       serviceProviders: {
         title: "Fournisseurs de services",
@@ -427,9 +427,9 @@ export const fr = {
         "gosholo se réserve le droit de modifier ces Conditions en tout temps, sans préavis. Les Conditions en vigueur sont disponibles en tout temps sur notre Site, et en poursuivant votre visite, vous consentez aux Conditions alors en vigueur. Il est de votre responsabilité de vous tenir informé des Conditions et des modifications apportées, indiquées par la date de mise à jour.",
     },
     siteModification: {
-      title: "Modification du Site, des services et des offres",
+      title: "Modification du Site, des services, des offres et événements",
       content:
-        "gosholo se réserve le droit de modifier, suspendre ou retirer tout contenu, service ou offre sur le Site, à sa seule discrétion et sans préavis. gosholo n'est pas responsable des pertes ou dommages résultant de telles modifications.",
+        "gosholo se réserve le droit de modifier, suspendre ou retirer tout contenu, service, offre ou événements sur le Site, à sa seule discrétion et sans préavis. gosholo n'est pas responsable des pertes ou dommages résultant de telles modifications.",
     },
     hyperlinks: {
       title: "Hyperliens",
@@ -484,7 +484,7 @@ export const fr = {
     otherTerms: {
       title: "Autres conditions d'utilisation",
       content:
-        "Certaines offres ou services peuvent être soumis à des conditions additionnelles spécifiques qui vous seront communiquées lors de leur accès.",
+        "Certaines offres, événements ou services peuvent être soumis à des conditions additionnelles spécifiques qui vous seront communiquées lors de leur accès.",
     },
     applicableLaws: {
       title: "Lois applicables",
