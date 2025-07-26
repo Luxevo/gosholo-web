@@ -14,7 +14,6 @@ export function Footer() {
   const navigationItems = [
     { href: "/", label: t("nav.home") },
     { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
-    { href: "/#contest", label: t("nav.contest") },
     { href: "/assistance", label: t("nav.assistance") },
   ]
 
