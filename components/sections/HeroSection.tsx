@@ -29,15 +29,6 @@ export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) 
                 {t("hero.newDescription")}
               </p>
             </div>
-            <button
-              onClick={() => onScrollToSection("contest")}
-              className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm font-semibold transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:ring-offset-2 border-transparent bg-gosholo-primary text-white w-fit hover:bg-gosholo-primary/90 cursor-pointer group hover:scale-105 hover:shadow-lg animate-pulse touch-target-44"
-              aria-label={t("hero.seeContest")}
-            >
-              <Star className="mr-1.5 h-3 w-3 sm:h-4 sm:w-4 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12" />
-              <span className="px-0.5 group-hover:underline whitespace-nowrap">{t("hero.newContest")}</span>
-              <ChevronRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
-            </button>
           </div>
           <div
             className={`relative mt-6 lg:mt-0 transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
