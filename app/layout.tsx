@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "gosholo - Soutenez les commerces locaux",
+  title: "gosholo te connecte aux meilleurs offres et événements près de toi.",
   description: "Découvrez et soutenez les commerces locaux avec gosholo",
   generator: "v0.dev",
   icons: {

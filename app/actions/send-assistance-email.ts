@@ -38,17 +38,6 @@ export async function sendAssistanceEmail(formData: FormData) {
 
     const categoryDisplay = categoryMap[category] || category
 
-    // Log des informations pour debug (en attendant la solution email)
-    console.log("=== NOUVEAU MESSAGE D'ASSISTANCE ===")
-    console.log("Destinataire: assistance@gosholo.com")
-    console.log("De:", email)
-    console.log("Nom:", firstName, lastName)
-    console.log("Téléphone:", phone || "Non fourni")
-    console.log("Catégorie:", categoryDisplay)
-    console.log("Sujet:", subject)
-    console.log("Message:", message)
-    console.log("Date:", new Date().toLocaleString("fr-CA", { timeZone: "America/Toronto" }))
-    console.log("=====================================")
 
     // Simuler un succès pour le moment
     return {
