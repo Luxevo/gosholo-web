@@ -11,7 +11,8 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
-import { useEffect } from "react";
+import { MobilePopup } from "@/components/ui/MobilePopup";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 function HomeContent() {
@@ -19,6 +20,7 @@ function HomeContent() {
   const { isOpen, setIsOpen } = usePopupTimer();
   const { t, tArray } = useTranslation();
   const router = useRouter();
+  const [isMobilePopupOpen, setIsMobilePopupOpen] = useState(false);
 
   // Gérer la navigation vers les sections avec les ancres
   useEffect(() => {
@@ -37,6 +39,15 @@ function HomeContent() {
         }
       }, 100);
     }
+  }, []);
+
+  // Timer pour le popup mobile
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMobilePopupOpen(true);
+    }, 3000); // 3 secondes après le chargement
+
+    return () => clearTimeout(timer);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -133,6 +144,12 @@ function HomeContent() {
       </main>
 
       <Footer />
+
+      {/* Mobile Popup */}
+      <MobilePopup
+        isOpen={isMobilePopupOpen}
+        onClose={() => setIsMobilePopupOpen(false)}
+      />
 
     </div>
   );

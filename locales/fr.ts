@@ -571,6 +571,14 @@ export const fr = {
   popup: {
     seeContestDetails: "Voir les détails du concours",
     contestImageAlt: "Concours Osheaga - Shop local avec Gosholo",
+    mobileComingSoon: "Bientôt sur mobile",
+    mobileTagline: "Découvre. Profite. Économise.",
+    mobileDescription: "L'application gosholo arrive très bientôt sur iOS et Android",
+    comingSoonOn: "Bientôt sur",
+    appStoreAlt: "Disponible sur l'App Store",
+    playStoreAlt: "Disponible sur Google Play",
+    website: "gosholo.com",
+    stayTuned: "Reste connecté !",
   },
 
   // Language

@@ -565,6 +565,14 @@ export const en = {
   popup: {
     seeContestDetails: "See Contest Details",
     contestImageAlt: "Osheaga Contest - Shop local with Gosholo",
+    mobileComingSoon: "Coming Soon to Mobile",
+    mobileTagline: "Discover. Save. Unlock.",
+    mobileDescription: "The gosholo app is coming very soon to iOS and Android",
+    comingSoonOn: "Coming Soon On",
+    appStoreAlt: "Available on the App Store",
+    playStoreAlt: "Available on Google Play",
+    website: "gosholo.com",
+    stayTuned: "Stay tuned!",
   },
 
   // Language
