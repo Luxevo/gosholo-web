@@ -83,9 +83,7 @@ export function MobilePopup({ isOpen, onClose }: MobilePopupProps) {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-xs text-gray-600 font-medium">
-                    App Store
-                  </span>
+                 
                 </div>
 
                 {/* Google Play Store */}
@@ -99,9 +97,7 @@ export function MobilePopup({ isOpen, onClose }: MobilePopupProps) {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-xs text-gray-600 font-medium">
-                    Google Play
-                  </span>
+                  
                 </div>
               </div>
             </div>
