@@ -5,6 +5,7 @@ export const fr = {
     aboutGosholo: "À propos de gosholo",
     contest: "Concours",
     assistance: "Assistance",
+    entreprise: "Entreprise",
     signup: "S'inscrire",
     backToHome: "Retour à l'accueil",
     mainNavigation: "Navigation principale",

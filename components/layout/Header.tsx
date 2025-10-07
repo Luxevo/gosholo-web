@@ -26,6 +26,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
     { href: "/", label: t("nav.home") },
     { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "/assistance", label: t("nav.assistance") },
+    { href: "/entreprise", label: t("nav.entreprise") },
   ]
 
   // Fonction pour gérer la navigation vers les sections

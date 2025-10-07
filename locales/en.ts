@@ -5,6 +5,7 @@ export const en = {
     aboutGosholo: "About gosholo",
     contest: "Contest",
     assistance: "Assistance",
+    entreprise: "Business",
     signup: "Sign Up",
     backToHome: "Back to home",
     mainNavigation: "Main navigation",
