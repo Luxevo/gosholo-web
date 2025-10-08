@@ -238,6 +238,22 @@ export const en = {
     postalCodeExample: "Ex: H2X 1Y6",
   },
 
+  // Entreprise Section
+  entreprise: {
+    title: "Business",
+    tagline: "Discover. Save. Unlock.",
+    feature1Title: "Local Visibility",
+    feature1Description: "Get discovered by thousands of users around you through geolocation.",
+    feature2Title: "Free Publishing",
+    feature2Description: "Publish your offers and events for free to attract new customers.",
+    feature3Title: "Rapid Growth",
+    feature3Description: "Increase your visibility in one click on a local app used daily.",
+    ctaTitle: "Ready to join Gosholo?",
+    ctaDescription: "Create your free profile now and start attracting new customers today.",
+    dashboardButton: "Access Dashboard",
+    website: "gosholo.com",
+  },
+
   // Signup Section
   signup: {
     badge: "Join Us",

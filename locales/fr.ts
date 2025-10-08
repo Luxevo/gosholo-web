@@ -242,6 +242,22 @@ export const fr = {
     postalCodeExample: "Ex: H2X 1Y6",
   },
 
+  // Entreprise Section
+  entreprise: {
+    title: "Entreprise",
+    tagline: "Découvre. Profite. Économise.",
+    feature1Title: "Visibilité locale",
+    feature1Description: "Soyez repéré par des milliers d'utilisateurs autour de vous grâce à la géolocalisation.",
+    feature2Title: "Publication gratuite",
+    feature2Description: "Publiez vos offres et événements gratuitement pour attirer de nouveaux clients.",
+    feature3Title: "Croissance rapide",
+    feature3Description: "Augmentez votre visibilité en un clic sur une app locale utilisée chaque jour.",
+    ctaTitle: "Prêt à rejoindre Gosholo ?",
+    ctaDescription: "Créez maintenant votre profil gratuitement et commencez à attirer de nouveaux clients dès aujourd'hui.",
+    dashboardButton: "Accéder au Dashboard",
+    website: "gosholo.com",
+  },
+
   // Signup Section
   signup: {
     badge: "Rejoignez-nous",
