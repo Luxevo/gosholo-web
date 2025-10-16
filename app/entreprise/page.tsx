@@ -62,81 +62,11 @@ function EntrepriseContent() {
           <div className="container px-4 md:px-6 relative">
             <div className="max-w-6xl mx-auto">
               
-              {/* Features Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
-                
-                {/* Feature 1 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                  <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                      <Image
-                        src="/visibilite.png"
-                        alt="Visibilité locale"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
-                      />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
-                    Visibilité locale
-                  </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
-                    {t("entreprise.feature1Description")}
-                  </p>
-                </div>
-
-                {/* Feature 2 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                  <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                      <Image
-                        src="/publication.png"
-                        alt="Publication gratuite"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
-                      />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
-                    Publication gratuite
-                  </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
-                    {t("entreprise.feature2Description")}
-                  </p>
-                </div>
-
-                {/* Feature 3 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                  <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                      <Image
-                        src="/croissance.png"
-                        alt="Croissance rapide"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
-                      />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
-                    Croissance rapide
-                  </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
-                    {t("entreprise.feature3Description")}
-                  </p>
-                </div>
-
-              </div>
-              
-             
-
-              {/* CTA Section */}
-              <div className="text-center space-y-10">
+              {/* CTA Section - Top */}
+              <div className="text-center space-y-10 mb-20">
                 <div className="space-y-6">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
-                    Prêt à rejoindre gosholo ?
+                    {t("entreprise.ctaTitle")}
                   </h2>
                   <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
                     {t("entreprise.ctaDescription")}
@@ -154,8 +84,74 @@ function EntrepriseContent() {
                     {t("entreprise.dashboardButton")}
                   </a>
                 </div>
+              </div>
+
+              {/* Features Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
                 
-               
+                {/* Feature 1 */}
+                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                  <div className="flex justify-center">
+                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src="/visibilite.png"
+                        alt={t("entreprise.feature1Title")}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                    {t("entreprise.feature1Title")}
+                  </h3>
+                  <p className="leading-relaxed text-white/90 text-lg">
+                    {t("entreprise.feature1Description")}
+                  </p>
+                </div>
+
+                {/* Feature 2 */}
+                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                  <div className="flex justify-center">
+                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src="/publication.png"
+                        alt={t("entreprise.feature2Title")}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                    {t("entreprise.feature2Title")}
+                  </h3>
+                  <p className="leading-relaxed text-white/90 text-lg">
+                    {t("entreprise.feature2Description")}
+                  </p>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                  <div className="flex justify-center">
+                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src="/croissance.png"
+                        alt={t("entreprise.feature3Title")}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                    {t("entreprise.feature3Title")}
+                  </h3>
+                  <p className="leading-relaxed text-white/90 text-lg">
+                    {t("entreprise.feature3Description")}
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
