@@ -19,7 +19,7 @@ export const en = {
   hero: {
     newContest: "New Osheaga Contest",
     seeContest: "See Osheaga Contest",
-    newTitle: "Discover. Save. Unlock.",
+    newTitle: "Discover. Enjoy. Save.",
     newDescription:
       "gosholo connects you to the best offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
     comingSoon: "Coming Soon",
@@ -241,7 +241,7 @@ export const en = {
   // Entreprise Section
   entreprise: {
     title: "Business",
-    tagline: "Discover. Save. Unlock.",
+    tagline: "Discover. Enjoy. Save.",
     feature1Title: "Local Visibility",
     feature1Description: "Get discovered by thousands of users around you through geolocation.",
     feature2Title: "Free Publishing",
@@ -583,7 +583,7 @@ export const en = {
     seeContestDetails: "See Contest Details",
     contestImageAlt: "Osheaga Contest - Shop local with Gosholo",
     mobileComingSoon: "Coming Soon to Mobile",
-    mobileTagline: "Discover. Save. Unlock.",
+    mobileTagline: "Discover. Enjoy. Save.",
     mobileDescription: "The gosholo app is coming very soon to iOS and Android",
     comingSoonOn: "Coming Soon On",
     appStoreAlt: "Available on the App Store",
