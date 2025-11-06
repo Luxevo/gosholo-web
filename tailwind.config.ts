@@ -19,6 +19,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-raleway)', 'system-ui', 'sans-serif'],
+        raleway: ['var(--font-raleway)', 'sans-serif'],
+        baskerville: ['var(--font-baskerville)', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,19 +58,27 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Couleurs personnalisées - Nouvelle hiérarchie
+        // Couleurs gosholo - Conformes au Guide de Normes 2024
         gosholo: {
-          // Couleurs principales
-          primary: "#016167", // Couleur principale (ancien dark-teal)
-          white: "#FFFFFF", // Blanc principal
-
-          // Couleurs secondaires/accents
-          "light-blue": "#5BC4DB", // Bleu clair secondaire
-          "light-green": "#B2FD9D", // Vert clair secondaire
-          orange: "#FF6233", // Orange accent
-
-          // Alias pour compatibilité
-          "dark-teal": "#016167", // Garde l'ancien nom pour compatibilité
+          // Couleurs Principales de la marque
+          "forest-green": "#016167", // VERT FORÊT - Couleur principale
+          "vert-foret": "#016167",   // Alias français
+          "lime-green": "#b2fd9d",   // VERT LIME - Couleur principale
+          "vert-lime": "#b2fd9d",    // Alias français
+          
+          // Couleurs d'Accent (pour mettre l'accent sur des éléments)
+          "steel-blue": "#5bc4db",   // BLEU ACIER - Accent
+          "bleu-acier": "#5bc4db",   // Alias français
+          orange: "#ff6233",         // ORANGE - Accent
+          
+          // Blanc
+          white: "#ffffff",          // BLANC
+          
+          // Alias pour compatibilité avec code existant
+          primary: "#016167",        // → forest-green
+          "light-green": "#b2fd9d",  // → lime-green
+          "light-blue": "#5bc4db",   // → steel-blue
+          "dark-teal": "#016167",    // → forest-green (ancien nom)
         },
       },
       borderRadius: {

@@ -52,34 +52,28 @@ function EntrepriseContent() {
         </section>
 
         {/* Main Content Section */}
-        <section className="w-full py-24 md:py-32 bg-gradient-to-br from-[#016167] to-[#018a8a] relative overflow-hidden">
-          {/* Background decorative elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-10 right-10 w-32 h-32 bg-[#B2FD9D]/10 rounded-full blur-xl"></div>
-            <div className="absolute bottom-10 left-10 w-24 h-24 bg-[#FF6233]/10 rounded-full blur-lg"></div>
-            <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-white/5 rounded-full blur-md"></div>
-          </div>
+        <section className="w-full py-16 sm:py-20 md:py-24 lg:py-32 bg-gosholo-primary relative overflow-hidden">
           <div className="container px-4 md:px-6 relative">
             <div className="max-w-6xl mx-auto">
               
               {/* CTA Section - Top */}
-              <div className="text-center space-y-10 mb-20">
+              <div className="text-center space-y-8 mb-16 sm:mb-20">
                 <div className="space-y-6">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
                     {t("entreprise.ctaTitle")}
                   </h2>
-                  <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+                  <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
                     {t("entreprise.ctaDescription")}
                   </p>
                 </div>
                 
-                {/* Enhanced Dashboard Button */}
+                {/* Dashboard Button */}
                 <div className="pt-6">
                   <a
                     href="https://dashboard.gosholo.com/dashboard"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center px-12 py-6 bg-transparent text-[#B2FD9D] font-semibold text-xl rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 hover:bg-gradient-to-r hover:from-[#B2FD9D] hover:to-[#c8ffa8] hover:text-[#016167] border-2 border-[#B2FD9D]"
+                    className="inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 bg-gosholo-light-green text-gosholo-primary font-bold text-base sm:text-lg rounded-xl hover:bg-gosholo-light-green/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                   >
                     {t("entreprise.dashboardButton")}
                   </a>
@@ -87,67 +81,67 @@ function EntrepriseContent() {
               </div>
 
               {/* Features Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 
                 {/* Feature 1 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="group text-center space-y-6 bg-white rounded-2xl p-8 sm:p-10 shadow-lg border-2 border-gray-100 hover:border-gosholo-light-green transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                   <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gosholo-orange to-gosholo-orange/80 rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                       <Image
                         src="/visibilite.png"
                         alt={t("entreprise.feature1Title")}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                        width={56}
+                        height={56}
+                        className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter brightness-0 invert"
                       />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gosholo-primary tracking-tight">
                     {t("entreprise.feature1Title")}
                   </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
+                  <p className="leading-relaxed text-gray-600 text-base sm:text-lg">
                     {t("entreprise.feature1Description")}
                   </p>
                 </div>
 
                 {/* Feature 2 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="group text-center space-y-6 bg-white rounded-2xl p-8 sm:p-10 shadow-lg border-2 border-gray-100 hover:border-gosholo-light-green transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                   <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gosholo-orange to-gosholo-orange/80 rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                       <Image
                         src="/publication.png"
                         alt={t("entreprise.feature2Title")}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                        width={56}
+                        height={56}
+                        className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter brightness-0 invert"
                       />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gosholo-primary tracking-tight">
                     {t("entreprise.feature2Title")}
                   </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
+                  <p className="leading-relaxed text-gray-600 text-base sm:text-lg">
                     {t("entreprise.feature2Description")}
                   </p>
                 </div>
 
                 {/* Feature 3 */}
-                <div className="group text-center space-y-6 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="group text-center space-y-6 bg-white rounded-2xl p-8 sm:p-10 shadow-lg border-2 border-gray-100 hover:border-gosholo-light-green transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                   <div className="flex justify-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-[#FF6233] to-[#ff8a66] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gosholo-orange to-gosholo-orange/80 rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                       <Image
                         src="/croissance.png"
                         alt={t("entreprise.feature3Title")}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain filter brightness-0 invert"
+                        width={56}
+                        height={56}
+                        className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter brightness-0 invert"
                       />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-white tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gosholo-primary tracking-tight">
                     {t("entreprise.feature3Title")}
                   </h3>
-                  <p className="leading-relaxed text-white/90 text-lg">
+                  <p className="leading-relaxed text-gray-600 text-base sm:text-lg">
                     {t("entreprise.feature3Description")}
                   </p>
                 </div>

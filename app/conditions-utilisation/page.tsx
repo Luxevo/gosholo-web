@@ -25,7 +25,7 @@ function TermsOfUseContent() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-8 sm:py-12 md:py-16 bg-gosholo-light-blue">
+        <section className="w-full py-8 sm:py-12 md:py-16 bg-gosholo-primary">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="mb-4 sm:mb-6">

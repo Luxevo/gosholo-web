@@ -128,7 +128,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
           <div className="hidden sm:block">
             <Button
               size="sm"
-              className="bg-gosholo-primary hover:bg-gosholo-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm px-3 sm:px-4"
+              className="bg-gosholo-light-green text-gosholo-primary hover:bg-gosholo-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm px-6 py-2 font-bold rounded-xl"
               onClick={handleSignupClick}
               aria-label={t("hero.goToSignup")}
             >

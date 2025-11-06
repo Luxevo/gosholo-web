@@ -54,7 +54,7 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigatio
           </Link>
         ))}
         <Button
-          className="bg-gosholo-primary hover:bg-gosholo-primary/90 text-white mt-3 transition-all duration-300 hover:scale-105 touch-target-44"
+          className="bg-gosholo-light-green text-gosholo-primary hover:bg-gosholo-primary hover:text-white mt-3 transition-all duration-300 hover:scale-105 touch-target-44 font-bold rounded-xl"
           onClick={handleSignupClick}
           aria-label={t("hero.goToSignup")}
         >

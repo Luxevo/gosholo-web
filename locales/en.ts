@@ -20,12 +20,15 @@ export const en = {
     newContest: "New Osheaga Contest",
     seeContest: "See Osheaga Contest",
     newTitle: "Discover. Enjoy. Save.",
+    discover: "Discover.",
+    save: "Save.",
+    enjoy: "Enjoy.",
     newDescription:
       "gosholo connects you to the best offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
     comingSoon: "Coming Soon",
     learnMore: "Learn More",
     goToSignup: "Go to signup section",
-    heroImageAlt: "Smiling young woman representing Gosholo's dynamic spirit",
+    heroImageAlt: "Smiling young woman representing gosholo's dynamic spirit",
   },
 
   // Who We Are Section
@@ -45,6 +48,22 @@ export const en = {
   aboutGosholo: {
     badge: "About",
     title: "About gosholo",
+    missionBadge: "Our mission",
+    missionTitle: "Empowering local commerce, one offer at a time.",
+    missionText1: "gosholo, it's a",
+    missionText1Accent: "community",
+    missionText1End: "that connects people to their neighborhood businesses.",
+    missionText2: "Cafés, restaurants, shops, and services near you offer",
+    missionText2Accent: "exclusive",
+    missionText2End: "benefits.",
+    missionText3: "Be first in line to discover offers and events near you!",
+    highlight1: "100% local",
+    highlight2: "Carefully selected",
+    highlight3: "Supports local businesses",
+    ctaButton: "Discover gosholo's story",
+    appLaunchDescription: "The gosholo app is coming very soon to iOS and Android. Be among the first to discover the best offers and events near you.",
+    appStore: "App Store",
+    playStore: "Google Play",
     description1:
       "gosholo is the mobile app that helps you unlock the best offers from your favorite local spots and hidden gems around you and all over the city.",
     description2:
@@ -203,7 +222,7 @@ export const en = {
     newGooglePlay: "Available on Google Play",
     signupNow: "Sign Up Now",
     signupButton: "Go to signup section",
-    appPreview: "Preview of the Gosholo mobile app on smartphone",
+    appPreview: "Preview of the gosholo mobile app on smartphone",
   },
 
   // Newsletter Section (formerly Signup)
@@ -248,7 +267,7 @@ export const en = {
     feature2Description: "Publish your offers and events for free to attract new customers.",
     feature3Title: "Rapid Growth",
     feature3Description: "Increase your visibility in one click on a local app used daily.",
-    ctaTitle: "Ready to join Gosholo?",
+    ctaTitle: "Ready to join gosholo?",
     ctaDescription: "Create your free profile now and start attracting new customers today.",
     dashboardButton: "Access Dashboard",
     website: "gosholo.com",
@@ -417,7 +436,7 @@ export const en = {
       transactionalData: {
         title: "Transactional Data",
         description:
-          "Any information about interactions with Gosholo offers, events and partners, including points accumulated and redeemed.",
+          "Any information about interactions with gosholo offers, events and partners, including points accumulated and redeemed.",
       },
     },
     useOfInformation: {
@@ -581,7 +600,7 @@ export const en = {
   // Popup
   popup: {
     seeContestDetails: "See Contest Details",
-    contestImageAlt: "Osheaga Contest - Shop local with Gosholo",
+    contestImageAlt: "Osheaga Contest - Shop local with gosholo",
     mobileComingSoon: "Coming Soon to Mobile",
     mobileTagline: "Discover. Enjoy. Save.",
     mobileDescription: "The gosholo app is coming very soon to iOS and Android",

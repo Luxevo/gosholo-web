@@ -34,14 +34,14 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-light-green"
+      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gray-50"
       role="region"
       aria-labelledby="about-title"
     >
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div
-            className="inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs sm:text-sm md:text-base font-semibold border-transparent bg-gosholo-orange text-white w-fit mx-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs sm:text-sm font-semibold bg-gosholo-light-green text-gosholo-primary w-fit mx-auto transition-all duration-300 hover:scale-105"
             role="presentation"
           >
             {t("about.badge")}
@@ -53,7 +53,7 @@ export function AboutSection() {
             >
               {t("about.title")}
             </h2>
-            <p className="max-w-[900px] text-gosholo-primary text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
+            <p className="max-w-[900px] text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
               {t("about.description")}
             </p>
           </div>
@@ -65,10 +65,10 @@ export function AboutSection() {
             return (
               <article
                 key={index}
-                className="flex flex-col items-center space-y-4 rounded-lg border p-4 sm:p-6 shadow-sm transition-all duration-500 hover:shadow-xl bg-white hover:scale-105 hover:-translate-y-2 group"
+                className="flex flex-col items-center space-y-4 rounded-2xl border-2 border-gray-200 p-6 sm:p-8 shadow-sm transition-all duration-500 hover:shadow-xl bg-white hover:scale-105 hover:-translate-y-2 hover:border-gosholo-light-green group"
               >
                 <div
-                  className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gosholo-primary transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
+                  className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gosholo-primary shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
                   role="presentation"
                 >
                   <IconComponent
@@ -77,17 +77,17 @@ export function AboutSection() {
                   />
                 </div>
                 <div className="space-y-2 text-center">
-                  <h3 className="text-lg sm:text-xl font-bold">{card.title}</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base">{card.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gosholo-primary">{card.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">{card.description}</p>
                 </div>
                 <Link
                   href={card.link}
-                  className="inline-flex items-center text-sm font-medium text-gosholo-primary hover:underline focus:outline-none focus:ring-2 focus:ring-gosholo-primary focus:ring-offset-2 rounded transition-all duration-300 hover:scale-105 group touch-target-44 p-2"
+                  className="inline-flex items-center text-sm font-medium text-gosholo-orange hover:text-gosholo-primary transition-colors duration-300 group-link touch-target-44 p-2"
                   aria-label={card.ariaLabel}
                 >
                   {t("about.learnMore")}{" "}
                   <ArrowRight
-                    className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    className="ml-1 h-4 w-4 transition-transform duration-300 group-link-hover:translate-x-1"
                     aria-hidden="true"
                   />
                 </Link>

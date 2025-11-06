@@ -1,119 +1,108 @@
 "use client"
 
 import { useTranslation } from "@/hooks/useTranslation"
-import { Gift, Zap, Calendar } from "lucide-react"
+import { Heart, Check, Sparkles, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 export function AboutGosholoSection() {
   const { t } = useTranslation()
 
-  const features = [
+  const highlights = [
     {
-      icon: Gift,
-      title: t("aboutGosholo.feature1Title"),
-      description: t("aboutGosholo.feature1Description"),
-      bgColor: "bg-gosholo-orange",
+      icon: Heart,
+      text: t("aboutGosholo.highlight1"),
     },
     {
-      icon: Zap,
-      title: t("aboutGosholo.feature2Title"),
-      description: t("aboutGosholo.feature2Description"),
-      bgColor: "bg-gosholo-light-blue",
+      icon: Sparkles,
+      text: t("aboutGosholo.highlight2"),
     },
     {
-      icon: Calendar,
-      title: t("aboutGosholo.feature3Title"),
-      description: t("aboutGosholo.feature3Description"),
-      bgColor: "bg-gosholo-light-green",
+      icon: Check,
+      text: t("aboutGosholo.highlight3"),
     },
   ]
 
   return (
     <section
       id="about-gosholo"
-      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-gosholo-light-green relative overflow-hidden"
+      className="w-full py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-white relative overflow-hidden"
       role="region"
       aria-labelledby="about-gosholo-title"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gosholo-orange/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gosholo-light-blue/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container px-4 md:px-6 relative">
-        {/* Header */}
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 sm:mb-16">
-          <h2
-            id="about-gosholo-title"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-gosholo-primary"
-          >
-            {t("aboutGosholo.title")}
-          </h2>
-        </div>
-
-        {/* Main content grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 sm:mb-20">
-          {/* Left side - Text content */}
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-lg sm:text-xl leading-relaxed text-gosholo-primary font-medium">
-                {t("aboutGosholo.description1")}
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed text-gosholo-primary">
-                {t("aboutGosholo.description2")}
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed text-gosholo-primary">
-                {t("aboutGosholo.description3")}
-              </p>
+      <div className="container px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 items-center">
+          
+          {/* Left - Image */}
+          <div className="order-2 lg:order-1">
+            <div className="relative">
+              <Image
+                src="/images/about-gosholo.jpeg"
+                width={600}
+                height={500}
+                alt="Personne souriante utilisant gosholo"
+                className="w-full h-auto rounded-2xl object-cover shadow-2xl"
+                priority
+              />
             </div>
           </div>
 
-          {/* Right side - Image only */}
-          <div className="relative">
-            <Image
-              src="/images/about-gosholo.jpeg"
-              width={500}
-              height={400}
-              alt={t("aboutGosholo.appDescription")}
-              className="w-full h-auto rounded-3xl object-cover shadow-2xl transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-        </div>
+          {/* Right - Content */}
+          <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
+            {/* Badge */}
+            <div>
+              <span className="inline-flex items-center justify-center rounded-full bg-gosholo-light-green px-4 py-2 text-sm font-semibold text-gosholo-primary">
+                {t("aboutGosholo.missionBadge")}
+              </span>
+            </div>
 
-        {/* Features grid */}
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-3 mb-12 sm:mb-16">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            return (
-              <div
-                key={index}
-                className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105"
-              >
-                <div className="absolute inset-0 bg-gosholo-light-green/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative">
+            {/* Titre */}
+            <h2
+              id="about-gosholo-title"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gosholo-primary leading-tight"
+            >
+              {t("aboutGosholo.missionTitle")}
+            </h2>
+
+            {/* Texte avec mots-clés en Baskerville */}
+            <div className="space-y-4 text-base sm:text-lg leading-relaxed text-gray-700">
+              <p className="text-lg sm:text-xl font-medium text-gosholo-primary">
+                {t("aboutGosholo.missionText1")} <span className="font-baskerville italic">{t("aboutGosholo.missionText1Accent")}</span> {t("aboutGosholo.missionText1End")}
+              </p>
+              <p>
+                {t("aboutGosholo.missionText2")} <span className="font-baskerville italic text-gosholo-primary font-semibold">{t("aboutGosholo.missionText2Accent")}</span> {t("aboutGosholo.missionText2End")}
+              </p>
+              <p className="font-medium text-gosholo-primary">
+                {t("aboutGosholo.missionText3")}
+              </p>
+            </div>
+
+            {/* Mini-points illustrés */}
+            <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
+              {highlights.map((item, index) => {
+                const IconComponent = item.icon
+                return (
                   <div
-                    className={`w-16 h-16 sm:w-20 sm:h-20 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    key={index}
+                    className="inline-flex items-center gap-2 bg-gosholo-orange/10 rounded-full px-4 py-2 border border-gosholo-orange/20"
                   >
-                    <IconComponent className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                    <IconComponent className="h-4 w-4 text-gosholo-orange" />
+                    <span className="text-sm font-medium text-gosholo-primary">{item.text}</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gosholo-primary mb-3 group-hover:text-gosholo-primary transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gosholo-primary leading-relaxed">{feature.description}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
+                )
+              })}
+            </div>
 
-        {/* Call to action - Simplified */}
-        <div className="text-center">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gosholo-primary">
-              {t("aboutGosholo.tagline")}
-            </p>
+            {/* CTA Button */}
+            <div className="pt-4">
+              <button
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+              >
+                {t("aboutGosholo.ctaButton")}
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
