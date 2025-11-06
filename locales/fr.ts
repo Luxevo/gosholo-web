@@ -3,6 +3,7 @@ export const fr = {
   nav: {
     home: "Accueil",
     aboutGosholo: "À propos de gosholo",
+    nosOffres: "Nos Offres",
     contest: "Concours",
     assistance: "Assistance",
     entreprise: "Entreprise",
@@ -13,6 +14,13 @@ export const fr = {
     footerNavigation: "Navigation du pied de page",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
+  },
+
+  // Nos Offres Page
+  nosOffres: {
+    title: "Nos Offres & Événements",
+    loading: "Chargement...",
+    itemsAvailable: "offres et événements disponibles",
   },
 
   // Hero Section

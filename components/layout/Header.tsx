@@ -25,6 +25,7 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
   const navigationItems = [
     { href: "/", label: t("nav.home") },
     { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
+    { href: "/nos-offres", label: t("nav.nosOffres") },
     { href: "/assistance", label: t("nav.assistance") },
     { href: "/entreprise", label: t("nav.entreprise") },
   ]
