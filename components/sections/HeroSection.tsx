@@ -55,8 +55,10 @@ export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) 
                 {t("hero.learnMore")}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
+              
             </div>
           </div>
+          
 
           {/* Right Image */}
           <div

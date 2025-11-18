@@ -19,10 +19,10 @@ export function CustomerCard({ type, data, locale }: CustomerCardProps) {
     : (locale === 'fr' ? "Voir l'événement" : 'View event')
 
   return (
-    <div className="relative w-[356px] h-[480px] rounded-xl bg-white border border-gray-200 shadow-lg overflow-hidden">
+    <div className="relative w-[356px] h-[658px] rounded-xl bg-white border border-gray-200 shadow-lg overflow-hidden">
       
-      {/* SECTION IMAGE - 267px hauteur */}
-      <div className="relative w-full h-[267px]">
+      {/* SECTION IMAGE - 445px hauteur */}
+      <div className="relative w-full h-[445px]">
         {data.image_url ? (
           <Image
             src={data.image_url}

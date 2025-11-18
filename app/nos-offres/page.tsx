@@ -92,7 +92,7 @@ function NosOffresContent() {
                 }`}
               >
                 <Tag className="inline-block mr-2 h-4 w-4" />
-                {language === 'fr' ? `Offres (${offres.length})` : `Offers (${offres.length})`}
+                {language === 'fr' ? `Offres` : `Offers`}
               </button>
               <button
                 onClick={() => setActiveTab('events')}
@@ -103,7 +103,7 @@ function NosOffresContent() {
                 }`}
               >
                 <Calendar className="inline-block mr-2 h-4 w-4" />
-                {language === 'fr' ? `Événements (${events.length})` : `Events (${events.length})`}
+                {language === 'fr' ? `Événements` : `Events`}
               </button>
             </div>
           </div>
