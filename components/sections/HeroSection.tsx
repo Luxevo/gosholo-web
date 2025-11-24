@@ -6,9 +6,10 @@ import { useTranslation } from "@/hooks/useTranslation"
 interface HeroSectionProps {
   isVisible: boolean
   onScrollToSection: (sectionId: string) => void
+  onOpenAppModal: () => void
 }
 
-export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) {
+export function HeroSection({ isVisible, onScrollToSection, onOpenAppModal }: HeroSectionProps) {
   const { t } = useTranslation()
 
   return (
@@ -46,16 +47,22 @@ export function HeroSection({ isVisible, onScrollToSection }: HeroSectionProps) 
               {t("hero.newDescription")}
             </p>
 
-            {/* CTA Button */}
-            <div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={onOpenAppModal}
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-gosholo-light-green transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+              >
+                {t("hero.discoverApp")}
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
               <button
                 onClick={() => onScrollToSection("about-gosholo")}
-                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-gosholo-light-green transition-all duration-300 hover:scale-105 hover:shadow-xl group"
               >
                 {t("hero.learnMore")}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-              
             </div>
           </div>
           

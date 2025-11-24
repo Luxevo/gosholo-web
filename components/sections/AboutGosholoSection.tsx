@@ -1,26 +1,44 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useTranslation } from "@/hooks/useTranslation"
-import { Heart, Check, Sparkles, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { getOffres, getEvents } from "@/lib/supabase"
+import { CustomerCard } from "@/components/cards/CustomerCard"
+import Link from "next/link"
+import { ArrowRight, Tag, Calendar } from "lucide-react"
+import type { Database } from "@/types/supabase"
+
+type Offer = Database['public']['Tables']['offers']['Row']
+type Event = Database['public']['Tables']['events']['Row']
 
 export function AboutGosholoSection() {
   const { t } = useTranslation()
+  const { language } = useLanguage()
+  const [offres, setOffres] = useState<Offer[]>([])
+  const [events, setEvents] = useState<Event[]>([])
+  const [loading, setLoading] = useState(true)
+  const [activeTab, setActiveTab] = useState<'offres' | 'events'>('offres')
 
-  const highlights = [
-    {
-      icon: Heart,
-      text: t("aboutGosholo.highlight1"),
-    },
-    {
-      icon: Sparkles,
-      text: t("aboutGosholo.highlight2"),
-    },
-    {
-      icon: Check,
-      text: t("aboutGosholo.highlight3"),
-    },
-  ]
+  useEffect(() => {
+    async function loadData() {
+      const [offresData, eventsData] = await Promise.all([
+        getOffres(),
+        getEvents()
+      ])
+      setOffres(offresData)
+      setEvents(eventsData)
+      setLoading(false)
+    }
+
+    loadData()
+  }, [])
+
+  // Afficher les items selon l'onglet actif (max 6 items)
+  const maxItems = 6
+  const displayedItems = activeTab === 'offres' 
+    ? offres.slice(0, maxItems).map(item => ({ item, type: 'offer' as const }))
+    : events.slice(0, maxItems).map(item => ({ item, type: 'event' as const }))
 
   return (
     <section
@@ -30,80 +48,81 @@ export function AboutGosholoSection() {
       aria-labelledby="about-gosholo-title"
     >
       <div className="container px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 items-center">
-          
-          {/* Left - Image */}
-          <div className="order-2 lg:order-1">
-            <div className="relative">
-              <Image
-                src="/images/about-gosholo.jpeg"
-                width={600}
-                height={500}
-                alt="Personne souriante utilisant gosholo"
-                className="w-full h-auto rounded-2xl object-cover shadow-2xl"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Right - Content */}
-          <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
-            {/* Badge */}
-            <div>
-              <span className="inline-flex items-center justify-center rounded-full bg-gosholo-light-green px-4 py-2 text-sm font-semibold text-gosholo-primary">
-                {t("aboutGosholo.missionBadge")}
-              </span>
-            </div>
-
-            {/* Titre */}
-            <h2
-              id="about-gosholo-title"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gosholo-primary leading-tight"
-            >
-              {t("aboutGosholo.missionTitle")}
-            </h2>
-
-            {/* Texte avec mots-clés en Baskerville */}
-            <div className="space-y-4 text-base sm:text-lg leading-relaxed text-gray-700">
-              <p className="text-lg sm:text-xl font-medium text-gosholo-primary">
-                {t("aboutGosholo.missionText1")} <span className="font-baskerville italic">{t("aboutGosholo.missionText1Accent")}</span> {t("aboutGosholo.missionText1End")}
-              </p>
-              <p>
-                {t("aboutGosholo.missionText2")} <span className="font-baskerville italic text-gosholo-primary font-semibold">{t("aboutGosholo.missionText2Accent")}</span> {t("aboutGosholo.missionText2End")}
-              </p>
-              <p className="font-medium text-gosholo-primary">
-                {t("aboutGosholo.missionText3")}
-              </p>
-            </div>
-
-            {/* Mini-points illustrés */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
-              {highlights.map((item, index) => {
-                const IconComponent = item.icon
-                return (
-                  <div
-                    key={index}
-                    className="inline-flex items-center gap-2 bg-gosholo-orange/10 rounded-full px-4 py-2 border border-gosholo-orange/20"
-                  >
-                    <IconComponent className="h-4 w-4 text-gosholo-orange" />
-                    <span className="text-sm font-medium text-gosholo-primary">{item.text}</span>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
-              <button
-                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl group"
-              >
-                {t("aboutGosholo.ctaButton")}
-                <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
-            </div>
-          </div>
-
+        {/* Titre */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2
+            id="about-gosholo-title"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gosholo-primary leading-tight mb-8"
+          >
+            Faire rayonner le commerce local, une offre à la fois.
+          </h2>
         </div>
+
+        {/* Tabs Section */}
+        <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <button
+            onClick={() => setActiveTab('offres')}
+            className={`px-6 py-3 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 ${
+              activeTab === 'offres'
+                ? 'bg-gosholo-light-green text-gosholo-primary shadow-md'
+                : 'border-2 border-gray-300 text-gray-700 hover:border-gosholo-primary hover:text-gosholo-primary'
+            }`}
+          >
+            <Tag className="inline-block mr-2 h-4 w-4" />
+            {language === 'fr' ? `Offres` : `Offers`}
+          </button>
+          <button
+            onClick={() => setActiveTab('events')}
+            className={`px-6 py-3 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 ${
+              activeTab === 'events'
+                ? 'bg-gosholo-light-green text-gosholo-primary shadow-md'
+                : 'border-2 border-gray-300 text-gray-700 hover:border-gosholo-primary hover:text-gosholo-primary'
+            }`}
+          >
+            <Calendar className="inline-block mr-2 h-4 w-4" />
+            {language === 'fr' ? `Événements` : `Events`}
+          </button>
+        </div>
+
+        {/* Grid des cartes */}
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-gosholo-primary border-t-transparent mx-auto mb-4"></div>
+              <p className="text-gray-600">{t("nosOffres.loading")}</p>
+            </div>
+          </div>
+        ) : displayedItems.length > 0 ? (
+          <>
+            <div className="flex flex-wrap justify-center md:justify-start gap-8 max-w-6xl mx-auto">
+              {displayedItems.map(({ item, type }) => (
+                <CustomerCard
+                  key={item.id}
+                  type={type}
+                  data={item}
+                  locale={language}
+                />
+              ))}
+            </div>
+            
+            {/* CTA Voir plus */}
+            <div className="mt-12 sm:mt-16 text-center">
+              <Link
+                href="/nos-offres"
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-primary text-white rounded-xl hover:bg-gosholo-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                {language === 'fr' ? 'Voir plus' : 'See more'}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="text-center py-20">
+            <p className="text-gray-500">
+              {language === 'fr' ? 'Aucune offre ou événement disponible pour le moment.' : 'No offers or events available at the moment.'}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )

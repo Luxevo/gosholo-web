@@ -34,7 +34,8 @@ export const fr = {
     newDescription:
       "gosholo te connecte aux meilleures offres et événements près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux.",
     comingSoon: "Bientôt disponible",
-    learnMore: "En savoir plus",
+    discoverApp: "Découvre",
+    learnMore: "Voir nos offres et événements",
     goToSignup: "Aller à la section d'inscription",
     heroImageAlt:
       "Jeune femme souriante représentant l'esprit dynamique de gosholo",
@@ -70,7 +71,7 @@ export const fr = {
     highlight2: "Sélectionné avec soin",
     highlight3: "Favorise les commerces d'ici",
     ctaButton: "Découvrir l'histoire de gosholo",
-    appLaunchDescription: "L'application gosholo arrive très bientôt sur iOS et Android. Sois parmi les premiers à découvrir les meilleures offres et événements près de toi.",
+    appLaunchDescription: "L'application gosholo est maintenant disponible sur iOS et Android. Téléchargez-la dès maintenant pour découvrir les meilleures offres et événements près de vous.",
     appStore: "App Store",
     playStore: "Google Play",
     description1:
@@ -96,9 +97,12 @@ export const fr = {
     benefit4: "Interface intuitive",
     appTitle: "L'app qui change tout",
     appDescription: "Découvre, économise et profite comme jamais auparavant",
-    comingSoon: "Bientôt disponible",
-    launchingSoon: "Lancement imminent",
+    comingSoon: "Disponible maintenant",
+    launchingSoon: "Téléchargez l'app gosholo",
     stayTuned: "Reste connecté !",
+    downloadNow: "Téléchargez maintenant !",
+    appStoreLink: "https://apps.apple.com/us/app/gosholo/id6749919037",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.gosholo.gosholo",
   },
 
   // About Section

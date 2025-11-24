@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutGosholoSection } from "@/components/sections/AboutGosholoSection";
 import { AppLaunchSection } from "@/components/sections/AppLaunchSection";
+import { AppDownloadModal } from "@/components/ui/AppDownloadModal";
 import { ClientWrapper } from "@/components/ClientWrapper";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { usePopupTimer } from "@/hooks/usePopupTimer";
@@ -12,8 +14,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
-import { MobilePopup } from "@/components/ui/MobilePopup";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 function HomeContent() {
@@ -21,7 +22,7 @@ function HomeContent() {
   const { isOpen, setIsOpen } = usePopupTimer();
   const { t, tArray } = useTranslation();
   const router = useRouter();
-  const [isMobilePopupOpen, setIsMobilePopupOpen] = useState(false);
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
 
   // Gérer la navigation vers les sections avec les ancres
   useEffect(() => {
@@ -40,15 +41,6 @@ function HomeContent() {
         }
       }, 100);
     }
-  }, []);
-
-  // Timer pour le popup mobile
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsMobilePopupOpen(true);
-    }, 3000); // 3 secondes après le chargement
-
-    return () => clearTimeout(timer);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -75,13 +67,14 @@ function HomeContent() {
         <HeroSection
           isVisible={isVisible}
           onScrollToSection={scrollToSection}
+          onOpenAppModal={() => setIsAppModalOpen(true)}
         />
 
         {/* About Gosholo Section */}
         <AboutGosholoSection />
 
         {/* App Launch Section */}
-        <AppLaunchSection />
+        <AppLaunchSection onOpenAppModal={() => setIsAppModalOpen(true)} />
 
         {/* Newsletter Section - Positioned strategically */}
         <section
@@ -122,12 +115,11 @@ function HomeContent() {
 
       <Footer />
 
-      {/* Mobile Popup */}
-      <MobilePopup
-        isOpen={isMobilePopupOpen}
-        onClose={() => setIsMobilePopupOpen(false)}
+      {/* App Download Modal */}
+      <AppDownloadModal
+        isOpen={isAppModalOpen}
+        onClose={() => setIsAppModalOpen(false)}
       />
-
     </div>
   );
 }

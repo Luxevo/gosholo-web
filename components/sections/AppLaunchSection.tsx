@@ -4,7 +4,11 @@ import { Smartphone, Download } from "lucide-react"
 import Image from "next/image"
 import { useTranslation } from "@/hooks/useTranslation"
 
-export function AppLaunchSection() {
+interface AppLaunchSectionProps {
+  onOpenAppModal: () => void
+}
+
+export function AppLaunchSection({ onOpenAppModal }: AppLaunchSectionProps) {
   const { t } = useTranslation()
 
   return (
@@ -71,9 +75,12 @@ export function AppLaunchSection() {
 
           {/* CTA */}
           <div className="text-center">
-            <p className="text-base sm:text-lg text-gosholo-light-green font-semibold">
-              {t("aboutGosholo.stayTuned")}
-            </p>
+            <button
+              onClick={onOpenAppModal}
+              className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-light-green text-gosholo-primary rounded-xl hover:bg-gosholo-primary hover:text-gosholo-light-green transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              {t("aboutGosholo.downloadNow")}
+            </button>
           </div>
         </div>
       </div>

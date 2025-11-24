@@ -34,7 +34,8 @@ export const en = {
     newDescription:
       "gosholo connects you to the best offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
     comingSoon: "Coming Soon",
-    learnMore: "Learn More",
+    discoverApp: "Discover",
+    learnMore: "View our offers and events",
     goToSignup: "Go to signup section",
     heroImageAlt: "Smiling young woman representing gosholo's dynamic spirit",
   },
@@ -69,7 +70,7 @@ export const en = {
     highlight2: "Carefully selected",
     highlight3: "Supports local businesses",
     ctaButton: "Discover gosholo's story",
-    appLaunchDescription: "The gosholo app is coming very soon to iOS and Android. Be among the first to discover the best offers and events near you.",
+    appLaunchDescription: "The gosholo app is now available on iOS and Android. Download it now to discover the best offers and events near you.",
     appStore: "App Store",
     playStore: "Google Play",
     description1:
@@ -93,9 +94,12 @@ export const en = {
     benefit4: "Intuitive interface",
     appTitle: "The app that changes everything",
     appDescription: "Discover, save and enjoy like never before",
-    comingSoon: "Coming Soon",
-    launchingSoon: "Launching Soon",
+    comingSoon: "Available Now",
+    launchingSoon: "Download the gosholo app",
     stayTuned: "Stay tuned!",
+    downloadNow: "Download now!",
+    appStoreLink: "https://apps.apple.com/us/app/gosholo/id6749919037",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.gosholo.gosholo",
   },
 
   // About Section
