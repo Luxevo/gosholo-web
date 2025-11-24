@@ -1,10 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
 import type { Database } from '@/types/supabase'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.warn('⚠️ Supabase environment variables are missing. Some features may not work.')
+}
+
+export const supabase = supabaseUrl && supabaseAnonKey
+  ? createClient<Database>(supabaseUrl, supabaseAnonKey)
+  : null as any
 
 /**
  * Compter le nombre d'offres actives
@@ -44,6 +50,11 @@ export async function countEvents() {
  * Récupérer toutes les offres actives
  */
 export async function getOffres() {
+  if (!supabase) {
+    console.warn('⚠️ Supabase client not initialized')
+    return []
+  }
+
   const { data, error } = await supabase
     .from('offers')
     .select('*')
@@ -63,6 +74,11 @@ export async function getOffres() {
  * Récupérer tous les événements actifs
  */
 export async function getEvents() {
+  if (!supabase) {
+    console.warn('⚠️ Supabase client not initialized')
+    return []
+  }
+
   const { data, error } = await supabase
     .from('events')
     .select('*')
