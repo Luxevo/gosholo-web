@@ -1,6 +1,6 @@
 "use client"
 
-import { MapPin, Heart, Sparkles } from "lucide-react"
+import { MapPin, Sparkles } from "lucide-react"
 import Image from "next/image"
 import type { Database } from "@/types/supabase"
 
@@ -47,13 +47,6 @@ export function CustomerCard({ type, data, locale }: CustomerCardProps) {
             </div>
           </div>
         )}
-
-        {/* Icône Cœur (top-right) */}
-        <div className="absolute top-3 right-3">
-          <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-all duration-300 cursor-pointer hover:scale-110">
-            <Heart className="w-4 h-4 text-gray-400" />
-          </div>
-        </div>
 
         {/* Barre d'adresse (bottom) */}
         <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3">
