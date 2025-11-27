@@ -36,8 +36,22 @@ function NosOffresContent() {
         getOffres(),
         getEvents()
       ])
-      setOffres(offresData)
-      setEvents(eventsData)
+      
+      // Trier pour mettre les boostés en premier
+      const sortedOffres = [...offresData].sort((a, b) => {
+        if (a.boosted && !b.boosted) return -1
+        if (!a.boosted && b.boosted) return 1
+        return 0
+      })
+      
+      const sortedEvents = [...eventsData].sort((a, b) => {
+        if (a.boosted && !b.boosted) return -1
+        if (!a.boosted && b.boosted) return 1
+        return 0
+      })
+      
+      setOffres(sortedOffres)
+      setEvents(sortedEvents)
       setLoading(false)
     }
 
