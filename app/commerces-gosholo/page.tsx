@@ -71,8 +71,8 @@ function CommercesGosholoContent() {
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
                 {language === 'fr' 
-                  ? 'Découvrez tous nos commerces partenaires locaux. 100% local, 100% authentique.'
-                  : 'Discover all our local partner businesses. 100% local, 100% authentic.'}
+                  ? 'Découvrez tous nos commerces partenaires. 100% local, 100% authentique.'
+                  : 'Discover all our partner businesses. 100% local, 100% authentic.'}
               </p>
             </div>
           </div>
