@@ -4,9 +4,10 @@ export const en = {
     home: "Home",
     aboutGosholo: "About gosholo",
     nosOffres: "Our Offers",
+    commerces: "gosholo Businesses",
     contest: "Contest",
     assistance: "Assistance",
-    entreprise: "Business",
+    entreprise: "I have a business",
     signup: "Sign Up",
     backToHome: "Back to home",
     mainNavigation: "Main navigation",
@@ -21,6 +22,21 @@ export const en = {
     title: "Our Offers & Events",
     loading: "Loading...",
     itemsAvailable: "offers and events available",
+  },
+
+  // Commerces Page
+  commerces: {
+    title: "gosholo Businesses",
+    loading: "Loading...",
+    noCommerces: "No businesses available",
+    comeBackSoon: "Come back soon!",
+    viewCommerce: "View business",
+    address: "Address",
+    phone: "Phone",
+    email: "Email",
+    website: "Website",
+    hours: "Opening hours",
+    description: "Description",
   },
 
   // Hero Section

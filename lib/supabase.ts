@@ -94,3 +94,26 @@ export async function getEvents() {
   return data
 }
 
+/**
+ * Récupérer tous les commerces
+ */
+export async function getCommerces() {
+  if (!supabase) {
+    console.warn('⚠️ Supabase client not initialized')
+    return []
+  }
+
+  const { data, error } = await supabase
+    .from('commerces')
+    .select('*')
+    .order('created_at', { ascending: false })
+  
+  if (error) {
+    console.error('❌ Erreur récupération commerces:', error.message)
+    return []
+  }
+  
+  console.log(`✅ ${data.length} commerce(s) récupéré(s)`)
+  return data
+}
+
