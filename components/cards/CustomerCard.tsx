@@ -48,15 +48,17 @@ export function CustomerCard({ type, data, locale }: CustomerCardProps) {
           </div>
         )}
 
-        {/* Barre d'adresse (bottom) */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3">
-          <div className="flex items-center text-sm">
-            <MapPin className="h-3 w-3 mr-1 flex-shrink-0" />
-            <span className="truncate">
-              {data.custom_location || (locale === 'fr' ? 'Localisation' : 'Location')}
-            </span>
+        {/* Barre d'adresse (bottom) - seulement si on a une localisation */}
+        {data.custom_location && (
+          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3">
+            <div className="flex items-center text-sm">
+              <MapPin className="h-3 w-3 mr-1 flex-shrink-0" />
+              <span className="truncate">
+                {data.custom_location}
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* SECTION CONTENU - 213px hauteur */}
