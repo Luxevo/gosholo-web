@@ -13,37 +13,19 @@ export const supabase = supabaseUrl && supabaseAnonKey
   : null as any
 
 /**
- * Compter le nombre d'offres actives
+ * Compter le nombre d'offres actives (non expirées)
  */
 export async function countOffres() {
-  const { count, error } = await supabase
-    .from('offers')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_active', true)
-  
-  if (error) {
-    console.error('❌ Erreur comptage offres:', error.message)
-    return 0
-  }
-  
-  return count || 0
+  const offers = await getOffres()
+  return offers.length
 }
 
 /**
- * Compter le nombre d'événements actifs
+ * Compter le nombre d'événements actifs (non expirés)
  */
 export async function countEvents() {
-  const { count, error } = await supabase
-    .from('events')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_active', true)
-  
-  if (error) {
-    console.error('❌ Erreur comptage événements:', error.message)
-    return 0
-  }
-  
-  return count || 0
+  const events = await getEvents()
+  return events.length
 }
 
 /**
@@ -61,13 +43,20 @@ export async function getOffres() {
     .eq('is_active', true)
     .order('created_at', { ascending: false })
   
+  // Filtrer les offres dont la date de fin est passée
+  const now = new Date().toISOString()
+  const validOffers = offersData?.filter((offer: any) => {
+    if (!offer.end_date) return true // Si pas de date de fin, on garde l'offre
+    return new Date(offer.end_date) >= new Date(now)
+  }) || []
+  
   if (offersError) {
     console.error('❌ Erreur récupération offres:', offersError.message)
     return []
   }
 
   // Récupérer les IDs des commerces uniques
-  const commerceIds = [...new Set(offersData.map((offer: any) => offer.commerce_id).filter(Boolean))]
+  const commerceIds = [...new Set(validOffers.map((offer: any) => offer.commerce_id).filter(Boolean))]
   
   // Récupérer les commerces correspondants
   let commercesMap: Record<string, any> = {}
@@ -86,7 +75,7 @@ export async function getOffres() {
   }
   
   // Enrichir les données avec l'adresse du commerce si custom_location est vide
-  const enrichedData = offersData.map((offer: any) => {
+  const enrichedData = validOffers.map((offer: any) => {
     if (!offer.custom_location && offer.commerce_id) {
       const commerce = commercesMap[offer.commerce_id]
       if (commerce && commerce.address) {
@@ -117,13 +106,20 @@ export async function getEvents() {
     .eq('is_active', true)
     .order('created_at', { ascending: false })
   
+  // Filtrer les événements dont la date de fin est passée
+  const now = new Date().toISOString()
+  const validEvents = eventsData?.filter((event: any) => {
+    if (!event.end_date) return true // Si pas de date de fin, on garde l'événement
+    return new Date(event.end_date) >= new Date(now)
+  }) || []
+  
   if (eventsError) {
     console.error('❌ Erreur récupération événements:', eventsError.message)
     return []
   }
 
   // Récupérer les IDs des commerces uniques
-  const commerceIds = [...new Set(eventsData.map((event: any) => event.commerce_id).filter(Boolean))]
+  const commerceIds = [...new Set(validEvents.map((event: any) => event.commerce_id).filter(Boolean))]
   
   // Récupérer les commerces correspondants
   let commercesMap: Record<string, any> = {}
@@ -142,7 +138,7 @@ export async function getEvents() {
   }
   
   // Enrichir les données avec l'adresse du commerce si custom_location est vide
-  const enrichedData = eventsData.map((event: any) => {
+  const enrichedData = validEvents.map((event: any) => {
     if (!event.custom_location && event.commerce_id) {
       const commerce = commercesMap[event.commerce_id]
       if (commerce && commerce.address) {
