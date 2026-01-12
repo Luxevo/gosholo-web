@@ -261,8 +261,6 @@ export const fr = {
   newsletter: {
     badge: "Rejoignez-nous",
     title: "Inscrivez-vous à notre infolettre",
-    description:
-      "Soyez les premiers informés du lancement de l'application et recevez nos dernières nouvelles.",
     newsletterTitle: "Inscription à l'infolettre",
     newsletterDescription:
       "Restez informé des dernières nouvelles et du lancement de l'application gosholo.",

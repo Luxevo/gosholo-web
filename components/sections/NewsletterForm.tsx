@@ -8,8 +8,8 @@ export function NewsletterForm() {
 
   // Form URLs for different languages
   const formUrls = {
-    fr: "https://ee01743d.sibforms.com/serve/MUIFAPd3LI4cYuLIuKE2WThnBcMVSJgZEIoZFsVaOEmqhfln8qS2z-SS6DN4qfqSaIskRyfXAUj-fAq3s3Y5MmOaeeGh7M8uAjT_nJttI8m7eZGgZWgAv2ivYW-xEvmIjy8V8SnL00IlL2Ga215v_72WIHHCy2BNkubhVvHeSKQJTsDmIssuc4-RhJIfgCH9PJ3Q8aTdd_BgNOLw",
-    en: "https://ee01743d.sibforms.com/serve/MUIFABoI1rcVWmf9DF4EPAsvbiKUXkiRr_ga_GInbuZS0Nie6U0vqtsN0tNtCGCMUith7kF8PwyJLKXFJocE0aHRUwxCzTU6PCQzk7ykXw8b9FGZhk7E5p95sIi76YzKYMj1BYXLVzwYS_Uh_39cdoIdFR589PTppQlzPGQ-DD1ElLN_Kdc3vuSNd-glYf4k0vkSk0jJfUiM9LzD",
+    fr: "https://ee01743d.sibforms.com/serve/MUIFAI2nd2VOwor4JOzIfYzfRtTarGErHe2f4P30GZUoWhG4X4Bkrg_GZC8Xpr93M0Ycf1ARESuVxZzPGpzJWO8pUZX-6GejF_Wh6N7WBdV3uiPZVPFe6PLF9quom013TllfbluPZjZbpPYmF7sRb0f2aWftEAMHqWuborVbQVZFi9217a9A7RT26CIPyvAqH5fBcfc3jmo3StLu",
+    en: "https://ee01743d.sibforms.com/serve/MUIFAH_up5AqplP3E7SItgBhiVVZlmf4PIBC3JTZGZ8V2eAbAAWUUSc93-FcAKGT3M6CPLkL8hK23e4movwBOVpwGljRwIGUXCiCVdf0xK94DYb4sU6ox0p1wd6M8e2apFTWLBOpq1x0IcLOk-5rU9p_ciMRCzXc8q8MK4CKB4XlljG_s6FVNy7KyTJebTs47WyuX74D_qxTEaAZ",
   };
 
   // Form titles for different languages

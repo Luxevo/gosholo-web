@@ -97,9 +97,6 @@ function HomeContent() {
               >
                 {t("newsletter.title")}
               </h2>
-              <p className="max-w-[700px] text-gosholo-primary/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-4">
-                {t("newsletter.description")}
-              </p>
             </div>
 
             <div className="max-w-2xl mx-auto">
