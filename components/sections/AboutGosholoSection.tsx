@@ -12,7 +12,11 @@ import type { Database } from "@/types/supabase"
 type Offer = Database['public']['Tables']['offers']['Row']
 type Event = Database['public']['Tables']['events']['Row']
 
-export function AboutGosholoSection() {
+interface AboutGosholoSectionProps {
+  onOpenAppModal?: () => void
+}
+
+export function AboutGosholoSection({ onOpenAppModal }: AboutGosholoSectionProps) {
   const { t } = useTranslation()
   const { language } = useLanguage()
   const [offres, setOffres] = useState<Offer[]>([])
@@ -115,6 +119,7 @@ export function AboutGosholoSection() {
                   type={type}
                   data={item}
                   locale={language}
+                  onOpenAppModal={onOpenAppModal}
                 />
               ))}
             </div>

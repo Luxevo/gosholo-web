@@ -140,15 +140,15 @@ function NosOffresContent() {
             {/* Grid */}
             {!loading && displayedItems.length > 0 && (
               <>
-                <div className="flex flex-wrap justify-start gap-8 max-w-6xl mx-auto">
+                <div className="flex flex-wrap justify-center md:justify-start gap-8 max-w-6xl mx-auto">
                   {displayedItems.map((item) => (
-                    <div key={item.id} className="relative">
-                      <CustomerCard 
-                        type={itemType}
-                        data={item} 
-                        locale={language}
-                      />
-                    </div>
+                    <CustomerCard 
+                      key={item.id}
+                      type={itemType}
+                      data={item} 
+                      locale={language}
+                      onOpenAppModal={() => setIsAppModalOpen(true)}
+                    />
                   ))}
                 </div>
 

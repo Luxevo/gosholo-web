@@ -71,7 +71,7 @@ function HomeContent() {
         />
 
         {/* About Gosholo Section */}
-        <AboutGosholoSection />
+        <AboutGosholoSection onOpenAppModal={() => setIsAppModalOpen(true)} />
 
         {/* App Launch Section */}
         <AppLaunchSection onOpenAppModal={() => setIsAppModalOpen(true)} />

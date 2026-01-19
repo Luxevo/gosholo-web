@@ -11,15 +11,16 @@ interface CustomerCardProps {
   type: 'offer' | 'event'
   data: Offer | Event
   locale: 'fr' | 'en'
+  onOpenAppModal?: () => void
 }
 
-export function CustomerCard({ type, data, locale }: CustomerCardProps) {
+export function CustomerCard({ type, data, locale, onOpenAppModal }: CustomerCardProps) {
   const buttonText = type === 'offer' 
     ? (locale === 'fr' ? "Voir l'offre" : 'View offer')
     : (locale === 'fr' ? "Voir l'événement" : 'View event')
 
   return (
-    <div className="relative w-[356px] h-[658px] rounded-xl bg-white border border-gray-200 shadow-lg overflow-hidden">
+    <div className="relative w-full max-w-[356px] sm:w-[356px] h-[658px] rounded-xl bg-white border border-gray-200 shadow-lg overflow-hidden">
       
       {/* SECTION IMAGE - 445px hauteur */}
       <div className="relative w-full h-[445px]">
@@ -78,7 +79,10 @@ export function CustomerCard({ type, data, locale }: CustomerCardProps) {
 
         {/* Bouton d'action */}
         <div>
-          <button className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-sm font-medium py-2 px-4 rounded-full transition-colors w-full">
+          <button 
+            onClick={() => onOpenAppModal?.()}
+            className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-sm font-medium py-2 px-4 rounded-full transition-colors w-full"
+          >
             {buttonText}
           </button>
         </div>
