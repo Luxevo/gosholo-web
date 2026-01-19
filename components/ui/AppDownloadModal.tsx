@@ -29,76 +29,18 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
     // Détecter Android
     const isAndroid = /android/i.test(userAgent)
 
-    // Deep link pour ouvrir l'app si elle est installée
-    const deepLink = "gosholo://"
-    const appStoreUrl = "https://apps.apple.com/us/app/gosholo/id6749919037"
-    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.gosholo.gosholo"
-
-    // Tentative d'ouverture de l'app via deep link
-    const tryOpenApp = () => {
-      const hiddenLink = document.createElement('a')
-      hiddenLink.href = deepLink
-      hiddenLink.style.display = 'none'
-      document.body.appendChild(hiddenLink)
-      hiddenLink.click()
-      document.body.removeChild(hiddenLink)
-    }
-
-    // Variables pour suivre si l'app s'est ouverte
-    let appOpened = false
-    let fallbackTimer: NodeJS.Timeout
-
-    // Écouter si l'utilisateur revient sur la page (signe que l'app n'a pas été ouverte)
-    const handleVisibilityChange = () => {
-      if (!document.hidden && !appOpened) {
-        // L'utilisateur revient, l'app n'était probablement pas installée
-        appOpened = true
-        clearTimeout(fallbackTimer)
-        
-        if (isIOS) {
-          window.location.href = appStoreUrl
-        } else if (isAndroid) {
-          window.location.href = playStoreUrl
-        } else {
-          setIsRedirecting(false)
-        }
-        document.removeEventListener('visibilitychange', handleVisibilityChange)
-      }
-    }
-
-    // Attendre un peu avant d'essayer d'ouvrir l'app
-    const initialDelay = setTimeout(() => {
-      if (isIOS || isAndroid) {
-        // Essayer d'ouvrir l'app
-        tryOpenApp()
-        
-        // Écouter les changements de visibilité
-        document.addEventListener('visibilitychange', handleVisibilityChange)
-        
-        // Fallback : si après 2 secondes on est toujours là, l'app n'est probablement pas installée
-        fallbackTimer = setTimeout(() => {
-          if (!appOpened) {
-            appOpened = true
-            document.removeEventListener('visibilitychange', handleVisibilityChange)
-            
-            if (isIOS) {
-              window.location.href = appStoreUrl
-            } else if (isAndroid) {
-              window.location.href = playStoreUrl
-            }
-          }
-        }, 2000)
+    // Délai pour afficher le modal avant la redirection
+    const redirectTimer = setTimeout(() => {
+      if (isIOS) {
+        window.location.href = "https://apps.apple.com/us/app/gosholo/id6749919037"
+      } else if (isAndroid) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.gosholo.gosholo"
       } else {
-        // Desktop : afficher les options de téléchargement
         setIsRedirecting(false)
       }
     }, 500)
 
-    return () => {
-      clearTimeout(initialDelay)
-      clearTimeout(fallbackTimer)
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
-    }
+    return () => clearTimeout(redirectTimer)
   }, [isOpen])
 
   return (
@@ -162,26 +104,12 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                 {/* Options de téléchargement */}
                 <div className="flex flex-col gap-4 pt-2">
                   {/* App Store */}
-                  <button
-                    onClick={() => {
-                      const deepLink = "gosholo://"
-                      const appStoreUrl = "https://apps.apple.com/us/app/gosholo/id6749919037"
-                      
-                      // Essayer d'ouvrir l'app
-                      const hiddenLink = document.createElement('a')
-                      hiddenLink.href = deepLink
-                      hiddenLink.style.display = 'none'
-                      document.body.appendChild(hiddenLink)
-                      hiddenLink.click()
-                      document.body.removeChild(hiddenLink)
-                      
-                      // Fallback vers le store après un court délai
-                      setTimeout(() => {
-                        window.open(appStoreUrl, '_blank')
-                        onClose()
-                      }, 500)
-                    }}
-                    className="flex items-center gap-4 bg-white hover:bg-gosholo-primary/10 rounded-xl p-4 transition-all duration-300 hover:scale-105 cursor-pointer group border-2 border-gosholo-primary text-left w-full"
+                  <a
+                    href="https://apps.apple.com/us/app/gosholo/id6749919037"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 bg-white hover:bg-gosholo-primary/10 rounded-xl p-4 transition-all duration-300 hover:scale-105 cursor-pointer group border-2 border-gosholo-primary"
+                    onClick={onClose}
                   >
                     <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center flex-shrink-0 group-hover:shadow-xl transition-shadow">
                       <Image
@@ -192,7 +120,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                         className="w-12 h-12 object-contain"
                       />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 text-left">
                       <p className="text-gosholo-primary font-semibold text-sm">
                         {t("aboutGosholo.appStore")}
                       </p>
@@ -200,29 +128,15 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                         {language === 'fr' ? 'Pour iPhone et iPad' : 'For iPhone and iPad'}
                       </p>
                     </div>
-                  </button>
+                  </a>
 
                   {/* Google Play */}
-                  <button
-                    onClick={() => {
-                      const deepLink = "gosholo://"
-                      const playStoreUrl = "https://play.google.com/store/apps/details?id=com.gosholo.gosholo"
-                      
-                      // Essayer d'ouvrir l'app
-                      const hiddenLink = document.createElement('a')
-                      hiddenLink.href = deepLink
-                      hiddenLink.style.display = 'none'
-                      document.body.appendChild(hiddenLink)
-                      hiddenLink.click()
-                      document.body.removeChild(hiddenLink)
-                      
-                      // Fallback vers le store après un court délai
-                      setTimeout(() => {
-                        window.open(playStoreUrl, '_blank')
-                        onClose()
-                      }, 500)
-                    }}
-                    className="flex items-center gap-4 bg-white hover:bg-gosholo-primary/10 rounded-xl p-4 transition-all duration-300 hover:scale-105 cursor-pointer group border-2 border-gosholo-primary text-left w-full"
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.gosholo.gosholo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 bg-white hover:bg-gosholo-primary/10 rounded-xl p-4 transition-all duration-300 hover:scale-105 cursor-pointer group border-2 border-gosholo-primary"
+                    onClick={onClose}
                   >
                     <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center flex-shrink-0 group-hover:shadow-xl transition-shadow">
                       <Image
@@ -233,7 +147,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                         className="w-12 h-12 object-contain"
                       />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 text-left">
                       <p className="text-gosholo-primary font-semibold text-sm">
                         {t("aboutGosholo.playStore")}
                       </p>
@@ -241,7 +155,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                         {language === 'fr' ? 'Pour Android' : 'For Android'}
                       </p>
                     </div>
-                  </button>
+                  </a>
                 </div>
               </>
             )}
