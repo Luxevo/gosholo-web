@@ -77,7 +77,7 @@ export function CommerceCard({ commerce, locale, onOpenAppModal }: CommerceCardP
           {commerce.address && (
             <div className="flex items-start text-sm text-gray-600">
               <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0 text-gosholo-primary" />
-              <span className="line-clamp-2">{commerce.address}{commerce.postal_code && `, ${commerce.postal_code}`}</span>
+              <span className="line-clamp-2">{commerce.address}</span>
             </div>
           )}
 
