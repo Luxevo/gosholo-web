@@ -2,6 +2,7 @@
 
 import { MapPin, Sparkles } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import type { Database } from "@/types/supabase"
 
 type Offer = Database['public']['Tables']['offers']['Row']
@@ -11,13 +12,16 @@ interface CustomerCardProps {
   type: 'offer' | 'event'
   data: Offer | Event
   locale: 'fr' | 'en'
-  onOpenAppModal?: () => void
 }
 
-export function CustomerCard({ type, data, locale, onOpenAppModal }: CustomerCardProps) {
-  const buttonText = type === 'offer' 
+export function CustomerCard({ type, data, locale }: CustomerCardProps) {
+  const buttonText = type === 'offer'
     ? (locale === 'fr' ? "Voir l'offre" : 'View offer')
     : (locale === 'fr' ? "Voir l'événement" : 'View event')
+
+  const linkHref = type === 'offer'
+    ? `/offer-mobile/${data.id}`
+    : `/event-mobile/${data.id}`
 
   return (
     <div className="relative w-full max-w-[356px] sm:w-[356px] h-[658px] rounded-xl bg-white border border-gray-200 shadow-lg overflow-hidden">
@@ -79,12 +83,12 @@ export function CustomerCard({ type, data, locale, onOpenAppModal }: CustomerCar
 
         {/* Bouton d'action */}
         <div>
-          <button 
-            onClick={() => onOpenAppModal?.()}
-            className="bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-sm font-medium py-2 px-4 rounded-full transition-colors w-full"
+          <Link
+            href={linkHref}
+            className="block bg-gosholo-orange hover:bg-gosholo-orange/90 text-white text-sm font-medium py-2 px-4 rounded-full transition-colors w-full text-center"
           >
             {buttonText}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

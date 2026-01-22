@@ -119,7 +119,6 @@ export function AboutGosholoSection({ onOpenAppModal }: AboutGosholoSectionProps
                   type={type}
                   data={item}
                   locale={language}
-                  onOpenAppModal={onOpenAppModal}
                 />
               ))}
             </div>

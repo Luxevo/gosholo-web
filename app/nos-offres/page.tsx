@@ -142,12 +142,11 @@ function NosOffresContent() {
               <>
                 <div className="flex flex-wrap justify-center md:justify-start gap-8 max-w-6xl mx-auto">
                   {displayedItems.map((item) => (
-                    <CustomerCard 
+                    <CustomerCard
                       key={item.id}
                       type={itemType}
-                      data={item} 
+                      data={item}
                       locale={language}
-                      onOpenAppModal={() => setIsAppModalOpen(true)}
                     />
                   ))}
                 </div>
