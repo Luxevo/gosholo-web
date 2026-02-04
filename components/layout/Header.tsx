@@ -7,6 +7,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { MobileMenu } from "./MobileMenu"
 import { LanguageSelector } from "@/components/ui/LanguageSelector"
+import { NewsletterModal } from "@/components/ui/NewsletterModal"
 import { useTranslation } from "@/hooks/useTranslation"
 import { useRouter, usePathname } from "next/navigation"
 import type React from "react"
@@ -18,16 +19,17 @@ interface HeaderProps {
 
 export function Header({ isVisible, onScrollToSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
   const pathname = usePathname()
 
   const navigationItems = [
     { href: "/", label: t("nav.home") },
-    { href: "/#about-gosholo", label: t("nav.aboutGosholo") },
     { href: "/nos-offres", label: t("nav.nosOffres") },
-    { href: "/commerces-gosholo", label: t("nav.commerces") },
+    { href: "/#about-gosholo", label: t("nav.howItWorks") },
     { href: "/entreprise", label: t("nav.entreprise") },
+    { href: "/commerces-gosholo", label: t("nav.commerces") },
     { href: "/assistance", label: t("nav.assistance") },
   ]
 
@@ -80,8 +82,8 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
     // Les autres liens (/assistance) fonctionnent normalement
   }
 
-  const handleSignupClick = () => {
-    handleSectionNavigation("newsletter")
+  const handleNewsletterClick = () => {
+    setIsNewsletterOpen(true)
   }
 
   return (
@@ -131,10 +133,10 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
             <Button
               size="sm"
               className="bg-gosholo-light-green text-gosholo-primary hover:bg-gosholo-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm px-6 py-2 font-bold rounded-xl"
-              onClick={handleSignupClick}
-              aria-label={t("hero.goToSignup")}
+              onClick={handleNewsletterClick}
+              aria-label={t("nav.newsletter")}
             >
-              {t("nav.signup")}
+              {t("nav.newsletter")}
             </Button>
           </div>
 
@@ -156,6 +158,12 @@ export function Header({ isVisible, onScrollToSection }: HeaderProps) {
         onScrollToSection={handleSectionNavigation}
         onHomeNavigation={handleHomeNavigation}
         navigationItems={navigationItems}
+        onOpenNewsletter={handleNewsletterClick}
+      />
+
+      <NewsletterModal
+        isOpen={isNewsletterOpen}
+        onClose={() => setIsNewsletterOpen(false)}
       />
     </header>
   )

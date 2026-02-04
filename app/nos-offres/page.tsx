@@ -5,17 +5,19 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { ClientWrapper } from "@/components/ClientWrapper"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
-import { getOffres, getEvents } from "@/lib/supabase"
+import { getOffres, getEvents, getCategories, getCategoriesEvents } from "@/lib/supabase"
 import { useTranslation } from "@/hooks/useTranslation"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { CustomerCard } from "@/components/cards/CustomerCard"
 import { AppDownloadModal } from "@/components/ui/AppDownloadModal"
-import { Tag, Calendar, Sparkles } from "lucide-react"
+import { Tag, Calendar, Sparkles, Search } from "lucide-react"
 import { useRouter } from "next/navigation"
 import type { Database } from "@/types/supabase"
 
 type Offer = Database['public']['Tables']['offers']['Row']
 type Event = Database['public']['Tables']['events']['Row']
+type Category = Database['public']['Tables']['category']['Row']
+type CategoryEvent = Database['public']['Tables']['category_events']['Row']
 
 function NosOffresContent() {
   const { isVisible } = useScrollAnimation()
@@ -24,9 +26,13 @@ function NosOffresContent() {
   const router = useRouter()
   const [offres, setOffres] = useState<Offer[]>([])
   const [events, setEvents] = useState<Event[]>([])
+  const [categories, setCategories] = useState<Category[]>([])
+  const [categoriesEvents, setCategoriesEvents] = useState<CategoryEvent[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'offres' | 'events'>('offres')
   const [isAppModalOpen, setIsAppModalOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([])
 
   const scrollToSection = (sectionId: string) => {
     router.push(`/#${sectionId}`)
@@ -34,33 +40,75 @@ function NosOffresContent() {
 
   useEffect(() => {
     async function loadData() {
-      const [offresData, eventsData] = await Promise.all([
+      const [offresData, eventsData, categoriesData, categoriesEventsData] = await Promise.all([
         getOffres(),
-        getEvents()
+        getEvents(),
+        getCategories(),
+        getCategoriesEvents()
       ])
-      
+
       // Trier pour mettre les boostés en premier
       const sortedOffres = [...offresData].sort((a, b) => {
         if (a.boosted && !b.boosted) return -1
         if (!a.boosted && b.boosted) return 1
         return 0
       })
-      
+
       const sortedEvents = [...eventsData].sort((a, b) => {
         if (a.boosted && !b.boosted) return -1
         if (!a.boosted && b.boosted) return 1
         return 0
       })
-      
+
+      // Filtrer les catégories pour garder seulement celles utilisées
+      const usedCategoryIds = new Set(offresData.map((o: any) => o.category_id).filter(Boolean))
+      const usedCategories = categoriesData.filter(cat => usedCategoryIds.has(cat.id))
+
+      const usedCategoryEventIds = new Set(eventsData.map((e: any) => e.category_events_id).filter(Boolean))
+      const usedCategoriesEvents = categoriesEventsData.filter(cat => usedCategoryEventIds.has(cat.id))
+
       setOffres(sortedOffres)
       setEvents(sortedEvents)
+      setCategories(usedCategories)
+      setCategoriesEvents(usedCategoriesEvents)
       setLoading(false)
     }
 
     loadData()
   }, [])
 
-  const displayedItems = activeTab === 'offres' ? offres : events
+  // Reset categories when switching tabs
+  useEffect(() => {
+    setSelectedCategories([])
+    setSearchQuery("")
+  }, [activeTab])
+
+  const toggleCategory = (categoryId: number) => {
+    setSelectedCategories(prev =>
+      prev.includes(categoryId)
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    )
+  }
+
+  // Get current categories based on active tab
+  const currentCategories = activeTab === 'offres' ? categories : categoriesEvents
+
+  // Filter items
+  const filteredItems = activeTab === 'offres'
+    ? offres.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase())
+        const matchesCategory = selectedCategories.length === 0 ||
+          ((item as any).category_id && selectedCategories.includes((item as any).category_id))
+        return matchesSearch && matchesCategory
+      })
+    : events.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase())
+        const matchesCategory = selectedCategories.length === 0 ||
+          ((item as any).category_events_id && selectedCategories.includes((item as any).category_events_id))
+        return matchesSearch && matchesCategory
+      })
+
   const itemType = activeTab === 'offres' ? 'offer' : 'event'
 
   return (
@@ -74,7 +122,7 @@ function NosOffresContent() {
             <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-10 left-10 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
           </div>
-          
+
           <div className="container px-4 md:px-6 relative">
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-gosholo-light-green text-gosholo-primary w-fit mx-auto mb-6 sm:mb-8">
@@ -86,7 +134,7 @@ function NosOffresContent() {
                 {t("nosOffres.title")}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
-                {language === 'fr' 
+                {language === 'fr'
                   ? 'Découvrez toutes les offres exceptionnelles et événements de nos commerces partenaires. 100% local, 100% exclusif.'
                   : 'Discover all exceptional offers and events from our partner businesses. 100% local, 100% exclusive.'}
               </p>
@@ -95,7 +143,7 @@ function NosOffresContent() {
         </section>
 
         {/* Tabs Section */}
-        <section className="w-full py-8 bg-white border-b shadow-sm sticky top-16 z-10">
+        <section className="w-full py-6 bg-white border-b shadow-sm sticky top-16 z-10">
           <div className="container px-4 md:px-6">
             <div className="flex justify-center gap-3 sm:gap-4">
               <button
@@ -124,6 +172,58 @@ function NosOffresContent() {
           </div>
         </section>
 
+        {/* Search Bar */}
+        <section className="w-full py-4 bg-white border-b">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-xl mx-auto relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={language === 'fr'
+                  ? (activeTab === 'offres' ? 'Rechercher une offre...' : 'Rechercher un événement...')
+                  : (activeTab === 'offres' ? 'Search for an offer...' : 'Search for an event...')
+                }
+                className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gosholo-primary focus:outline-none transition-colors text-gray-800"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Categories */}
+        {currentCategories.length > 0 && (
+          <section className="w-full py-4 bg-white border-b">
+            <div className="container px-4 md:px-6">
+              <div className="flex gap-2 overflow-x-auto md:overflow-x-visible md:flex-wrap pb-2 scrollbar-hide">
+                <button
+                  onClick={() => setSelectedCategories([])}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    selectedCategories.length === 0
+                      ? 'bg-gosholo-primary text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {language === 'fr' ? 'Tous' : 'All'}
+                </button>
+                {currentCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => toggleCategory(category.id)}
+                    className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                      selectedCategories.includes(category.id)
+                        ? 'bg-gosholo-primary text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {language === 'fr' ? category.name_fr : category.name_en}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Grid Section */}
         <section className="w-full py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="container px-4 md:px-6">
@@ -138,10 +238,10 @@ function NosOffresContent() {
             )}
 
             {/* Grid */}
-            {!loading && displayedItems.length > 0 && (
+            {!loading && filteredItems.length > 0 && (
               <>
                 <div className="flex flex-wrap justify-center md:justify-start gap-8 max-w-6xl mx-auto">
-                  {displayedItems.map((item) => (
+                  {filteredItems.map((item) => (
                     <CustomerCard
                       key={item.id}
                       type={itemType}
@@ -159,17 +259,17 @@ function NosOffresContent() {
                         <Sparkles className="h-8 w-8 text-gosholo-primary" />
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-gosholo-primary mb-3">
-                        {language === 'fr' 
-                          ? 'Encore plus dans l\'application !' 
+                        {language === 'fr'
+                          ? 'Encore plus dans l\'application !'
                           : 'Even more in the app!'}
                       </h3>
                       <p className="text-gray-600 text-base sm:text-lg">
-                        {language === 'fr' 
+                        {language === 'fr'
                           ? 'Téléchargez l\'app gosholo pour accéder à toutes les fonctionnalités exclusives et ne manquer aucune offre près de vous !'
                           : 'Download the gosholo app to access all exclusive features and never miss any offers near you!'}
                       </p>
                     </div>
-                    <button 
+                    <button
                       onClick={() => setIsAppModalOpen(true)}
                       className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-lg font-bold bg-gosholo-primary text-white rounded-xl hover:bg-gosholo-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                     >
@@ -181,7 +281,7 @@ function NosOffresContent() {
             )}
 
             {/* Message si aucun item */}
-            {!loading && displayedItems.length === 0 && (
+            {!loading && filteredItems.length === 0 && (
               <div className="text-center py-20">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-200 mb-4">
                   {activeTab === 'offres' ? (
@@ -192,12 +292,12 @@ function NosOffresContent() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-700 mb-2">
                   {activeTab === 'offres'
-                    ? (language === 'fr' ? 'Aucune offre disponible' : 'No offers available')
-                    : (language === 'fr' ? 'Aucun événement disponible' : 'No events available')
+                    ? (language === 'fr' ? 'Aucune offre trouvée' : 'No offers found')
+                    : (language === 'fr' ? 'Aucun événement trouvé' : 'No events found')
                   }
                 </h3>
                 <p className="text-gray-500">
-                  {language === 'fr' ? 'Revenez bientôt !' : 'Come back soon!'}
+                  {language === 'fr' ? 'Essayez une autre recherche' : 'Try another search'}
                 </p>
               </div>
             )}
@@ -225,4 +325,3 @@ export default function NosOffresPage() {
     </ClientWrapper>
   )
 }
-

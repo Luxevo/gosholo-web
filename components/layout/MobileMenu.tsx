@@ -14,9 +14,10 @@ interface MobileMenuProps {
   onScrollToSection: (sectionId: string) => void
   onHomeNavigation: (e: React.MouseEvent) => void
   navigationItems: NavigationItem[]
+  onOpenNewsletter?: () => void
 }
 
-export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigation, navigationItems }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigation, navigationItems, onOpenNewsletter }: MobileMenuProps) {
   const { t } = useTranslation()
   const pathname = usePathname()
 
@@ -31,8 +32,10 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigatio
     onClose()
   }
 
-  const handleSignupClick = () => {
-    onScrollToSection("newsletter")
+  const handleNewsletterClick = () => {
+    if (onOpenNewsletter) {
+      onOpenNewsletter()
+    }
     onClose()
   }
 
@@ -55,10 +58,10 @@ export function MobileMenu({ isOpen, onClose, onScrollToSection, onHomeNavigatio
         ))}
         <Button
           className="bg-gosholo-light-green text-gosholo-primary hover:bg-gosholo-primary hover:text-white mt-3 transition-all duration-300 hover:scale-105 touch-target-44 font-bold rounded-xl"
-          onClick={handleSignupClick}
-          aria-label={t("hero.goToSignup")}
+          onClick={handleNewsletterClick}
+          aria-label={t("nav.newsletter")}
         >
-          {t("nav.signup")}
+          {t("nav.newsletter")}
         </Button>
       </nav>
     </div>

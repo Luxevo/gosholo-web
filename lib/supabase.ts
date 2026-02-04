@@ -166,14 +166,60 @@ export async function getCommerces() {
   const { data, error } = await supabase
     .from('commerces')
     .select('*')
-    .order('created_at', { ascending: false })
-  
+    .order('name', { ascending: true })
+
   if (error) {
     console.error('❌ Erreur récupération commerces:', error.message)
     return []
   }
-  
+
   console.log(`✅ ${data.length} commerce(s) récupéré(s)`)
+  return data
+}
+
+/**
+ * Récupérer toutes les catégories de commerces/offres
+ */
+export async function getCategories() {
+  if (!supabase) {
+    console.warn('⚠️ Supabase client not initialized')
+    return []
+  }
+
+  const { data, error } = await supabase
+    .from('category')
+    .select('*')
+    .order('name_fr', { ascending: true })
+
+  if (error) {
+    console.error('❌ Erreur récupération catégories:', error.message)
+    return []
+  }
+
+  console.log(`✅ ${data.length} catégorie(s) récupérée(s)`)
+  return data
+}
+
+/**
+ * Récupérer toutes les catégories d'événements
+ */
+export async function getCategoriesEvents() {
+  if (!supabase) {
+    console.warn('⚠️ Supabase client not initialized')
+    return []
+  }
+
+  const { data, error } = await supabase
+    .from('category_events')
+    .select('*')
+    .order('name_fr', { ascending: true })
+
+  if (error) {
+    console.error('❌ Erreur récupération catégories événements:', error.message)
+    return []
+  }
+
+  console.log(`✅ ${data.length} catégorie(s) événements récupérée(s)`)
   return data
 }
 
