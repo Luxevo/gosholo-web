@@ -50,7 +50,7 @@ export const en = {
     save: "Save.",
     enjoy: "Enjoy.",
     newDescription:
-      "gosholo connects you to the best offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
+      "gosholo connects you to the best local shops, offers and events around you. Enjoy exclusive, one-of-a-kind, 100% local deals.",
     comingSoon: "Coming Soon",
     discoverApp: "Discover",
     learnMore: "View our offers and events",

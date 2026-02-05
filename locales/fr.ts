@@ -50,7 +50,7 @@ export const fr = {
     save: "Économise.",
     enjoy: "Profite.",
     newDescription:
-      "gosholo te connecte aux meilleures offres et événements près de toi. Profite d'avantages exclusifs, uniques, et 100 % locaux.",
+      "gosholo te connecte aux meilleurs commerces, offres et événements autour de toi. Profite d'avantages exclusifs, uniques et 100 % locaux.",
     comingSoon: "Bientôt disponible",
     discoverApp: "Découvre",
     learnMore: "Voir nos offres et événements",
