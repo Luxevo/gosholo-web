@@ -58,7 +58,7 @@ export function GosholoIntroSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="w-full py-16 bg-white overflow-hidden">
+    <section ref={sectionRef} id="how-it-works" className="w-full py-16 bg-white overflow-hidden">
       <div className="container px-4 md:px-6">
         <div className={`flex flex-col items-center text-center max-w-4xl mx-auto mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Image
